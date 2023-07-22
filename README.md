@@ -37,3 +37,7 @@
 
 ### その後の機能
 * 歯磨き粉などの登録
+
+
+### 画面遷移図のURL
+https://www.figma.com/file/wS1PyDnOw5EkgbP9OrOFEg/Haburashi_Life%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=bu5gdxXYXJRyTrL9-1
