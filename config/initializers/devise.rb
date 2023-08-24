@@ -1,0 +1,1 @@
+config.omniauth :line, ENV['LINE_KEY'], ENV['LINE_SECRET']
