@@ -64,7 +64,9 @@ group :development do
   # gem "spring"
 end
 
-gem 'devise'
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
+
+gem 'bootstrap'
+gem 'typhoeus'

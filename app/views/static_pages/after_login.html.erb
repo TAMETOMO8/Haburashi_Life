@@ -1,0 +1,11 @@
+<div>
+  <% if notice.present? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <p><%= notice %></p>
+  <% end %>
+  <h1>ログイン後のページ</h1>
+  <% current_user = User.find(session[:user_id]) %>
+  <%= "現在ログイン中のユーザーのID:#{current_user.id}" %>
+</div>
