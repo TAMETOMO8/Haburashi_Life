@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#top'
   get '/after_login', to: 'static_pages#after_login'
-  get 'line_login_api/login', to: 'line_login_api#login'
-  get 'line_login_api/callback', to: 'line_login_api#callback'
+  get 'user_sessions/login', to: 'user_sessions#login'
+  get 'user_sessions/callback', to: 'user_sessions#callback'
+  get 'logout', to: 'user_sessions#destroy'
 end

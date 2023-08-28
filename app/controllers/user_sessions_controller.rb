@@ -1,4 +1,4 @@
-class LineLoginApiController < ApplicationController
+class UserSessionsController < ApplicationController
   require 'json'
   require 'typhoeus'
   require 'securerandom'
@@ -15,9 +15,9 @@ class LineLoginApiController < ApplicationController
     base_authorization_url = 'https://access.line.me/oauth2/v2.1/authorize'
     response_type = 'code'
     client_id = ENV['LINE_KEY'] #本番環境では環境変数などに保管する
-    redirect_uri = CGI.escape(line_login_api_callback_url)
+    redirect_uri = CGI.escape(user_sessions_callback_url)
     state = session[:state]
-    scope = 'profile%20openid' #ユーザーに付与を依頼する権限
+    scope = 'profile%20openid' #ユーザーに付与を依頼する権限、詳細はAPIのドキュメント参照
 
     authorization_url = "#{base_authorization_url}?response_type=#{response_type}&client_id=#{client_id}&redirect_uri=#{redirect_uri}&state=#{state}&scope=#{scope}"
 
@@ -43,6 +43,11 @@ class LineLoginApiController < ApplicationController
       redirect_to root_path, notice: '不正なアクセスです'
     end
 
+  end
+
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'ログアウトしました'
   end
 
   private
@@ -81,10 +86,9 @@ class LineLoginApiController < ApplicationController
   def get_line_user_id_token(code)
 
     # ユーザーのアクセストークン（IDトークン）を取得する
-    # https://developers.line.biz/ja/reference/line-login/#issue-access-token
 
     url = 'https://api.line.me/oauth2/v2.1/token'
-    redirect_uri = line_login_api_callback_url
+    redirect_uri = user_sessions_callback_url
 
     options = {
       headers: {

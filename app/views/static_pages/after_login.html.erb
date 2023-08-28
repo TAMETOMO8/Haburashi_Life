@@ -8,4 +8,10 @@
   <h1>ログイン後のページ</h1>
   <% current_user = User.find(session[:user_id]) %>
   <%= "現在ログイン中のユーザーのID:#{current_user.id}" %>
+  <div class='text-center'>
+    <%= link_to "LINEのログアウト", logout_path %>
+  </div>
+  <% if User.present? %>
+    <%= User.count %>
+  <% end %>
 </div>
