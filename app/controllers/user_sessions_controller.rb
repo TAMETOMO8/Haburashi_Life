@@ -12,14 +12,11 @@ class UserSessionsController < ApplicationController
     # ユーザーに認証と認可を要求する
     # https://developers.line.biz/ja/docs/line-login/integrate-line-login/#making-an-authorization-request
 
-    base_authorization_url = 'https://access.line.me/oauth2/v2.1/authorize'
-    response_type = 'code'
-    client_id = ENV['LINE_KEY'] #本番環境では環境変数などに保管する
+    client_id = ENV['LINE_KEY']
     redirect_uri = CGI.escape(user_sessions_callback_url)
     state = session[:state]
-    scope = 'profile%20openid' #ユーザーに付与を依頼する権限、詳細はAPIのドキュメント参照
 
-    authorization_url = "#{base_authorization_url}?response_type=#{response_type}&client_id=#{client_id}&redirect_uri=#{redirect_uri}&state=#{state}&scope=#{scope}"
+    authorization_url = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=#{client_id}&redirect_uri=#{redirect_uri}&state=#{state}&scope=profile%20openid"
 
     redirect_to authorization_url, allow_other_host: true
   end
