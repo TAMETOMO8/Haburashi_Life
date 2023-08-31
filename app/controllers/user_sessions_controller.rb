@@ -4,14 +4,10 @@ class UserSessionsController < ApplicationController
   require 'securerandom'
 
   def login
-
-    # CSRF対策用の固有な英数字の文字列
-    # ログインセッションごとにWebアプリでランダムに生成する
+    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに生成する
     session[:state] = SecureRandom.urlsafe_base64
 
-    # ユーザーに認証と認可を要求する
-    # https://developers.line.biz/ja/docs/line-login/integrate-line-login/#making-an-authorization-request
-
+    # ユーザーに認証と認可を要求するページに移動するURLを形成
     client_id = ENV['LINE_KEY']
     redirect_uri = CGI.escape(user_sessions_callback_url)
     state = session[:state]
@@ -22,22 +18,17 @@ class UserSessionsController < ApplicationController
   end
 
   def callback
+    # CSRF対策のトークンが一致する場合のみ、ログイン処理を行う
+    return redirect_to root_path, notice: '不正なアクセスです' if params[:state] != session[:state]
 
-    # CSRF対策のトークンが一致する場合のみ、ログイン処理を続ける
-    if params[:state] == session[:state]
+    line_user_id = get_line_user_id(params[:code])
+    user = User.find_or_initialize_by(line_user_id: line_user_id)
 
-      line_user_id = get_line_user_id(params[:code])
-      user = User.find_or_initialize_by(line_user_id: line_user_id)
-
-      if user.save
-        session[:user_id] = user.id
-        redirect_to after_login_path, notice: 'ログインしました'
-      else
-        redirect_to root_path, notice: 'ログインに失敗しました'
-      end
-
+    if user.save
+      session[:user_id] = user.id
+      redirect_to after_login_path, notice: 'ログインしました'
     else
-      redirect_to root_path, notice: '不正なアクセスです'
+      redirect_to root_path, notice: 'ログインに失敗しました'
     end
 
   end
@@ -52,28 +43,21 @@ class UserSessionsController < ApplicationController
   def get_line_user_id(code)
 
     # ユーザーのIDトークンからプロフィール情報（ユーザーID）を取得する
-    # https://developers.line.biz/ja/docs/line-login/verify-id-token/
-
     line_user_id_token = get_line_user_id_token(code)
 
-    if line_user_id_token.present?
-
-      url = 'https://api.line.me/oauth2/v2.1/verify'
-      options = {
-        body: {
-          id_token: line_user_id_token,
-          client_id: ENV['LINE_KEY'] # 本番環境では環境変数などに保管
-        }
+    return nil unless line_user_id_token.present?
+    url = 'https://api.line.me/oauth2/v2.1/verify'
+    options = {
+      body: {
+        id_token: line_user_id_token,
+        client_id: ENV['LINE_KEY']
       }
+    }
 
-      response = Typhoeus::Request.post(url, options)
+    response = Typhoeus::Request.post(url, options)
 
-      if response.code == 200
-        JSON.parse(response.body)['sub']
-      else
-        nil
-      end
-    
+    if response.code == 200
+      JSON.parse(response.body)['sub']
     else
       nil
     end
@@ -83,7 +67,6 @@ class UserSessionsController < ApplicationController
   def get_line_user_id_token(code)
 
     # ユーザーのアクセストークン（IDトークン）を取得する
-
     url = 'https://api.line.me/oauth2/v2.1/token'
     redirect_uri = user_sessions_callback_url
 
@@ -95,8 +78,8 @@ class UserSessionsController < ApplicationController
         grant_type: 'authorization_code',
         code: code,
         redirect_uri: redirect_uri,
-        client_id: ENV['LINE_KEY'], # 本番環境では環境変数などに保管
-        client_secret: ENV['LINE_SECRET'] # 本番環境では環境変数などに保管
+        client_id: ENV['LINE_KEY'],
+        client_secret: ENV['LINE_SECRET']
       }
     }
     response = Typhoeus::Request.post(url, options)
