@@ -64,3 +64,11 @@ group :development do
   # gem "spring"
 end
 
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
+
+gem 'bootstrap'
+gem 'typhoeus'
+gem 'rubocop'
+gem 'rubocop-rails'
