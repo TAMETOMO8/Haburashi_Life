@@ -70,3 +70,5 @@ gem 'dotenv-rails'
 
 gem 'bootstrap'
 gem 'typhoeus'
+gem 'rubocop'
+gem 'rubocop-rails'
