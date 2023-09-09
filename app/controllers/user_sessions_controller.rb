@@ -30,7 +30,6 @@ class UserSessionsController < ApplicationController
     else
       redirect_to root_path, notice: 'ログインに失敗しました'
     end
-
   end
 
   def destroy
@@ -41,11 +40,11 @@ class UserSessionsController < ApplicationController
   private
 
   def get_line_user_id(code)
-
     # ユーザーのIDトークンからプロフィール情報（ユーザーID）を取得する
     line_user_id_token = get_line_user_id_token(code)
 
     return nil unless line_user_id_token.present?
+
     url = 'https://api.line.me/oauth2/v2.1/verify'
     options = {
       body: {
@@ -61,11 +60,9 @@ class UserSessionsController < ApplicationController
     else
       nil
     end
-
   end
 
   def get_line_user_id_token(code)
-
     # ユーザーのアクセストークン（IDトークン）を取得する
     url = 'https://api.line.me/oauth2/v2.1/token'
     redirect_uri = user_sessions_callback_url
@@ -82,6 +79,7 @@ class UserSessionsController < ApplicationController
         client_secret: ENV['LINE_SECRET']
       }
     }
+
     response = Typhoeus::Request.post(url, options)
 
     if response.code == 200
