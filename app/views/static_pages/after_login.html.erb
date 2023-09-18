@@ -1,29 +1,16 @@
 <div>
-  <% if notice.present? %>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-    <p><%= notice %></p>
-  <% end %>
-  <h1>ログイン後のページ</h1>
-  <% current_user = User.find(session[:user_id]) %>
-  <%= "現在ログイン中のユーザーのID:#{current_user.id}" %>
   <div class='text-center'>
-    <%= link_to "LINEのログアウト", logout_path %>
+    <h1>歯ブラシを登録しよう！</h1>
   </div>
-  <% if User.present? %>
-    <%= User.count %>
-  <% end %>
-</div>
-<h1>製品名を入力して検索</h1>
-<div class="search-box">
-    <%= form_with url: toothbrushes_search_path, method: :get, local: true do |f| %>
-    <div class="form-group">
-        <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
-        <%= f.submit '製品名を検索', class: "form-control btn btn-success" %>
-    </div>
+  <div class="search-box">
+      <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
+      <div class="form-group">
+          <%= f.text_field :keyword, value: params[:keyword], placeholder: '製品名を入力して検索', class: "form-control" , style: "width:40%" %>
+          <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
+      </div>
+      <% end %>
+    <% if @items.present? %>
+    <%= render 'items/item' %>
     <% end %>
-<% if @items.present? %>
-  <%= render 'items/item' %>
-<% end %>
+  </div>
 </div>

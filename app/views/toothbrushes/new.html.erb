@@ -1,0 +1,10 @@
+<div class="search-box">
+  <div class="text-center" >
+    <h1>検索結果</h1>
+  </div>
+  <% if @results.present? %>
+    <%= render "toothbrushes/toothbrush", results: @results %>
+  <% else %>
+    検索結果は見つかりませんでした
+  <% end %>
+</div>

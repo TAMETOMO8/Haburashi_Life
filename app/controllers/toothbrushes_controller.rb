@@ -1,5 +1,5 @@
 class ToothbrushesController < ApplicationController
-  def search
+  def new
     if params[:keyword]
       @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
     end
