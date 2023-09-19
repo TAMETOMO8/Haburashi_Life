@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   require 'securerandom'
 
   def login
-    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに生成する
+    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに文字列を生成する
     session[:state] = SecureRandom.urlsafe_base64
 
     # ユーザーに認証と認可を要求するページに移動するURLを形成
@@ -30,7 +30,6 @@ class UserSessionsController < ApplicationController
     else
       redirect_to root_path, notice: 'ログインに失敗しました'
     end
-
   end
 
   def destroy
@@ -41,11 +40,11 @@ class UserSessionsController < ApplicationController
   private
 
   def get_line_user_id(code)
-
     # ユーザーのIDトークンからプロフィール情報（ユーザーID）を取得する
     line_user_id_token = get_line_user_id_token(code)
 
     return nil unless line_user_id_token.present?
+
     url = 'https://api.line.me/oauth2/v2.1/verify'
     options = {
       body: {
@@ -61,11 +60,9 @@ class UserSessionsController < ApplicationController
     else
       nil
     end
-
   end
 
   def get_line_user_id_token(code)
-
     # ユーザーのアクセストークン（IDトークン）を取得する
     url = 'https://api.line.me/oauth2/v2.1/token'
     redirect_uri = user_sessions_callback_url
@@ -82,6 +79,7 @@ class UserSessionsController < ApplicationController
         client_secret: ENV['LINE_SECRET']
       }
     }
+
     response = Typhoeus::Request.post(url, options)
 
     if response.code == 200

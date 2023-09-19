@@ -1,14 +1,10 @@
 <div class='top-wrapper'>
   <div class='top-inner-text'>
-    <h1>RUNTEQ BOARD APP</h1>
-    <% if notice.present? %>
-      <p><%= notice %></p>
-    <% end %>
-    <% if User.present? %>
-      <%= User.count %>
-    <% end %>
+    <div class='text-center'>
+      <h1>歯ブラシLife  ~Make up environment!~</h1>
+    </div>
   </div>
   <div class='text-center'>
-    <%= link_to "LINEでログイン", user_sessions_login_path %>
+    <%= link_to "LINEでログインする", user_sessions_login_path %>
   </div>
 </div>

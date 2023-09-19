@@ -1,0 +1,2 @@
+class Toothbrush < ApplicationRecord
+end
