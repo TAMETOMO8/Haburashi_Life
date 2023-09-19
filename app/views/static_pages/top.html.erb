@@ -1,14 +1,8 @@
 <div class='top-wrapper'>
   <div class='top-inner-text'>
     <div class='text-center'>
-      <h1>Haburashi Life  ~Make Up Environment !! ~</h1>
+      <h1>歯ブラシLife  ~Make up environment!~</h1>
     </div>
-    <% if notice.present? %>
-      <p><%= notice %></p>
-    <% end %>
-    <% if User.present? %>
-      <%= User.count %>
-    <% end %>
   </div>
   <div class='text-center'>
     <%= link_to "LINEでログインする", user_sessions_login_path %>

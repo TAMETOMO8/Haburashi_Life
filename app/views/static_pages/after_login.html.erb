@@ -2,15 +2,15 @@
   <div class='text-center'>
     <h1>歯ブラシを登録しよう！</h1>
   </div>
-  <div class="search-box">
+  <div class="container" >
+    <div class="search-box">
       <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
-      <div class="form-group">
-          <%= f.text_field :keyword, value: params[:keyword], placeholder: '製品名を入力して検索', class: "form-control" , style: "width:40%" %>
-          <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
-      </div>
+        <div class="form-group">
+            <%= f.text_field :keyword, value: params[:keyword], placeholder: '製品名を入力して検索', class: "form-control" , style: "width:40%" %>
+            <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
+        </div>
       <% end %>
-    <% if @items.present? %>
-    <%= render 'items/item' %>
-    <% end %>
+    </div>
+    <%= link_to 'ログアウト', logout_path%>
   </div>
 </div>

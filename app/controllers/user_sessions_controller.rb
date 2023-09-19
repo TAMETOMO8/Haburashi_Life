@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   require 'securerandom'
 
   def login
-    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに生成する
+    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに文字列を生成する
     session[:state] = SecureRandom.urlsafe_base64
 
     # ユーザーに認証と認可を要求するページに移動するURLを形成
