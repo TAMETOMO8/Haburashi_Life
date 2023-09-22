@@ -24,9 +24,12 @@ class UserSessionsController < ApplicationController
     line_user_id = get_line_user_id(params[:code])
     user = User.find_or_initialize_by(line_user_id: line_user_id)
 
-    User.create!(line_user_id: line_user_id)
-    redirect_to after_login_path, notice: 'ログインしました'
-    # redirect_to root_path, notice: 'ログインに失敗しました'
+    if user.save
+      session[:user_id] = user.id
+      redirect_to after_login_path, notice: 'ログインしました'
+    else
+      redirect_to root_path, notice: 'ログインに失敗しました'
+    end
   end
 
   def destroy
