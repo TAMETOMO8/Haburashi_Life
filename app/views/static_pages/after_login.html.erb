@@ -3,6 +3,7 @@
     <h1>歯ブラシを登録しよう！</h1>
   </div>
   <div class="container" >
+    <%= User.line_user_id %>
     <div class="search-box">
       <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
         <div class="form-group">
