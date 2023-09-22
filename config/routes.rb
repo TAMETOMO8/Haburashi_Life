@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#top'
   get '/after_login', to: 'static_pages#after_login'
-  get 'user_sessions/login', to: 'user_sessions#login'
-  get 'user_sessions/callback', to: 'user_sessions#callback'
+  get 'user_sessions/login', to: 'users#login'
+  get 'user_sessions/callback', to: 'users#callback'
   get 'logout', to: 'user_sessions#destroy'
   resources :toothbrushes, only: %i[new]
 end
