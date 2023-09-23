@@ -5,6 +5,21 @@ class ToothbrushesController < ApplicationController
     end
   end
 
+  def create
+    @toothbrush = Toothbrush.new(item_code: params[:code],
+                                 item_name: params[:name],
+                                 item_url: params[:url],
+                                 item_image_urls: params[:image])
+    if current_user.registered?(@toothbrush)
+      flash.now[:danger] = 'すでに登録されています'
+      render :new, status: :unprocessable_entity
+    else
+      @toothbrush.save!
+      current_user.register(@toothbrush)
+      redirect_to toothbrush_url
+    end
+  end
+
   #  genreId: '階層3: ジャンルID:551691・・・歯ブラシ、虫歯ケア', '階層4: ID:568329・・・キッズ用歯ブラシ', 
   # '階層4: ベビー用歯ブラシ ID:551692', '階層4: 仕上げみがき用歯ブラシ	ID:551693'
   # 階層1	家電	ID:562637	2	美容・健康家電	100191	3	デンタルケア	566891	4	電動歯ブラシ	208522
