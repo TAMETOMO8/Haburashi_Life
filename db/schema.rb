@@ -15,8 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_145409) do
   enable_extension "plpgsql"
 
   create_table "toothbrushes", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "brush_material"
+    t.string "item_code"
+    t.string "item_name"
+    t.string "item_url"
+    t.string "item_image_urls"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
