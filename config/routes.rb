@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'user_sessions/login', to: 'users#login'
   get 'user_sessions/callback', to: 'users#callback'
   get 'logout', to: 'user_sessions#destroy'
-  resources :toothbrushes, only: %i[new]
+  resources :toothbrushes, only: %i[new create]
 end
