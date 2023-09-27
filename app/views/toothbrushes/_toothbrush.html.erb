@@ -13,12 +13,12 @@
           <%= link_to result.name, result.url, rel: 'noopener noreferrer', class: 'no-underline hover:underline' %>
         </tr>
         <p><%= result.shop_name %></p>
-        <%= link_to '商品を追加する', toothbrush_path(code: result['itemCode'],
+        <div><%= link_to '商品を追加する', toothbrushes_path(code: result['itemCode'],
                                                     name: result['itemName'],
                                                     url: result['itemUrl'],
                                                     image: result['mediumImageUrls'][0]),
                                                     class: 'btn btn-secondary',
-                                                    data: :post %>
+                                                    data: { 'turbo_method': :post } %>
                 </div>
       </div>
       <%= image_tag (result['smallImageUrls'][0]) %>
