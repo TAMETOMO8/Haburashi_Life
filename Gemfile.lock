@@ -70,6 +70,7 @@ GEM
     autoprefixer-rails (10.4.13.0)
       execjs (~> 2)
     base64 (0.1.1)
+    bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -145,6 +146,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.3-x86_64-darwin)
       racc (~> 1.4)
+    oauth (1.1.0)
+      oauth-tty (~> 1.0, >= 1.0.1)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
+    oauth-tty (1.0.5)
+      version_gem (~> 1.1, >= 1.1.1)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -246,6 +253,10 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    sorcery (0.16.5)
+      bcrypt (~> 3.1)
+      oauth (>= 0.6)
+      oauth2 (~> 2.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -298,6 +309,7 @@ DEPENDENCIES
   rakuten_web_service
   rubocop
   rubocop-rails
+  sorcery
   sprockets-rails
   stimulus-rails
   turbo-rails
