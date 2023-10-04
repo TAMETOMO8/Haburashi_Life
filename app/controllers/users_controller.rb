@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class UsersController < ApplicationController
   require 'json'
   require 'typhoeus'
   require 'securerandom'
