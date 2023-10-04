@@ -6,7 +6,7 @@ class ToothbrushesController < ApplicationController
   end
 
   def create
-    @toothbrush = Toothbrush.new(item_code: params[:code],
+    @toothbrush = current_user.toothbrushes.new(item_code: params[:code],
                                  item_name: params[:name],
                                  item_url: params[:url],
                                  item_image_urls: params[:image])
@@ -15,8 +15,7 @@ class ToothbrushesController < ApplicationController
       render :new, status: :unprocessable_entity
     else
       @toothbrush.save!
-      current_user.register(@toothbrush)
-      redirect_to toothbrush_url
+      redirect_to after_login_path
     end
   end
 
@@ -31,4 +30,10 @@ class ToothbrushesController < ApplicationController
   #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	ワンタフトブラシ	506388			
   #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	矯正用ブラシ	506389			
   #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	その他	204756
+
+  private
+
+  def toothbrush_params
+    params.require(:toothbrush).permit(:item_code, :item_name, :item_url, item_image_url: [])
+  end
 end
