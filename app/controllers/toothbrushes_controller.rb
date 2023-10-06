@@ -6,7 +6,10 @@ class ToothbrushesController < ApplicationController
   end
 
   def create
-    @toothbrush = current_user.toothbrushes.new(toothbrush_params)
+    @toothbrush = current_user.toothbrushes.new(item_code: params[:code],
+                                 item_name: params[:name],
+                                 item_url: params[:url],
+                                 item_image_urls: params[:image])
     if current_user.registered?(@toothbrush)
       flash.now[:danger] = 'すでに登録されています'
       render :new, status: :unprocessable_entity
@@ -30,7 +33,7 @@ class ToothbrushesController < ApplicationController
 
   private
 
-  def toothbrush_params
-    params.require(:toothbrush).permit(:item_code, :item_name, :item_url, item_image_url: [])
-  end
+  #def toothbrush_params
+  #  params.require(:toothbrush).permit(:code, :name, :url, image: [])
+  #end
 end
