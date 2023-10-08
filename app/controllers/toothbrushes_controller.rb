@@ -6,10 +6,7 @@ class ToothbrushesController < ApplicationController
   end
 
   def create
-    @toothbrush = current_user.toothbrushes.new(item_code: params[:code],
-                                 item_name: params[:name],
-                                 item_url: params[:url],
-                                 item_image_urls: params[:image])
+    @toothbrush = current_user.toothbrushes.new(rakuten_params)
     if current_user.registered?(@toothbrush)
       flash.now[:danger] = 'すでに登録されています'
       render :new, status: :unprocessable_entity
@@ -32,6 +29,15 @@ class ToothbrushesController < ApplicationController
   #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	その他	204756
 
   private
+
+  def rakuten_params
+    {
+      item_code: params[:code],
+      item_name: params[:name],
+      item_url: params[:url],
+      item_image_urls: params[:image]
+    }
+  end
 
   #def toothbrush_params
   #  params.require(:toothbrush).permit(:code, :name, :url, image: [])
