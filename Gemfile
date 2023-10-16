@@ -80,3 +80,4 @@ gem 'typhoeus'
 gem 'rakuten_web_service'
 
 gem 'line-bot-api'
+gem 'whenever', require: false
