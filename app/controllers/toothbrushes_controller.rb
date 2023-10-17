@@ -1,4 +1,5 @@
 class ToothbrushesController < ApplicationController
+  require 'line_message'
   def new
     if params[:keyword]
       @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
@@ -12,6 +13,7 @@ class ToothbrushesController < ApplicationController
       render :new, status: :unprocessable_entity
     else
       @toothbrush.save!
+      register_message
       redirect_to after_login_path
     end
   end
@@ -37,6 +39,12 @@ class ToothbrushesController < ApplicationController
       item_url: params[:url],
       item_image_urls: params[:image]
     }
+  end
+
+  def register_message
+    line_user_id = current_user.line_user_id
+    message_text = "登録ありがとうございます！"
+    LineMessage.send_message_to_user(line_user_id, message_text)
   end
 
   #def toothbrush_params
