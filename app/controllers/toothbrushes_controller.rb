@@ -1,20 +1,19 @@
 class ToothbrushesController < ApplicationController
+  require 'line_message'
   def new
-    if params[:keyword]
-      @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
-    end
+    return unless params[:keyword]
+
+    @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
   end
 
   def create
-    @toothbrush = current_user.toothbrushes.new(item_code: params[:code],
-                                 item_name: params[:name],
-                                 item_url: params[:url],
-                                 item_image_urls: params[:image])
+    @toothbrush = current_user.toothbrushes.new(rakuten_params)
     if current_user.registered?(@toothbrush)
       flash.now[:danger] = 'すでに登録されています'
       render :new, status: :unprocessable_entity
     else
       @toothbrush.save!
+      register_message
       redirect_to after_login_path
     end
   end
@@ -33,7 +32,13 @@ class ToothbrushesController < ApplicationController
 
   private
 
-  #def toothbrush_params
-  #  params.require(:toothbrush).permit(:code, :name, :url, image: [])
-  #end
+  def rakuten_params
+    { item_code: params[:code], item_name: params[:name], item_url: params[:url], item_image_urls: params[:image] }
+  end
+
+  def register_message
+    line_user_id = current_user.line_user_id
+    message_text = '登録ありがとうございます！'
+    LineMessage.send_message_to_user(line_user_id, message_text)
+  end
 end

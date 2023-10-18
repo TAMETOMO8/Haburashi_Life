@@ -6,5 +6,4 @@ class Toothbrush < ApplicationRecord
   validates :item_url, presence: true
   validates :item_image_urls, presence: true
   validates :user_id, presence: true
-
 end

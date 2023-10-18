@@ -12,5 +12,7 @@
       <% end %>
     </div>
     <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }%>
+    <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-count="true" data-home="true" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>" style="display: none;"></div>
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
   </div>
 </div>
