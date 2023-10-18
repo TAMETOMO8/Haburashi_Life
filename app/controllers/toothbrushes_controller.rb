@@ -1,9 +1,9 @@
 class ToothbrushesController < ApplicationController
   require 'line_message'
   def new
-    if params[:keyword]
-      @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
-    end
+    return unless params[:keyword]
+
+    @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
   end
 
   def create
@@ -33,21 +33,12 @@ class ToothbrushesController < ApplicationController
   private
 
   def rakuten_params
-    {
-      item_code: params[:code],
-      item_name: params[:name],
-      item_url: params[:url],
-      item_image_urls: params[:image]
-    }
+    { item_code: params[:code], item_name: params[:name], item_url: params[:url], item_image_urls: params[:image] }
   end
 
   def register_message
     line_user_id = current_user.line_user_id
-    message_text = "登録ありがとうございます！"
+    message_text = '登録ありがとうございます！'
     LineMessage.send_message_to_user(line_user_id, message_text)
   end
-
-  #def toothbrush_params
-  #  params.require(:toothbrush).permit(:code, :name, :url, image: [])
-  #end
 end
