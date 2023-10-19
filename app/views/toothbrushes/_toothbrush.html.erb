@@ -22,7 +22,9 @@
                                                         data: { 'turbo_method': :post } %>
         </div>
       </div>
-      <%= image_tag (result['smallImageUrls'][0]) %>
+      <% if result['mediumImageUrls'].present? %>
+        <%= image_tag (result['mediumImageUrls'][0]) %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
