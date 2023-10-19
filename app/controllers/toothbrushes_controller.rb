@@ -3,7 +3,13 @@ class ToothbrushesController < ApplicationController
   def new
     return unless params[:keyword]
 
-    @results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: '506385')
+    genre_ids = %w[506385 506386 506387 506389 568329 551692 551693 208522]
+    @results = []
+
+    genre_ids.each do |genre_id|
+      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
+      @results.concat(results)
+    end
   end
 
   def create
