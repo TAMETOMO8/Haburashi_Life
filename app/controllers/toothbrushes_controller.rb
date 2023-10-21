@@ -10,6 +10,8 @@ class ToothbrushesController < ApplicationController
       results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
       @results.concat(results)
     end
+
+    @results = Kaminari.paginate_array(@results.to_a).page(params[:page])
   end
 
   def create
