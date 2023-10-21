@@ -8,5 +8,4 @@ class User < ApplicationRecord
   def registered?(toothbrush)
     toothbrushes.exists?(item_code: toothbrush.item_code)
   end
-
 end
