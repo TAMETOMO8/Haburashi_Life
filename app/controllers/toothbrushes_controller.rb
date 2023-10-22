@@ -1,5 +1,10 @@
 class ToothbrushesController < ApplicationController
   require 'line_message'
+
+  def index
+    @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
+  end
+
   def new
     return unless params[:keyword]
 
@@ -10,7 +15,6 @@ class ToothbrushesController < ApplicationController
       results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
       @results.concat(results)
     end
-
     @results = Kaminari.paginate_array(@results.to_a).page(params[:page])
   end
 
@@ -25,18 +29,6 @@ class ToothbrushesController < ApplicationController
       redirect_to after_login_path
     end
   end
-
-  #  genreId: '階層3: ジャンルID:551691・・・歯ブラシ、虫歯ケア', '階層4: ID:568329・・・キッズ用歯ブラシ', 
-  # '階層4: ベビー用歯ブラシ ID:551692', '階層4: 仕上げみがき用歯ブラシ	ID:551693'
-  # 階層1	家電	ID:562637	2	美容・健康家電	100191	3	デンタルケア	566891	4	電動歯ブラシ	208522
-  # 1	ダイエット・健康	100938	2	デンタルケア	204745									
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384						
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	手用歯ブラシ	506385			
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	電子歯ブラシ・イオン歯ブラシ	506386			
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	360度歯ブラシ	506387			
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	ワンタフトブラシ	506388			
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	矯正用ブラシ	506389			
-  #1	ダイエット・健康	 100938	2	デンタルケア	204745	3	歯ブラシ	506384	4	その他	204756
 
   private
 
