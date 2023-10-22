@@ -13,7 +13,7 @@
       <% if @results.present? %>
         <% @results.each do |result| %>
           <div class="col-4">
-            <%= render "toothbrushes/toothbrush", result: result %>
+            <%= render "toothbrushes/search_result", result: result %>
           </div>
         <% end %>
       <% else %>
