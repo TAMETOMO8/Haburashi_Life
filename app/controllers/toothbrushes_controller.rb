@@ -21,8 +21,7 @@ class ToothbrushesController < ApplicationController
   def create
     @toothbrush = current_user.toothbrushes.new(rakuten_params)
     if current_user.registered?(@toothbrush)
-      flash.now[:danger] = 'すでに登録されています'
-      render :new, status: :unprocessable_entity
+      redirect_to new_toothbrush_path, status: :unprocessable_entity, danger: 'すでに登録されています'
     else
       @toothbrush.save!
       register_message
@@ -38,7 +37,8 @@ class ToothbrushesController < ApplicationController
 
   def register_message
     line_user_id = current_user.line_user_id
-    message_text = '登録ありがとうございます！'
+    message_text = '新しい歯ブラシが登録されました！
+                    大切に使ってあげてください！'
     LineMessage.send_message_to_user(line_user_id, message_text)
   end
 end
