@@ -25,7 +25,7 @@ class ToothbrushesController < ApplicationController
     else
       @toothbrush.save!
       register_message
-      redirect_to after_login_path
+      redirect_to toothbrush_search_path
     end
   end
 
