@@ -7,10 +7,7 @@ class ToothbrushesController < ApplicationController
 
   def new
     return unless params[:keyword]
-
-    genre_ids = %w[506385 506386 506387 506389 568329 551692 551693 208522]
     @results = []
-
     genre_ids.each do |genre_id|
       results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
       @results.concat(results)
@@ -30,6 +27,10 @@ class ToothbrushesController < ApplicationController
   end
 
   private
+
+  def genre_ids
+    %w[506385 506386 506387 506389 568329 551692 551693 208522]
+  end
 
   def rakuten_params
     { item_code: params[:code], item_name: params[:name], item_url: params[:url], item_image_urls: params[:image] }
