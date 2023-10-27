@@ -3,6 +3,11 @@ class ToothbrushesController < ApplicationController
 
   def index
     @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
+    @user = current_user.id
+  end
+
+  def edit
+    @toothbrush = Toothbrush.find(params[:id])
   end
 
   def new
@@ -22,7 +27,17 @@ class ToothbrushesController < ApplicationController
     else
       @toothbrush.save!
       register_message
-      redirect_to toothbrush_search_path
+      redirect_to edit_toothbrush_path(@toothbrush), success: '登録ありがとうございます！続けてブラシの素材と使い終わる日を決めましょう！'
+    end
+  end
+
+  def update
+    @toorhbrush = Toothbrush.find(params[:id])
+    if @toorhbrush.update(toorhbrush_params)
+      redirect_to toothbrushes_path, success: '設定ありがとうございます！'
+    else
+      flash.now[:danger] = t('defaults.message.not_updated', item: Toothbrush.model_name.human)
+      render :edit
     end
   end
 
@@ -34,6 +49,10 @@ class ToothbrushesController < ApplicationController
 
   def rakuten_params
     { item_code: params[:code], item_name: params[:name], item_url: params[:url], item_image_urls: params[:image] }
+  end
+
+  def toorhbrush_params
+    params.require(:toothbrush).permit(:end_time)
   end
 
   def register_message
