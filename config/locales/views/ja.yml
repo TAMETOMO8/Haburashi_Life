@@ -1,0 +1,15 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    post: '投稿'
+    search_word: '検索ワード'
+    show: 詳細
+    edit: '編集'
+    delete: 削除
+    password_reset: パスワードリセット
+    unspecified: '指定なし'
+  toothbrushes:
+    edit:
+      state: 使用状況

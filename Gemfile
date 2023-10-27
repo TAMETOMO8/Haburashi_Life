@@ -75,9 +75,14 @@ gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 
-gem 'bootstrap'
+gem 'bootstrap', '5.3.1'
 gem 'typhoeus'
 gem 'rakuten_web_service'
 
 gem 'line-bot-api'
 gem 'whenever', require: false
+
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views', '0.0.1' #https://github.com/felipecalvo/bootstrap5-kaminari-views
+gem 'rails-i18n', '7.0.8'
+gem 'enum_help'

@@ -1,0 +1,48 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      toothbrush: 歯ブラシ
+      comment: コメント
+    attributes:
+      user:
+        name: 名前
+        lin_user_id: LINE ID
+        role: 権限
+      toothbrush:
+        item_name: 歯ブラシ名
+        item_code: 商品コード
+        item_url: 商品ページURL
+        item_image_urls: 画像URL
+        end_time: 使用終了日
+        state: 使用状況
+    attributes:
+      id: ID
+      created_at: 作成日時
+      updated_at: 更新日時
+  enums:
+    user:
+      role:
+        admin: 管理者
+        general: 一般
+    toothbrush:
+      state:
+        using: 使用中
+        end_used: 使用終了
+        cleaning: 掃除中
+        recycling: リサイクル
+      brush_material:
+        nylon_hair: ナイロン毛
+        animal_hair: 動物毛
+        electric: 電動タイプ
+        other: その他
+      hardness:
+        normal: ふつう
+        hard: かため
+        soft: やわらかめ
+  time:
+    am: 午前
+    formats:
+        default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+        long: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
