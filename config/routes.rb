@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#top'
   get 'toothbrush/search', to: 'toothbrushes#search'
-  get 'user_sessions/login', to: 'users#login'
-  get 'user_sessions/callback', to: 'users#callback'
+  get 'user_sessions/login', to: 'user_sessions#login'
+  get 'user_sessions/callback', to: 'user_sessions#callback'
   delete 'logout', to: 'users#destroy'
-  resources :toothbrushes, only: %i[new create index]
+  resources :toothbrushes, only: %i[new create index edit update destroy]
+  resources :users, only: %i[edit update]
 end
