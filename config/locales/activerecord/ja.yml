@@ -15,6 +15,7 @@ ja:
         item_url: 商品ページURL
         item_image_urls: 画像URL
         end_time: 使用終了日
+        state: 使用状況
     attributes:
       id: ID
       created_at: 作成日時
@@ -27,10 +28,18 @@ ja:
     toothbrush:
       state:
         using: 使用中
-        used: 使用終了
+        end_used: 使用終了
         cleaning: 掃除中
         recycling: リサイクル
-      
+      brush_material:
+        nylon_hair: ナイロン毛
+        animal_hair: 動物毛
+        electric: 電動タイプ
+        other: その他
+      hardness:
+        normal: ふつう
+        hard: かため
+        soft: やわらかめ
   time:
     am: 午前
     formats:
