@@ -2,11 +2,16 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= '歯ブラシの編集' %></h1>
+      <p><%= link_to @toothbrush.item_name, @toothbrush.item_url %>
       <%= form_with model: @toothbrush, local: true do |f| %>
         <div class="form-group">
-          <%= f.label :%>
+          <%= f.label :brush_material, "ブラシの材質" %>
+          <%= f.select :brush_material, Toothbrush.brush_materials_i18n.invert.map{|key, value| [key, value]}, 
+                        { include_blank: 'クリックしてブラシの材質を選んでください。' }, class: 'form-control' %>
         </div>
         <div class="form-group">
+          <%= f.label :hardness, "ブラシのかたさ" %>
+          <%= f.select :hardness, Toothbrush.hardnesses_i18n.invert.map{|key, value| [key, value]}, { include_blank: 'クリックしてブラシの材質を選んでください。' }, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :end_time, "使用終了日" %>
