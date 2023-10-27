@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= '歯ブラシの編集' %></h1>
+      <%= form_with model: @toothbrush, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :%>
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <%= f.label :end_time, "使用終了日" %>
+          <%= f.datetime_field :end_time, class: 'form-control', value: @toothbrush.created_at.since(1.month).strftime('%Y-%m-%dT%T') %>
+        </div>
+          <%= f.submit "更新する", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
