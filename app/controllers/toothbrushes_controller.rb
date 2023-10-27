@@ -26,15 +26,15 @@ class ToothbrushesController < ApplicationController
       redirect_to new_toothbrush_path, status: :unprocessable_entity, danger: 'すでに登録されています'
     else
       @toothbrush.save!
-      register_message
-      redirect_to edit_toothbrush_path(@toothbrush), success: '登録ありがとうございます！続けてブラシの素材と使い終わる日を決めましょう！'
+      redirect_to edit_toothbrush_path(@toothbrush), success: '歯ブラシが選択されました！続けてブラシの素材、やわらかさ、使い終わる日を決めましょう！'
     end
   end
 
   def update
-    @toorhbrush = Toothbrush.find(params[:id])
-    if @toorhbrush.update(toorhbrush_params)
-      redirect_to toothbrushes_path, success: '設定ありがとうございます！'
+    @toothbrush = Toothbrush.find(params[:id])
+    if @toothbrush.update(toothbrush_params)
+      redirect_to toothbrushes_path, success: '登録されました！'
+      register_message
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Toothbrush.model_name.human)
       render :edit
@@ -51,8 +51,8 @@ class ToothbrushesController < ApplicationController
     { item_code: params[:code], item_name: params[:name], item_url: params[:url], item_image_urls: params[:image] }
   end
 
-  def toorhbrush_params
-    params.require(:toothbrush).permit(:end_time)
+  def toothbrush_params
+    params.require(:toothbrush).permit(:use_end_at, :brush_material, :hardness)
   end
 
   def register_message
