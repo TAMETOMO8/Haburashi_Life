@@ -7,10 +7,16 @@
           <%= toothbrush.item_name %>
         </p>
         <ul class="list-inline">
-          <li class="list-inline-item">
+          <li class="list-inline-text">
             <p><%= "使っている人:#{toothbrush.user.name}" %></p>
           </li>
-          <li class="list-inline-item">
+          <li class="list-inline-text">
+            <%= "ブラシの材質:#{toothbrush.brush_material_i18n}" %>
+          </li>
+          <li class="list-inline-text">
+            <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
+          </li>
+          <li class="list-inline-text">
             <%= l toothbrush.created_at, format: :long %>
           </li>
         </ul>
