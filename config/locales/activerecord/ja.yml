@@ -25,11 +25,12 @@ ja:
         admin: 管理者
         general: 一般
     toothbrush:
-      status:
+      state:
         using: 使用中
         used: 使用終了
         cleaning: 掃除中
         recycling: リサイクル
+      
   time:
     am: 午前
     formats:
