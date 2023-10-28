@@ -22,6 +22,7 @@
           <li class="list-inline-text">
             <%= l toothbrush.created_at, format: :long %>
           </li>
+          <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
         </ul>
         <p class="card-text"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
       </div>
