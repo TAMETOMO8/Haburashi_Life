@@ -27,6 +27,7 @@ ja:
         general: 一般
     toothbrush:
       state:
+        not_started: 使用開始前
         using: 使用中
         end_used: 使用終了
         cleaning: 掃除中
