@@ -33,6 +33,7 @@ class ToothbrushesController < ApplicationController
   def update
     @toothbrush = Toothbrush.find(params[:id])
     if @toothbrush.update(toothbrush_params)
+      start_used
       redirect_to toothbrushes_path, success: '登録されました！'
       register_message
     else
@@ -52,7 +53,13 @@ class ToothbrushesController < ApplicationController
   end
 
   def toothbrush_params
-    params.require(:toothbrush).permit(:use_end_at, :brush_material, :hardness)
+    params.require(:toothbrush).permit(:use_end_at, :brush_material, :hardness, :state)
+  end
+
+  def start_used
+    if @toothbrush.not_started?
+      @toothbrush.update(state: 1)
+    end
   end
 
   def register_message
