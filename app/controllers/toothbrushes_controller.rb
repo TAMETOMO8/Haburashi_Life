@@ -26,6 +26,7 @@ class ToothbrushesController < ApplicationController
       redirect_to new_toothbrush_path, status: :unprocessable_entity, danger: 'すでに登録されています'
     else
       @toothbrush.save!
+      register_message
       redirect_to edit_toothbrush_path(@toothbrush), success: '歯ブラシが選択されました！続けてブラシの素材、やわらかさ、使い終わる日を決めましょう！'
     end
   end
@@ -35,7 +36,6 @@ class ToothbrushesController < ApplicationController
     if @toothbrush.update(toothbrush_params)
       start_used
       redirect_to toothbrushes_path, success: '登録されました！'
-      register_message
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: Toothbrush.model_name.human)
       render :edit
