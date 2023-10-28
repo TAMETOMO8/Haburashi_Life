@@ -11,6 +11,9 @@
             <p><%= "使っている人:#{toothbrush.user.name}" %></p>
           </li>
           <li class="list-inline-text">
+            <%= "使用状況:#{toothbrush.state_i18n}" %>
+          </li>
+          <li class="list-inline-text">
             <%= "ブラシの材質:#{toothbrush.brush_material_i18n}" %>
           </li>
           <li class="list-inline-text">
