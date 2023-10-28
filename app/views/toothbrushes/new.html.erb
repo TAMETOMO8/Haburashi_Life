@@ -12,7 +12,7 @@
     <div class="row">
       <% if @results.present? %>
         <% @results.each do |result| %>
-          <div class="col-md-4">
+          <div class="col-md-4 mt-2 mb-2">
             <%= render "toothbrushes/search_result", result: result %>
           </div>
         <% end %>
