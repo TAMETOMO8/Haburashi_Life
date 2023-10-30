@@ -18,15 +18,12 @@ class UserSessionsController < ApplicationController
   end
 
   def callback
-    # CSRF対策のトークンが一致する場合のみ、ログイン処理を行う
     return redirect_to root_path, danger: '不正なアクセスです' if params[:state] != session[:state]
 
-    line_user_id = get_line_user_id(params[:code])
-    user = User.find_or_initialize_by(line_user_id: line_user_id)
-
+    user = User.find_or_initialize_by(line_user_id: get_line_user_id(params[:code]))
     if user.save
       session[:user_id] = user.id
-      redirect_to toothbrush_search_path, success: 'ログインしました'
+      redirect_to toothbrush_search_path, success: 'ログインしました! このアプリの友だち登録を行うことでメッセージを受け取れます！'
     else
       redirect_to root_path, danger: 'ログインに失敗しました'
     end
@@ -34,7 +31,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path, notice: 'ログアウトしました'
+    redirect_to root_path, success: 'ログアウトしました'
   end
 
   private
@@ -46,24 +43,13 @@ class UserSessionsController < ApplicationController
     return nil unless line_user_id_token.present?
 
     url = 'https://api.line.me/oauth2/v2.1/verify'
-    options = {
-      body: {
-        id_token: line_user_id_token,
-        client_id: ENV['LINE_KEY']
-      }
-    }
-
+    options = { body: { id_token: line_user_id_token, client_id: ENV['LINE_KEY'] } }
     response = Typhoeus::Request.post(url, options)
 
-    if response.code == 200
-      JSON.parse(response.body)['sub']
-    else
-      nil
-    end
+    response.code == 200 ? JSON.parse(response.body)['sub'] : nil
   end
 
   def get_line_user_id_token(code)
-    # ユーザーのアクセストークン（IDトークン）を取得する
     url = 'https://api.line.me/oauth2/v2.1/token'
     redirect_uri = user_sessions_callback_url
 
@@ -79,7 +65,6 @@ class UserSessionsController < ApplicationController
         client_secret: ENV['LINE_SECRET']
       }
     }
-
     response = Typhoeus::Request.post(url, options)
 
     if response.code == 200
