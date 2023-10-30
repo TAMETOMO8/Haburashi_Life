@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_action :skip_login, only: %i[login callback]
   require 'json'
   require 'typhoeus'
   require 'securerandom'
