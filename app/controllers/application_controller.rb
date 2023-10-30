@@ -17,7 +17,12 @@ class ApplicationController < ActionController::Base
   def require_login
     return if logged_in?
 
-    flash[:notice] = 'ログインしてください'
-    redirect_to root_path
+    redirect_to root_path, info: 'ログインしてください'
+  end
+
+  def skip_login
+    return unless logged_in?
+
+    redirect_to toothbrush_search_path, info: '既にログインしています'
   end
 end
