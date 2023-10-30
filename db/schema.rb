@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_091630) do
     t.integer "state", default: 0, null: false
     t.integer "brush_material", default: 0, null: false
     t.integer "hardness", default: 0, null: false
-    t.time "use_end_at"
+    t.datetime "end_use_at"
     t.index ["user_id"], name: "index_toothbrushes_on_user_id"
   end
 
