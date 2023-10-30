@@ -1,17 +1,20 @@
 class ToothbrushesController < ApplicationController
   require 'line_message'
+  before_action :require_login, only: %i[edit new search]
 
   def index
     @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
-    @user = current_user.id
   end
 
   def edit
     @toothbrush = Toothbrush.find(params[:id])
   end
 
+  def search; end
+
   def new
     return unless params[:keyword]
+
     @results = []
     genre_ids.each do |genre_id|
       results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
@@ -53,13 +56,11 @@ class ToothbrushesController < ApplicationController
   end
 
   def toothbrush_params
-    params.require(:toothbrush).permit(:use_end_at, :brush_material, :hardness, :state)
+    params.require(:toothbrush).permit(:end_use_at, :brush_material, :hardness, :state)
   end
 
   def start_used
-    if @toothbrush.not_started?
-      @toothbrush.update(state: 1)
-    end
+    @toothbrush.not_started? ? @toothbrush.update(state: 1) : nil
   end
 
   def register_message
