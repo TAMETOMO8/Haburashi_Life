@@ -3,8 +3,8 @@
     <div class="col-lg-8 offset-lg-2">
       <h1><%= 'ユーザー名編集' %></h1>
       <%= form_with model: @user, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :name %>
+        <div class='form-group'>
+          <%= f.label :name, '名前' %>
           <%= f.text_field :name, class: 'form-control', value: current_user.name %>
         </div>
           <%= f.submit "更新する", class: 'btn btn-primary' %>
