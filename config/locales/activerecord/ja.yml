@@ -14,7 +14,7 @@ ja:
         item_code: 商品コード
         item_url: 商品ページURL
         item_image_urls: 画像URL
-        end_time: 使用終了日
+        end_use_at: 使用終了日
         state: 使用状況
     attributes:
       id: ID
