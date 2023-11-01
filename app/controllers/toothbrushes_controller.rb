@@ -45,9 +45,17 @@ class ToothbrushesController < ApplicationController
     end
   end
 
-  def after_used
-    @user = User.find(params[:id])
+  def update_state
     @toothbrush = Toothbrush.find(params[:id])
+    new_state = params[:new_state]
+  
+    if @toothbrush.end_used? && new_state.in?(%w(cleaning recycling))
+      @toothbrush.update(state: new_state)
+      redirect_to toothbrushes_path, success: '歯ブラシの状態を更新しました！'
+    else
+      flash[:danger] = 'Invalid state update request.'
+      redirect_to toothbrushes_path
+    end
   end
 
   private
