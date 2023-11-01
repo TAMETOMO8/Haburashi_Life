@@ -9,18 +9,18 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
-          <div class="d-none d-xl-flex flex-shirink-0">
-            <div class="navbar-nav ms-auto mx-xl-auto">
-              <% unless logged_in?%>
-                <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
-              <% end %>
-              <%= link_to "歯ブラシ一覧", toothbrushes_path, class: "nav-item nav-link active" %>
-              <% if logged_in? %>
-                <%= link_to "歯ブラシの検索", toothbrush_search_path, class: "nav-item nav-link active" %>
-                <%= link_to "ユーザー編集", edit_user_path(current_user), class: "nav-item nav-link active" %>
-                <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
-              <% end %>
-            </div>
+        </div>
+        <div class="d-none d-xl-flex flex-shirink-0">
+          <div class="navbar-nav ms-auto mx-xl-auto">
+            <% unless logged_in?%>
+              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
+            <% end %>
+            <%= link_to "歯ブラシ一覧", toothbrushes_path, class: "nav-item nav-link active" %>
+            <% if logged_in? %>
+              <%= link_to "歯ブラシの検索", toothbrush_search_path, class: "nav-item nav-link active" %>
+              <%= link_to "ユーザー編集", edit_user_path(current_user), class: "nav-item nav-link active" %>
+              <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
+            <% end %>
           </div>
         </div>
       </nav>
