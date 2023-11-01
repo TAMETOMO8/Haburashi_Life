@@ -3,12 +3,15 @@
     <div class="container">
       <nav class="navbar navbar-dark navbar-expand-lg py-0">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <h1 class="text-white fw-bold d-block">歯ブラシLife!</span> </h1>
+          <h1 class="text-white fw-bold d-block">歯ブラシLife!</h1>
         <% end %>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
         </div>
         <div class="d-none d-xl-flex flex-shirink-0">
-          <div class="navbar-nav ms-auto mx-xl-auto p-0 border-end">
+          <div class="navbar-nav ms-auto mx-xl-auto">
+            <% unless logged_in?%>
+              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
+            <% end %>
             <%= link_to "歯ブラシ一覧", toothbrushes_path, class: "nav-item nav-link active" %>
             <% if logged_in? %>
               <%= link_to "歯ブラシの検索", toothbrush_search_path, class: "nav-item nav-link active" %>
