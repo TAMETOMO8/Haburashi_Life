@@ -53,7 +53,7 @@ class ToothbrushesController < ApplicationController
       @toothbrush.update(state: new_state)
       redirect_to toothbrushes_path, success: '歯ブラシの状態を更新しました！'
     else
-      flash[:danger] = 'Invalid state update request.'
+      flash[:danger] = '歯ブラシの状態を更新できませんでした'
       redirect_to toothbrushes_path
     end
   end
