@@ -15,7 +15,7 @@
                                   { selected: 'normal' }, class: 'form-control' %>
         </div>
         <div class="form-group mb-3">
-          <%= f.label :end_use_at, (@toothbrush.end_use_at ? "現在の使用終了日" : "使用終了日(通常の歯ブラシでは使用開始から一ヶ月後が目安です)") %>
+          <%= f.label :end_use_at, @toothbrush.end_use_at.present? ? "現在の使用終了日" : "使用終了日(通常の歯ブラシでは使用開始から一ヶ月後が目安です)" %>
           <%= f.datetime_field :end_use_at, class: 'form-control', value: @toothbrush.end_use_at ? 
               @toothbrush.end_use_at.strftime('%Y-%m-%dT%T') : @toothbrush.created_at.since(1.month).strftime('%Y-%m-%dT%T') %>
         </div>
