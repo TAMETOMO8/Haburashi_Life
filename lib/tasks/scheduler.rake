@@ -8,7 +8,7 @@ namespace :line_message do
       line_user_id = user.line_user_id
 
       recycling_url = 'https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/'
-      edit_url = "https://2a4c-126-227-254-194.ngrok-free.app/toothbrushes/#{toothbrush.id}/edit"
+      edit_url = "https://haburashi-life-827afeb996be.herokuapp.com/toothbrushes/#{toothbrush.id}/edit"
 
       message_text = "次の歯ブラシを交換する時が来ました・・・\n\n#{toothbrush.item_name}\n
       ところで、歯ブラシはリサイクルが可能なことをご存知でしょうか?歯ブラシのリサイクルで地球環境の改善に繋がりますので、ぜひこの機会にリサイクルしてみてください!
