@@ -71,6 +71,8 @@ group :development do
   # gem "spring"
 end
 
+# production addition gem
+
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
