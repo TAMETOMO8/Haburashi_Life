@@ -22,6 +22,8 @@ module HaburashiLife
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -33,5 +35,7 @@ module HaburashiLife
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
   end
 end

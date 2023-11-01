@@ -1,0 +1,31 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="toothbrush-id-1">
+    <div class="card" style="width: 18rem;">
+      <%= image_tag toothbrush.item_image_urls, size: '128x128' %>
+      <div class="card-body">
+        <p class="card-title">
+          <%= toothbrush.item_name %>
+        </p>
+        <ul class="list-inline">
+          <li class="list-inline-text">
+            <p><%= "使っている人:#{toothbrush.user.name}" %></p>
+          </li>
+          <li class="list-inline-text">
+            <%= "使用状況:#{toothbrush.state_i18n}" %>
+          </li>
+          <li class="list-inline-text">
+            <%= "ブラシの材質:#{toothbrush.brush_material_i18n}" %>
+          </li>
+          <li class="list-inline-text">
+            <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
+          </li>
+          <li class="list-inline-text">
+            <%= l toothbrush.created_at, format: :long %>
+          </li>
+          <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
+        </ul>
+        <p class="card-text"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
+      </div>
+    </div>
+  </div>
+</div>
