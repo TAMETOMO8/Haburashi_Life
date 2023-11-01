@@ -6,7 +6,7 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-every 3.minute do
+every 3.hour do
   rake 'line_message:push_message_and_update'
 end
 

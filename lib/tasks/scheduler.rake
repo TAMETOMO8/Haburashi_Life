@@ -14,6 +14,7 @@ namespace :line_message do
       ところで、歯ブラシはリサイクルが可能なことをご存知でしょうか?歯ブラシのリサイクルで地球環境の改善に繋がりますので、ぜひこの機会にリサイクルしてみてください!
       \nリサイクルプログラムのページ:#{recycling_url}\nまたは、掃除道具として使うことで部屋の環境を改善するのもいいですね!
       \nそれでは、このページから歯ブラシをどうするか決めましょう!\n#{edit_url}"
+
       LineMessage.send_message_to_user(line_user_id, message_text)
       toothbrush.update!(state: :end_used)
     end
