@@ -20,7 +20,9 @@
             <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
           </li>
           <li class="list-inline-text">
-            <%= l toothbrush.created_at, format: :long %>
+            <% if toothbrush.end_use_at %>
+              <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
+            <% end %>
           </li>
           <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
         </ul>
