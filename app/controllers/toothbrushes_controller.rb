@@ -45,6 +45,11 @@ class ToothbrushesController < ApplicationController
     end
   end
 
+  def after_used
+    @user = User.find(params[:id])
+    @toothbrush = Toothbrush.find(params[:id])
+  end
+
   private
 
   def genre_ids
