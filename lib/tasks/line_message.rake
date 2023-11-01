@@ -7,11 +7,13 @@ namespace :line_message do
       user = toothbrush.user
       line_user_id = user.line_user_id
 
-      ROOT_URL = "https://haburashi-life-827afeb996be.herokuapp.com/"
-      select_url = "#{ROOT_URL}user/#{toothbrush.user_id}/toothbrush/#{toothbrush.id}" 
+      recycling_url = "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/"
+      edit_url = "https://2a4c-126-227-254-194.ngrok-free.app/toothbrushes/#{toothbrush.id}/edit"
 
-      message_text = "次の歯ブラシを交換する時が来ました・・・\n\n#{toothbrush.item_name}\n\n
-      この歯ブラシをどうするか、リンク先のページで決めましょう\n<a href='#{select_url}'>クリックして歯ブラシの使い方を決める</a>"
+      message_text = "次の歯ブラシを交換する時が来ました・・・\n\n#{toothbrush.item_name}\n
+      ところで、歯ブラシはリサイクルが可能なことをご存知でしょうか?歯ブラシのリサイクルで地球環境の改善に繋がりますので、ぜひこの機会にリサイクルしてみてください!
+      \nリサイクルプログラムのページ:#{recycling_url}\nまたは、掃除道具として使うことで部屋の環境を改善するのもいいですね!
+      \nそれでは、このページから歯ブラシをどうするか決めましょう!\n#{edit_url}"
       LineMessage.send_message_to_user(line_user_id, message_text)
       toothbrush.update!(state: :end_used)
     end
