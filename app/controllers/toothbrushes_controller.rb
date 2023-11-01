@@ -40,7 +40,7 @@ class ToothbrushesController < ApplicationController
       start_used
       redirect_to toothbrushes_path, success: '登録されました！'
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Toothbrush.model_name.human)
+      flash.now[:danger] = '登録されませんでした'
       render :edit
     end
   end
