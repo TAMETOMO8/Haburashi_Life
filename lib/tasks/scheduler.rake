@@ -7,7 +7,7 @@ namespace :line_message do
       user = toothbrush.user
       line_user_id = user.line_user_id
 
-      recycling_url = "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/"
+      recycling_url = 'https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/'
       edit_url = "https://2a4c-126-227-254-194.ngrok-free.app/toothbrushes/#{toothbrush.id}/edit"
 
       message_text = "次の歯ブラシを交換する時が来ました・・・\n\n#{toothbrush.item_name}\n
