@@ -13,14 +13,16 @@ class ToothbrushesController < ApplicationController
   def search; end
 
   def new
-    return unless params[:keyword]
-
-    @results = []
-    genre_ids.each do |genre_id|
-      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
-      @results.concat(results)
+    if params[:keyword].blank?
+      redirect_to toothbrush_search_path, warning: "検索ワードを入力してください"
+    else
+      @results = []
+      genre_ids.each do |genre_id|
+        results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
+        @results.concat(results)
+      end
+      @results = Kaminari.paginate_array(@results.to_a).page(params[:page])
     end
-    @results = Kaminari.paginate_array(@results.to_a).page(params[:page])
   end
 
   def create
