@@ -5,12 +5,8 @@
         <%= link_to root_path, class: "navbar-brand" do %>
           <h1 class="text-white fw-bold d-block">歯ブラシLife!</h1>
         <% end %>
-        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
         </div>
-        <div class="d-none d-xl-flex flex-shirink-0">
           <div class="navbar-nav ms-auto mx-xl-auto">
             <% unless logged_in?%>
               <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
