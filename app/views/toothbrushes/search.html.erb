@@ -1,16 +1,18 @@
 <div>
   <div class='text-center'>
-    <h1>歯ブラシを登録しよう！</h1>
-    <li>通常の歯ブラシ以外に、電動歯ブラシや子ども用歯ブラシも検索できます。</li>
+    <h1 class="mt-5">お手持ちの、または使いたい歯ブラシを登録しましょう！</h1>
+    <p class="mb-4">(通常の歯ブラシ以外に、電動歯ブラシや子ども用歯ブラシも検索できます。)</p>
   </div>
   <div class="container" >
-    <div class="search-box">
-      <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
-        <div class="form-group">
-            <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前を入力して楽天市場から検索', class: "form-control" , style: "width:75%" %>
-            <%= f.submit '製品を検索', class: "form-control btn btn-success", style: "width:75%" %>
-        </div>
-      <% end %>
+    <div class="col-6 mx-auto">
+      <div class="search-box">
+        <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
+          <div class="form-group">
+              <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
+              <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-count="true" data-home="true" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>" style="display: none;"></div>
     <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
