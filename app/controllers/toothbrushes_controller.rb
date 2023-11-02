@@ -14,14 +14,10 @@ class ToothbrushesController < ApplicationController
 
   def new
     if params[:keyword].blank?
-      redirect_to toothbrush_search_path, warning: "検索ワードを入力してください"
+      redirect_to toothbrush_search_path, warning: '検索ワードを入力してください'
     else
-      @results = []
-      genre_ids.each do |genre_id|
-        results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
-        @results.concat(results)
-      end
-      @results = Kaminari.paginate_array(@results.to_a).page(params[:page])
+      @results = search_results
+      @results = paginate_results
     end
   end
 
@@ -76,6 +72,19 @@ class ToothbrushesController < ApplicationController
 
   def start_used
     @toothbrush.not_started? ? @toothbrush.update(state: 1) : nil
+  end
+
+  def search_results
+    @results = []
+    genre_ids.each do |genre_id|
+      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
+      @results.concat(results)
+    end
+    @results
+  end
+
+  def paginate_results
+    Kaminari.paginate_array(@results.to_a).page(params[:page])
   end
 
   def register_message
