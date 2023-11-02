@@ -11,7 +11,7 @@
             <% unless logged_in?%>
               <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
             <% end %>
-            <%= link_to "歯ブラシ一覧", toothbrushes_path, class: "nav-item nav-link active" %>
+            <%= link_to "使われている歯ブラシの一覧", toothbrushes_path, class: "nav-item nav-link active" %>
             <% if logged_in? %>
               <%= link_to "歯ブラシの検索", toothbrush_search_path, class: "nav-item nav-link active" %>
               <%= link_to "ユーザー編集", edit_user_path(current_user), class: "nav-item nav-link active" %>
