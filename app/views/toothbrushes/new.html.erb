@@ -17,7 +17,16 @@
           </div>
         <% end %>
       <% else %>
-        <p>ごめんなさい！このキーワードを持つ歯ブラシは、楽天市場には無いみたいです・・・</p>      
+        <p class="text-center">ごめんなさい！このキーワードを持つ歯ブラシは、楽天市場には無いみたいです・・・</p>     
+        <p class="text-center">メーカー名や商品名を変えてもう一度検索してみてください。</p> 
+        <div class="search-box col-lg-6 mx-auto">
+        <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
+          <div class="form-group">
+              <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3 mt-3" %>
+              <%= f.submit 'もう一度検索する', class: "form-control btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
       <% end %>
     </div>
     <%= paginate @results, pagination_class: "flex-wrap justify-content-center", theme: 'bootstrap-5'%>
