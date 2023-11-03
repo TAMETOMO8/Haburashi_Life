@@ -7,7 +7,7 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 every 3.hour do
-  rake 'line_message:push_message_and_update'
+  rake 'scheduler:push_message_and_update'
 end
 
 # Use this file to easily define all of your cron jobs.
