@@ -60,4 +60,7 @@ https://www.figma.com/file/wS1PyDnOw5EkgbP9OrOFEg/Haburashi_Life%E7%94%BB%E9%9D%
 
 ### サイトURL
 
-https://www.haburashi-life.com
+https://haburashi-life-827afeb996be.herokuapp.com
+
+ドメイン変更処理の関係で上記のURLが使用出来なくなる可能性があります。その場合は下記のURLを使用してください。
+https://haburashi-life.com
