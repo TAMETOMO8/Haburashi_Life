@@ -13,7 +13,7 @@
             <% end %>
             <%= link_to "使われている歯ブラシの一覧", toothbrushes_path, class: "nav-item nav-link active" %>
             <% if logged_in? %>
-              <%= link_to "歯ブラシの検索", toothbrush_search_path, class: "nav-item nav-link active" %>
+              <%= link_to "新しい歯ブラシを登録", toothbrush_search_path, class: "nav-item nav-link active" %>
               <%= link_to "ユーザー編集", edit_user_path(current_user), class: "nav-item nav-link active" %>
               <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
             <% end %>
