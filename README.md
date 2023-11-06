@@ -60,4 +60,4 @@ https://www.figma.com/file/wS1PyDnOw5EkgbP9OrOFEg/Haburashi_Life%E7%94%BB%E9%9D%
 
 ### サイトURL
 
-https://www.haburashi-life
+https://www.haburashi-life.com
