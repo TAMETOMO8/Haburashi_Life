@@ -1,5 +1,6 @@
 class Toothbrush < ApplicationRecord
   belongs_to :user
+  has_many :dental_items, dependent: :destroy
 
   validates :item_code, presence: true
   validates :item_name, presence: true
