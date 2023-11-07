@@ -14,5 +14,5 @@ Rails.application.routes.draw do
       get 'update_state'
     end
   end
-  resources :users, only: %i[edit update]
+  resources :users, only: %i[edit update destroy]
 end
