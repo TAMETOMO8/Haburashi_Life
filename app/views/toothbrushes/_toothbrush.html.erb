@@ -1,34 +1,35 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="toothbrushes-index">
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <%= image_tag toothbrush.item_image_urls, size: '128x128' %>
-      <div class="card-body">
+      <div class="card-body" id="index-card">
         <p class="card-title">
           <%= toothbrush.item_name %>
         </p>
-        <ul class="list-inline">
-          <li class="list-inline-text">
-            <p><%= "使っている人:#{toothbrush.user.name}" %></p>
+        <ul class="list-group">
+          <li class="list-group-item text-center">
+            <%= "使っている人:#{toothbrush.user.name}" %>
           </li>
-          <li class="list-inline-text">
+          <li class="list-group-item text-center">
             <%= "使用状況:#{toothbrush.state_i18n}" %>
           </li>
-          <li class="list-inline-text">
+          <li class="list-group-item text-center">
             <%= "ブラシの材質:#{toothbrush.brush_material_i18n}" %>
           </li>
-          <li class="list-inline-text">
+          <li class="list-group-item text-center">
             <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
           </li>
-          <li class="list-inline-text">
             <% if toothbrush.end_use_at %>
+            <li class="list-group-item text-center">
               <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
+            </li>
             <% end %>
           </li>
           <% if toothbrush.user == current_user %>
             <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
           <% end %>
         </ul>
-        <p class="card-text"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
+        <p class="list-group-item"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
       </div>
     </div>
   </div>
