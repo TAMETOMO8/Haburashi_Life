@@ -15,13 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    reset_session
-    @user.destroy!
-    redirect_to root_path, success: 'ユーザー情報を削除しました'
-  end
-
   private
 
   def user_params

@@ -18,7 +18,6 @@
                 <%= link_to "新しい歯ブラシを登録", toothbrush_search_path, class: "nav-item nav-link active" %>
                 <%= link_to "ユーザー編集", edit_user_path(current_user), class: "nav-item nav-link active" %>
                 <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
-                <%= link_to 'ユーザーを削除する', user_path(current_user), data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
               <% end %>
             </div>
           </div>
