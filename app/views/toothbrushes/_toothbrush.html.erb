@@ -24,7 +24,9 @@
               <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
             <% end %>
           </li>
-          <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
+          <% if toothbrush.user == current_user %>
+            <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
+          <% end %>
         </ul>
         <p class="card-text"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
       </div>
