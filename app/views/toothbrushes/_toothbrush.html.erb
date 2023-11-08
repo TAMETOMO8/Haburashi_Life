@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="toothbrushes-index">
     <div class="card">
-      <%= image_tag toothbrush.item_image_urls, size: '128x128' %>
+      <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
       <div class="card-body" id="index-card">
         <p class="card-title">
           <%= toothbrush.item_name %>
@@ -24,9 +24,7 @@
             <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
           </li>
           <% end %>
-          <% if toothbrush.user == current_user %>
-            <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
-          <% end %>
+          <%= link_to 'この歯ブラシの詳細を見る',  toothbrush_path(toothbrush) %>
         </ul>
         <p class="list-group-item"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
       </div>
