@@ -7,7 +7,12 @@ class User < ApplicationRecord
   has_many :toothbrushes, dependent: :destroy
   has_many :dental_items, dependent: :destroy
 
-  def registered?(toothbrush)
-    toothbrushes.exists?(item_code: toothbrush.item_code)
+  def registered?(item)
+    if item.is_a?(Toothbrush)
+      toothbrushes.exists?(item_code: item.item_code)
+    else
+      item.is_a?(DentalItem)
+      dental_items.exists?(item_code: item.item_code)
+    end
   end
 end
