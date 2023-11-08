@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_155749) do
     t.string "item_name"
     t.string "item_url"
     t.string "item_image_urls"
-    t.integer "genre_id"
+    t.integer "item_genre_id"
     t.bigint "user_id"
     t.bigint "toothbrush_id"
     t.datetime "created_at", null: false
