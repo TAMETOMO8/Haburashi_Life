@@ -8,25 +8,23 @@
         </p>
         <ul class="list-group">
           <li class="list-group-item text-center">
+            <%= link_to 'この歯ブラシの詳細を見る',  toothbrush_path(toothbrush) %>
+          </li>
+          <li class="list-group-item text-center">
             <%= "使っている人:#{toothbrush.user.name}" %>
           </li>
           <li class="list-group-item text-center">
             <%= "使用状況:#{toothbrush.state_i18n}" %>
-          </li>
-          <li class="list-group-item text-center">
-            <%= "ブラシの材質:#{toothbrush.brush_material_i18n}" %>
-          </li>
-          <li class="list-group-item text-center">
-            <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
           </li>
           <% if toothbrush.end_use_at %>
           <li class="list-group-item text-center">
             <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
           </li>
           <% end %>
-          <%= link_to 'この歯ブラシの詳細を見る',  toothbrush_path(toothbrush) %>
+          <li class="list-group-item text-center">
+            <%= link_to '商品ページはこちら(楽天市場に移動します)', toothbrush.item_url %>
+          </li>
         </ul>
-        <p class="list-group-item"><%= link_to '商品ページはこちら', toothbrush.item_url %></p>
       </div>
     </div>
   </div>
