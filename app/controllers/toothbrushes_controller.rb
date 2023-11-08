@@ -2,11 +2,14 @@ class ToothbrushesController < ApplicationController
   include RakutenSearch #controllers/concerns/rakuten_search.rb
   require 'line_message'
   before_action :require_login, only: %i[edit new search]
-  before_action :search_results, only: %i[new]
-  before_action :paginate_results, only: %i[new]
 
   def index
     @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
+  end
+
+  def show
+    @toothbrush = Toothbrush.find(params[:id])
+    @dental_items = @toothbrush.dental_items.to_a
   end
 
   def edit
@@ -63,6 +66,7 @@ class ToothbrushesController < ApplicationController
 
   def genre_ids
     %w[506385 506386 506387 506389 568329 551692 551693 208522]
+    # 左から 手用歯ブラシ 電子歯ブラシ・イオン歯ブラシ 360度歯ブラシ 矯正用ブラシ キッズ用歯ブラシ ベビー用歯ブラシ 仕上げみがき用歯ブラシ 電動歯ブラシ 
   end
 
   def rakuten_params
