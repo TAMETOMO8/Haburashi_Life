@@ -19,12 +19,11 @@
           <li class="list-group-item text-center">
             <%= "ブラシのやわらかさ:#{toothbrush.hardness_i18n}" %>
           </li>
-            <% if toothbrush.end_use_at %>
-            <li class="list-group-item text-center">
-              <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
-            </li>
-            <% end %>
+          <% if toothbrush.end_use_at %>
+          <li class="list-group-item text-center">
+            <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
           </li>
+          <% end %>
           <% if toothbrush.user == current_user %>
             <%= link_to '歯ブラシの編集はこちら',  edit_toothbrush_path(toothbrush) %>
           <% end %>
