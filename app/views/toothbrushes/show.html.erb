@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 offset-lg-1 text-center mt-3">
+      <h4>歯ブラシの詳細</h4>
+    </div>
+    <div class="col-sm-12 col-lg-6 mb-3">
+      <div id="toothbrushes-index">
+        <div class="card">
+          <%= image_tag @toothbrush.item_image_urls, size: '128x128' %>
+          <div class="card-body" id="index-card">
+            <p class="card-title">
+              <%= link_to @toothbrush.item_name, @toothbrush.item_url%>
+            </p>
+            <ul class="list-group">
+              <li class="list-group-item text-center">
+                <%= "使っている人:#{@toothbrush.user.name}" %>
+              </li>
+              <li class="list-group-item text-center">
+                <%= "使用状況:#{@toothbrush.state_i18n}" %>
+              </li>
+              <li class="list-group-item text-center">
+                <%= "ブラシの材質:#{@toothbrush.brush_material_i18n}" %>
+              </li>
+              <li class="list-group-item text-center">
+                <%= "ブラシのやわらかさ:#{@toothbrush.hardness_i18n}" %>
+              </li>
+              <% if @toothbrush.end_use_at %>
+              <li class="list-group-item text-center">
+                <%= "使用終了日: #{@toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
+              </li>
+              <% end %>
+              <% if @toothbrush.user == current_user %>
+              <li class="list-group-item text-center">
+                <%= link_to '歯ブラシの情報を編集する',  edit_toothbrush_path(@toothbrush) %>
+              </li>
+              <li class="list-group-item text-center">
+                <%= link_to '一緒に使うデンタルグッズを登録する', '/toothbrush/' + @toothbrush.id.to_s + '/dental_item/search' %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <% if @dental_items.present? %>
+          <h4 class="text-center pt-3 pb-5">
+            <%= "#{@toothbrush.user.name}さんはこの歯ブラシと一緒に以下のデンタルグッズも使用されています！" %>
+          </h4>
+          <% @dental_items.each do |dental_item| %>
+            <%= render "toothbrushes/dental_item", dental_item: dental_item %>
+          <% end %>
+        <% else %>
+          <p class="text-center">現在、歯ブラシと一緒に使われているデンタルグッズはありません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

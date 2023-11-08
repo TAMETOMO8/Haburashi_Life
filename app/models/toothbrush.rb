@@ -1,10 +1,7 @@
 class Toothbrush < ApplicationRecord
   belongs_to :user
+  has_many :dental_items, dependent: :destroy
 
-  validates :item_code, presence: true
-  validates :item_name, presence: true
-  validates :item_url, presence: true
-  validates :item_image_urls, presence: true
   validates :user_id, presence: true
 
   enum state: { not_started: 0, using: 1, end_used: 2, cleaning: 3, recycling: 4 }
