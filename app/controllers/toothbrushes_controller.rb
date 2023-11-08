@@ -1,6 +1,9 @@
 class ToothbrushesController < ApplicationController
+  include RakutenSearch #controllers/concerns/rakuten_search.rb
   require 'line_message'
   before_action :require_login, only: %i[edit new search]
+  before_action :search_results, only: %i[new]
+  before_action :paginate_results, only: %i[new]
 
   def index
     @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
@@ -72,19 +75,6 @@ class ToothbrushesController < ApplicationController
 
   def start_used
     @toothbrush.not_started? ? @toothbrush.update(state: 1) : nil
-  end
-
-  def search_results
-    @results = []
-    genre_ids.each do |genre_id|
-      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
-      @results.concat(results)
-    end
-    @results
-  end
-
-  def paginate_results
-    Kaminari.paginate_array(@results.to_a).page(params[:page])
   end
 
   def register_message
