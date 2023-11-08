@@ -1,0 +1,22 @@
+<div class="card mb-1" id="toothbrush_card">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag(result['mediumImageUrls'][0], class: "img-fluid") if result['mediumImageUrls'].present? %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="height: 248px;">
+        <p class="card-title">
+          <%= link_to truncate(result.name, length: 100), result.url, rel: 'noopener noreferrer', class: 'no-underline hover:underline' %>
+        </p>
+          <%= link_to 'この製品を追加！', toothbrush_dental_items_path(toothbrush_id: @toothbrush.id,
+                                                        code: result['itemCode'],
+                                                        name: result['itemName'],
+                                                        genre_id: result['genreId'],
+                                                        url: result['itemUrl'],
+                                                        image: result['mediumImageUrls'][0]),
+                                                        class: 'btn btn-secondary',
+                                                        data: { 'turbo_method': :post } %>
+      </div>
+    </div>
+  </div>
+</div>
