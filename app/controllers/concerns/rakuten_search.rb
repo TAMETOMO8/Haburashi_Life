@@ -1,6 +1,6 @@
 module RakutenSearch
-extend ActiveSupport::Concern
-  
+  extend ActiveSupport::Concern
+
   def search_results
     @results = []
     genre_ids.each do |genre_id|
