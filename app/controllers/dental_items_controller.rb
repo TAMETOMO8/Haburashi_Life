@@ -17,9 +17,10 @@ class DentalItemsController < ApplicationController
     @dental_item = current_user.dental_items.new(rakuten_params.merge(toothbrush_id: @toothbrush.id))
     if current_user.registered?(@dental_item)
       redirect_to new_toothbrush_dental_item_path, status: :unprocessable_entity, danger: 'すでに登録されています'
-    else
-      @dental_item.save!
+    elsif @dental_item.save
       redirect_to toothbrush_path(@dental_item.toothbrush_id), success: 'デンタルグッズの登録が行われました！'
+    else
+      redirect_to new_toothbrush_dental_item_path, status: :unprocessable_entity, danger: '歯ブラシに登録出来るデンタルグッズは5つまでです'
     end
   end
 
