@@ -2,19 +2,17 @@ class ToothbrushesController < ApplicationController
   include RakutenSearch #controllers/concerns/rakuten_search.rb
   require 'line_message'
   before_action :require_login, only: %i[edit new search]
+  before_action :set_toothbrush, only: %i[show edit update update_state]
 
   def index
     @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
   end
 
   def show
-    @toothbrush = Toothbrush.find(params[:id])
     @dental_items = @toothbrush.dental_items.to_a
   end
 
-  def edit
-    @toothbrush = Toothbrush.find(params[:id])
-  end
+  def edit; end
 
   def search; end
 
@@ -39,7 +37,6 @@ class ToothbrushesController < ApplicationController
   end
 
   def update
-    @toothbrush = Toothbrush.find(params[:id])
     if @toothbrush.update(toothbrush_params)
       start_used
       redirect_to toothbrushes_path, success: '登録されました！'
@@ -50,7 +47,6 @@ class ToothbrushesController < ApplicationController
   end
 
   def update_state
-    @toothbrush = Toothbrush.find(params[:id])
     new_state = params[:new_state]
 
     if @toothbrush.end_used? && new_state.in?(%w[cleaning recycling])
@@ -63,6 +59,10 @@ class ToothbrushesController < ApplicationController
   end
 
   private
+
+  def set_toothbrush
+    @toothbrush = Toothbrush.find(params[:id])
+  end
 
   def genre_ids
     %w[506385 506386 506387 506389 568329 551692 551693 208522]
