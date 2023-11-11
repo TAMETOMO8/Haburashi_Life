@@ -1,6 +1,17 @@
 .top-wrapper {
   background-image: image-url("top.jpg");
+  background-size: cover;
   height: calc(100vh - 20px);
   position: relative;
   background-position: center;
+}
+
+#top-text {
+  font-family: apple-system;
+  color: rgb(255, 255, 255);
+  font-size: 500%;
+}
+
+#top-link {
+  color: rgb(0, 0, 0);
 }
