@@ -1,11 +1,14 @@
 <div class='top-wrapper'>
   <div class='top-inner-text'>
     <div class='text-center pt-3'>
-      <h1>歯ブラシLife  ~Make up environment!~</h1>
+      <h1 id='top-text'>歯ブラシLife</h1>
+      <h1 id='top-text'>Make up environment!</h1>
     </div>
   </div>
   <div class='text-center mt-4'>
-    <%= link_to "LINEでログインする", user_sessions_login_path %>
-    <%= link_to "使われている歯ブラシを見る", toothbrushes_path %>
+    <% unless logged_in?%>
+      <%= link_to "LINEでログインする", user_sessions_login_path, id:'top-link' %>
+    <% end %>
+    <%= link_to "使われている歯ブラシを見る", toothbrushes_path, id:'top-link' %>
   </div>
 </div>
