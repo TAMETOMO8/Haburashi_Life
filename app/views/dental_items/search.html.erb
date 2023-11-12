@@ -1,9 +1,23 @@
 <div>
   <div class='text-center'>
     <h1 class="mt-5">歯ブラシと一緒に使うデンタルグッズの登録です!</h1>
+  </div>
+  <div class="container" >
+    <div class="col-lg-6 mx-auto">
+      <div class="search-box">
+        <%= form_with url: new_toothbrush_dental_item_path, method: :get, local: true do |f| %>
+          <div class="form-group">
+            <%= f.text_field :keyword, value: params[:keyword], placeholder: 'デンタルグッズの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
+            <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class='text-center'>
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        検索出来る製品の種類を確認する場合はこちらをクリック！
+      <button class="btn btn-secondary dropdown-toggle mt-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        このボタンをクリックすると検索出来る製品の種類を確認出来ます
       </button>
         <ul class="dropdown-menu">
           <li class="dropdown-item">歯磨き粉</li>
@@ -16,19 +30,7 @@
           <li class="dropdown-item">入れ歯洗浄剤</li>
           <li class="dropdown-item">入れ歯安定剤</li>
           <li class="dropdown-item">ワンタフトブラシ</li>
-      </ul>
-    </div>
-  </div>
-  <div class="container" >
-    <div class="col-lg-6 mx-auto">
-      <div class="search-box">
-        <%= form_with url: new_toothbrush_dental_item_path, method: :get, local: true do |f| %>
-          <div class="form-group">
-            <%= f.text_field :keyword, value: params[:keyword], placeholder: 'デンタルグッズの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
-            <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
+        </ul>
     </div>
   </div>
 </div>
