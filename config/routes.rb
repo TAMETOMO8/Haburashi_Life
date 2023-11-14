@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     end
     resources :dental_items, only: %i[new create update edit]
   end
-  resources :users, only: %i[edit update]
+  resources :users, only: %i[edit update show]
 end

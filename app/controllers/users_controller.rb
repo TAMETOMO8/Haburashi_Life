@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.includes(:toothbrushes).find(params[:id])
+    @toothbrush = @user.toothbrushes.find(params[:user_id])
+  end
+
   private
 
   def user_params
