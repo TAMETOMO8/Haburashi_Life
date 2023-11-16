@@ -1,7 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-10 offset-lg-1 text-center mt-3">
-      <h4>ユーザー詳細</h4>
+      <% if current_user %>
+        <h4><%= "プロフィールページ" %></h4>
+      <% else %>
+        <h4><%= "#{@user.name}さんのプロフィールページ" %></h4>
+      <% end %>
     </div>
+    <% @user.toothbrushes.each do |toothbrush| %>
+      <li><%= toothbrush.item_name %></li>
+    <% end %>
   </div>
 </div>
