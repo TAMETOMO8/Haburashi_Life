@@ -5,7 +5,11 @@ class ToothbrushesController < ApplicationController
   before_action :set_toothbrush, only: %i[show edit update update_state]
 
   def index
-    @toothbrushes = Toothbrush.includes(:user).order(created_at: :desc)
+    @toothbrushes = if logged_in?
+                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc)
+                    else
+                      Toothbrush.includes(:user).order(created_at: :desc)
+                    end
   end
 
   def show
