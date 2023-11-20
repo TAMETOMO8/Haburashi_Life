@@ -1,9 +1,11 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="toothbrushes-index">
     <div class="card">
-      <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
+      <div class="text-center">
+        <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
+      </div>
       <div class="card-body" id="index-card">
-        <p class="card-title">
+        <p class="card-title text-center">
           <%= toothbrush.item_name %>
         </p>
         <ul class="list-group">
