@@ -11,6 +11,11 @@
   background: #FFF;
   border: solid 3px #555;
   box-sizing: border-box;
+  @media (max-width: 1400px) {
+    width: 380px;
+    height: 140px;
+    max-width: 300px;
+  }
 }
 
 #allow-text:before {
