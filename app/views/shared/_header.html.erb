@@ -5,22 +5,34 @@
         <%= link_to root_path, class: "navbar-brand" do %>
           <h1 class="text-white fw-bold d-block">歯ブラシLife!</h1>
         <% end %>
-        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
-            <div class="navbar-nav ms-auto">
-              <% unless logged_in?%>
-                <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
-                <%= link_to "使われている歯ブラシを見る", toothbrushes_path, class: "nav-item nav-link active" %>
-              <% end %>
-              <% if logged_in? %>
-                <%= link_to "他の人の歯ブラシを見る", toothbrushes_path, class: "nav-item nav-link active" %>
-                <%= link_to "新しい歯ブラシを登録", toothbrush_search_path, class: "nav-item nav-link active" %>
-                <%= link_to "ユーザーページ", user_path(current_user), class: "nav-item nav-link active" %>
-                <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "nav-item nav-link inactive" %>
-              <% end %>
+          <div class="navbar-nav ms-auto" style="flex-direction: row;">
+            <% unless logged_in?%>
+              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
+              <%= link_to "使われている歯ブラシを見る", toothbrushes_path, class: "nav-item nav-link active" %>
+            <% end %>
+            <% if logged_in? %>
+            <div class="nav-item dropdown">
+              <button type="button" class="btn btn-dark dropdown-toggle" 
+                      data-bs-toggle="dropdown" style="margin-right: 15px;" id="toothbrush-menu-button">
+                歯ブラシ
+              </button>
+              <div class="dropdown-menu rounded">
+                <%= link_to "他の人の歯ブラシ", toothbrushes_path, class: "dropdown-item" %>
+                <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item" %>
+              </div>
             </div>
+            <div class="nav-item dropdown">
+              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">ユーザー</button>
+              <div class="dropdown-menu rounded">
+                <%= link_to "ユーザーページ", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
+              </div>
+            </div>
+            <% end %>
           </div>
         </div>
       </nav>
