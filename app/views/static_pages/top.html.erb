@@ -16,9 +16,9 @@
     <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL"   data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>" style="display: none;"></div>
     <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
     <% unless logged_in?%>
-      <%= link_to "LINEでログインする", user_sessions_login_path, id:'top-link' %>
+      <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
     <% end %>
-    <%= link_to "使われている歯ブラシを見る", toothbrushes_path, id:'top-link' %>
+    <%= link_to "みんなの歯ブラシ", toothbrushes_path, class:"btn btn-dark", id:'toothbrushes-index-button' %>
     <%= link_to "使い方を見る", tutorial_path, id:'top-link' %>
   </div>
 </div>
