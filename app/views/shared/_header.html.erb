@@ -9,15 +9,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
-          <div class="navbar-nav ms-auto" style="flex-direction: row;">
+          <div class="navbar-nav ms-auto">
             <% unless logged_in?%>
-              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link active" %>
-              <%= link_to "使われている歯ブラシを見る", toothbrushes_path, class: "nav-item nav-link active" %>
+              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link btn btn-dark my-2 me-4 pe-2 col-3 col-lg-4", id:"login-button" %>
+              <%= link_to "みんなの歯ブラシ", toothbrushes_path, class: "nav-item nav-link btn btn-dark my-2 col-4 col-lg-8", id:'toothbrushes-index-button'%>
             <% end %>
             <% if logged_in? %>
             <div class="nav-item dropdown">
-              <button type="button" class="btn btn-dark dropdown-toggle" 
-                      data-bs-toggle="dropdown" style="margin-right: 15px;" id="toothbrush-menu-button">
+              <button type="button" class="btn btn-dark dropdown-toggle my-2 me-4 pe-2" 
+                      data-bs-toggle="dropdown" id="toothbrush-menu-button">
                 歯ブラシ
               </button>
               <div class="dropdown-menu rounded">
@@ -26,7 +26,10 @@
               </div>
             </div>
             <div class="nav-item dropdown">
-              <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">ユーザー</button>
+              <button type="button" class="btn btn-dark dropdown-toggle my-2 pe-3" 
+                      data-bs-toggle="dropdown" id="user-menu-button">
+                ユーザー
+              </button>
               <div class="dropdown-menu rounded">
                 <%= link_to "ユーザーページ", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
