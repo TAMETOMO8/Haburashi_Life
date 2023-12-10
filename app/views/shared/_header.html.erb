@@ -11,8 +11,10 @@
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
           <div class="navbar-nav ms-auto">
             <% unless logged_in?%>
-              <%= link_to "ログイン", user_sessions_login_path, class: "nav-item nav-link btn btn-dark my-2 me-4 pe-2 col-3 col-lg-4", id:"login-button" %>
-              <%= link_to "みんなの歯ブラシ", toothbrushes_path, class: "nav-item nav-link btn btn-dark my-2 col-4 col-lg-8", id:'toothbrushes-index-button'%>
+              <%= link_to "ログイン", user_sessions_login_path, 
+                  class: "nav-item nav-link btn btn-dark my-2 me-4 pe-2 col-3 col-lg-4", id:"login-button" %>
+              <%= link_to "みんなの歯ブラシ", toothbrushes_path, 
+                  class: "nav-item nav-link btn btn-dark my-2 col-4 col-lg-8", id:'toothbrushes-index-button'%>
             <% end %>
             <% if logged_in? %>
             <div class="nav-item dropdown">
@@ -20,7 +22,7 @@
                       data-bs-toggle="dropdown" id="toothbrush-menu-button">
                 歯ブラシ
               </button>
-              <div class="dropdown-menu rounded">
+              <div class="dropdown-menu rounded col-4">
                 <%= link_to "他の人の歯ブラシ", toothbrushes_path, class: "dropdown-item" %>
                 <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item" %>
               </div>
@@ -30,7 +32,7 @@
                       data-bs-toggle="dropdown" id="user-menu-button">
                 ユーザー
               </button>
-              <div class="dropdown-menu rounded">
+              <div class="dropdown-menu rounded col-4">
                 <%= link_to "ユーザーページ", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
               </div>
