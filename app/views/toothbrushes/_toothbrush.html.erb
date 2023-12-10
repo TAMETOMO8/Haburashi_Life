@@ -10,7 +10,7 @@
         </p>
         <ul class="list-group">
           <li class="list-group-item text-center">
-            <%= link_to 'この歯ブラシの詳細を見る',  toothbrush_path(toothbrush) %>
+            <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button" %>
           </li>
           <li class="list-group-item text-center">
             <%= "使っている人:#{toothbrush.user.name}" %>
