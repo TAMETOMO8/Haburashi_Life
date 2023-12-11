@@ -33,7 +33,7 @@
                 ユーザー
               </button>
               <div class="dropdown-menu rounded col-4">
-                <%= link_to "ユーザーページ", user_path(current_user), class: "dropdown-item" %>
+                <%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
               </div>
             </div>
