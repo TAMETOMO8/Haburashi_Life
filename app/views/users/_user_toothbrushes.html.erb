@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
+  </td>
+  <td>
+    <%= toothbrush.item_name %>
+  </td>
+  <td>
+    <%= toothbrush.brush_material_i18n %>
+  </td>
+  <td>
+    <%= toothbrush.hardness_i18n %>
+  </td>
+  <td>
+    <%= toothbrush.state_i18n %>
+  </td>
+  <td>
+    <%= toothbrush.end_use_at.try(:strftime, '%Y-%m-%d') %>
+  </td>
+  <td>
+    <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button" %>
+  </td>
+</tr>
