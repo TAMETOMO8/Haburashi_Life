@@ -21,3 +21,23 @@
   border-color: rgb(31, 255, 98);
   color: rgb(0, 0, 0);
 }
+
+#state-not_started {
+  background-color: rgb(218, 222, 220);
+}
+
+#state-using {
+  background-color: rgb(129, 179, 255);
+}
+
+#state-end_used {
+  background-color: rgb(234, 189, 100);
+}
+
+#state-cleaning {
+  background-color: rgb(189, 127, 244);
+}
+
+#state-recycling {
+  background-color: rgb(100, 234, 167);
+}
