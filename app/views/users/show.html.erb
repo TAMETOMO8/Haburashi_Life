@@ -22,22 +22,7 @@
       <% end %>
     </div>
     <div class="table-responsive-lg">
-      <table class="table table-bordered">
-        <thead class="table-light">
-          <tr>
-            <th scope="col">画像</th>
-            <th scope="col" width="40%">名前</th>
-            <th scope="col">材質</th>
-            <th scope="col">柔らかさ</th>
-            <th scope="col">使用状況</th>
-            <th scope="col">使用終了日</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render partial: "user_toothbrushes", collection: @user.toothbrushes, as: :toothbrush %>
-        </tbody>
-      </table>
+      <%= render partial: "user_toothbrushes", collection: @user.toothbrushes, as: :toothbrush %>
     </div>
   </div>
 </div>
