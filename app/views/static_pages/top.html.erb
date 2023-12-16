@@ -18,7 +18,7 @@
     <% unless logged_in?%>
       <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
     <% end %>
-    <%= link_to "みんなの歯ブラシ", toothbrushes_path, class:"btn btn-dark", id:'toothbrushes-index-button' %>
+    <%= link_to "みんなの歯ブラシ", toothbrushes_path, class:"btn btn-dark", data: { turbo: false }, id:'toothbrushes-index-button' %>
     <%#= link_to "使い方を見る", tutorial_path, id:'top-link' %>
   </div>
 </div>
