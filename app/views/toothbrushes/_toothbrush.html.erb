@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-lg-4 mb-3">
+<div class="col-12 col-sm-6 col-lg-3 mb-3">
   <div id="toothbrushes-index">
     <div class="card">
       <div class="text-center">
@@ -10,19 +10,8 @@
         </p>
         <ul class="list-group">
           <li class="list-group-item text-center">
-            <%= link_to 'この歯ブラシの詳細を見る',  toothbrush_path(toothbrush) %>
+            <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button" %>
           </li>
-          <li class="list-group-item text-center">
-            <%= "使っている人:#{toothbrush.user.name}" %>
-          </li>
-          <li class="list-group-item text-center">
-            <%= "使用状況:#{toothbrush.state_i18n}" %>
-          </li>
-          <% if toothbrush.end_use_at %>
-          <li class="list-group-item text-center">
-            <%= "使用終了日: #{toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
-          </li>
-          <% end %>
         </ul>
       </div>
     </div>

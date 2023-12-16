@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 User.create!(
   id: 1,
-  name: 'シュルク',
+  name: 'ゲストさん',
   line_user_id: ENV['ADMIN_LINE_ID'],
   role: 1
 )

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root 'static_pages#top'
+  get '/tutorial', to: 'static_pages#tutorial'
   get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search'
   get 'toothbrush/search', to: 'toothbrushes#search'
   get 'user_sessions/login', to: 'user_sessions#login'

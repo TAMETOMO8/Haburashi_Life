@@ -1,0 +1,38 @@
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">画像</th>
+      <th scope="col" width="40%">名前</th>
+      <th scope="col">材質</th>
+      <th scope="col">柔らかさ</th>
+      <th scope="col">使用状況</th>
+      <th scope="col">使用終了日</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="align-baseline">
+    <tr>
+      <td>
+        <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
+      </td>
+      <td>
+        <%= toothbrush.item_name %>
+      </td>
+      <td>
+        <%= toothbrush.brush_material_i18n %>
+      </td>
+      <td>
+        <%= toothbrush.hardness_i18n %>
+      </td>
+      <td id="<%= "state-#{toothbrush.state}" %>">
+        <%= toothbrush.state_i18n %>
+      </td>
+      <td>
+        <%= toothbrush.end_use_at.try(:strftime, '%Y-%m-%d') %>
+      </td>
+      <td>
+        <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
