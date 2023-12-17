@@ -8,7 +8,7 @@ module RakutenSearch
   def search_results
     @results = []
     @genre_ids.each do |genre_id|
-      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id).to_a
+      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id, NGKeyword: @ng_keywords.join(' ')).to_a
       @results.concat(results)
     end
     @results
@@ -23,8 +23,10 @@ module RakutenSearch
   def set_genre_ids
     if self.is_a?(ToothbrushesController)
       @genre_ids = toothbrushes_genre_ids
+      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか デンタルジェル 替えブラシ 替ブラシ シェーバー 最安値]
     elsif self.is_a?(DentalItemsController)
       @genre_ids = dental_items_genre_ids
+      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか 最安値]
     end
   end
 
