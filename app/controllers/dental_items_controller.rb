@@ -31,11 +31,6 @@ class DentalItemsController < ApplicationController
       item_image_urls: params[:image], item_genre_id: params[:genre_id] }
   end
 
-  def genre_ids
-    %w[204759 208265 208218 204758 208217 204760	204761 208216 402787 506388]
-    # 左から 歯磨き粉 マウスウォッシュ・洗口液 デンタルフロス 歯間ブラシ 舌クリーナー・タンクリーナー ヤニ取り 口臭予防 入れ歯洗浄剤 入れ歯安定剤 ワンタフトブラシ
-  end
-
   def set_toothbrush
     @toothbrush = Toothbrush.find(params[:toothbrush_id])
   end
