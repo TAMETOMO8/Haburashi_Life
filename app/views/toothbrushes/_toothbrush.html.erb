@@ -5,8 +5,8 @@
         <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
       </div>
       <div class="card-body" id="index-card">
-        <p class="card-title text-center">
-          <%= toothbrush.item_name %>
+        <p class="card-title text-center" title="<%= toothbrush.item_name %>">
+          <%= truncate(toothbrush.item_name, length: 25) %>
         </p>
         <ul class="list-group">
           <li class="list-group-item text-center">
