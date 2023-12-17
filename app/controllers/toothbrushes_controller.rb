@@ -43,7 +43,7 @@ class ToothbrushesController < ApplicationController
   def update
     if @toothbrush.update(toothbrush_params)
       start_used
-      redirect_to toothbrushes_path, success: '登録されました！'
+      redirect_to user_path(current_user), success: '登録されました！'
     else
       flash.now[:danger] = '登録されませんでした'
       render :edit
