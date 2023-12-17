@@ -6,9 +6,9 @@ class ToothbrushesController < ApplicationController
 
   def index
     @toothbrushes = if logged_in?
-                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc)
+                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc).page(params[:page]).per(12)
                     else
-                      Toothbrush.includes(:user).order(created_at: :desc)
+                      Toothbrush.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
                     end
   end
 
