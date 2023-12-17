@@ -15,8 +15,8 @@
       <td>
         <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
       </td>
-      <td>
-        <%= toothbrush.item_name %>
+      <td title="<%= toothbrush.item_name %>">
+        <%= truncate(toothbrush.item_name, length: 30) %>
       </td>
       <td>
         <%= toothbrush.brush_material_i18n %>
