@@ -14,6 +14,12 @@
           <%= f.select :hardness, Toothbrush.hardnesses_i18n.invert.map{|key, value| [key, value]}, 
                                   { selected: 'normal' }, class: 'form-control' %>
         </div>
+        <% if Time.current - 5.days > @toothbrush.created_at %>
+          <div class="form-group mb-2">
+            <%= f.label :body %>
+            <%= f.text_area :body, class: 'form-control', row: 4 %>
+          </div>
+        <% end %>
         <div class="form-group mb-3">
           <%= f.label :end_use_at, @toothbrush.end_use_at ? "現在の使用終了日" : "使用終了日(目安として一ヶ月後の日付を表示しています)" %>
           <%= f.date_field :end_use_at, class: 'form-control', value: @toothbrush.end_use_at ? 
