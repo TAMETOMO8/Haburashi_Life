@@ -9,6 +9,11 @@
           <%= truncate(toothbrush.item_name, length: 25) %>
         </p>
         <ul class="list-group">
+          <%  if toothbrush.comment.present? %>
+            <li class="list-group-item text-center">
+              <%= truncate(toothbrush.comment, length: 25) %>
+            </li>
+          <% end %>
           <li class="list-group-item text-center">
             <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button", data: { turbo: false } %>
           </li>
