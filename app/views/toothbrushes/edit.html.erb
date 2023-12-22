@@ -4,7 +4,6 @@
       <h1><%= '歯ブラシの編集' %></h1>
       <p><%= link_to @toothbrush.item_name, @toothbrush.item_url %>
       <%= form_with model: @toothbrush, local: true do |f| %>
-        <%= render 'shared/error_message', object: f.object %>
         <div class="form-group mb-2">
           <%= f.label :brush_material, "ブラシの材質" %>
           <%= f.select :brush_material, Toothbrush.brush_materials_i18n.invert.map{|key, value| [key, value]}, 
@@ -15,12 +14,6 @@
           <%= f.select :hardness, Toothbrush.hardnesses_i18n.invert.map{|key, value| [key, value]}, 
                                   { selected: 'normal' }, class: 'form-control' %>
         </div>
-        <% if Time.current - 5.days > @toothbrush.created_at %>
-          <div class="form-group mb-2">
-            <%= f.label :comment %>
-            <%= f.text_area :comment, class: 'form-control', row: 4 %>
-          </div>
-        <% end %>
         <div class="form-group mb-3">
           <%= f.label :end_use_at, @toothbrush.end_use_at ? "現在の使用終了日" : "使用終了日(目安として一ヶ月後の日付を表示しています)" %>
           <%= f.date_field :end_use_at, class: 'form-control', value: @toothbrush.end_use_at ? 
@@ -31,10 +24,8 @@
     </div>
     <div class='text-center'>
       <% if @toothbrush.end_used? %>
-        <%= link_to '掃除道具として使う場合はこちらクリック', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
-                                                        method: :put, class: 'btn btn-warning' %>
-        <%= link_to 'リサイクルする場合はこちらをクリック', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
-                                                      method: :put, class: 'btn btn-info' %>
+        <%= link_to '掃除道具として使う場合はこちらクリック', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), method: :put, class: 'btn btn-warning' %>
+        <%= link_to 'リサイクルする場合はこちらをクリック', update_state_toothbrush_path(@toothbrush, new_state: :recycling), method: :put, class: 'btn btn-info' %>
       <% end %>
     </div>
   </div>
