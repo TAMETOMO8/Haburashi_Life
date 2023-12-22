@@ -6,7 +6,8 @@ class ToothbrushesController < ApplicationController
 
   def index
     @toothbrushes = if logged_in?
-                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc).page(params[:page]).per(12)
+                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc)
+                                .page(params[:page]).per(12)
                     else
                       Toothbrush.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
                     end
@@ -41,12 +42,12 @@ class ToothbrushesController < ApplicationController
   end
 
   def update
+    check_blank
     if @toothbrush.update(toothbrush_params)
       start_used
       redirect_to user_path(current_user), success: '登録されました！'
     else
-      flash.now[:danger] = '登録されませんでした'
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -73,11 +74,15 @@ class ToothbrushesController < ApplicationController
   end
 
   def toothbrush_params
-    params.require(:toothbrush).permit(:end_use_at, :brush_material, :hardness, :state)
+    params.require(:toothbrush).permit(:end_use_at, :brush_material, :hardness, :state, :comment)
   end
 
   def start_used
     @toothbrush.not_started? ? @toothbrush.update(state: 1) : nil
+  end
+
+  def check_blank
+    params[:toothbrush][:comment] = '' if params[:toothbrush][:comment].blank?
   end
 
   def register_message
