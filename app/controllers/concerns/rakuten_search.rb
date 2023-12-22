@@ -8,7 +8,8 @@ module RakutenSearch
   def search_results
     @results = []
     @genre_ids.each do |genre_id|
-      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id, NGKeyword: @ng_keywords.join(' ')).to_a
+      results = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword], genreId: genre_id,
+                                                       NGKeyword: @ng_keywords.join(' ')).to_a
       @results.concat(results)
     end
     @results
