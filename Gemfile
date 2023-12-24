@@ -88,3 +88,4 @@ gem 'kaminari'
 gem 'bootstrap5-kaminari-views', '0.0.1' #https://github.com/felipecalvo/bootstrap5-kaminari-views
 gem 'rails-i18n', '7.0.8'
 gem 'enum_help'
+gem 'ransack'

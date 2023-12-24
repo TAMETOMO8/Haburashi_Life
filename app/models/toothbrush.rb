@@ -9,5 +9,9 @@ class Toothbrush < ApplicationRecord
   enum brush_material: { nylon_hair: 0, animal_hair: 1, electric: 2, other: 3 }
   enum hardness: { normal: 0, soft: 1, hard: 2 }
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[item_name]
+  end
+
   scope :end_toothbrushed, -> { using.where('end_use_at <= ?', Time.current) }
 end

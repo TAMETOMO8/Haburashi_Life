@@ -4,12 +4,13 @@ class ToothbrushesController < ApplicationController
   before_action :require_login, only: %i[edit new search]
   before_action :set_toothbrush, only: %i[show edit update update_state]
 
-  def index
+  def index # rubocop:disable Metrics/AbcSize
+    @q = Toothbrush.ransack(params[:q])
     @toothbrushes = if logged_in?
-                      Toothbrush.includes(:user).where.not(user: current_user).order(created_at: :desc)
-                                .page(params[:page]).per(12)
+                      @q.result(distinct: true).includes(:user).where.not(user: current_user)
+                        .order(created_at: :desc).page(params[:page]).per(12)
                     else
-                      Toothbrush.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
+                      @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).per(12)
                     end
   end
 
