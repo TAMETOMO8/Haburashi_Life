@@ -14,5 +14,5 @@ class Toothbrush < ApplicationRecord
   end
 
   scope :end_toothbrushed, -> { using.where('end_use_at <= ?', Time.current) }
-  scope :using_fivedays, -> { using.where('created_at <= ?', 5.days.ago) }
+  scope :using_fivedays, -> { using.where('created_at <= ?', Time.current - 5.days) }
 end
