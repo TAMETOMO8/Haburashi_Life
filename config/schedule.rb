@@ -10,6 +10,10 @@ every 3.hour do
   rake 'scheduler:push_message_and_update'
 end
 
+every 1.minute do
+  rake 'scheduler:comment_notice_and_update'
+end
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
