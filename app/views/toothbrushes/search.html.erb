@@ -1,18 +1,32 @@
-<div>
+<div class="container" id="search-form">
   <div class='text-center'>
     <h1 class="mt-5">お手持ちの歯ブラシ、または使いたい歯ブラシを登録しましょう！</h1>
     <p class="mb-4">電動歯ブラシや子ども用歯ブラシも検索できます。</p>
   </div>
-  <div class="container" >
-    <div class="col-lg-6 mx-auto">
-      <div class="search-box">
-        <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
-          <div class="form-group">
-            <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
-            <%= f.submit '製品を検索', class: "form-control btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
+  <div class="col-lg-6 mx-auto">
+    <div class="search-box">
+      <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
+        <div class="form-group">
+          <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
+          <%= f.submit '製品を検索', class: "form-control btn btn-success", id: "only-click" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+<body id="brush-search-body">
+  <div class="wrapper" id="loading">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <span>Loading</span>
+  </div>
+</body>
+
+<% content_for :loading do %>
+  <%= javascript_import_module_tag "packs" %>
+<% end %>
