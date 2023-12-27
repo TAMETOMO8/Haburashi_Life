@@ -28,7 +28,7 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       user = toothbrush.user
       line_user_id = user.line_user_id
 
-      edit_url = "https://www.haburashi-life/toothbrushes/#{toothbrush.id}/edit"
+      edit_url = "www.haburashi-life/toothbrushes/#{toothbrush.id}/edit"
 
       message_text = "次の歯ブラシを登録して5日が経ちました!\n\n#{toothbrush.item_name}\n
       もしよろしければこのページに移動して、使ってみた感想をコメントしてみてください！\n#{edit_url}"
