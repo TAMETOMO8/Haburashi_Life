@@ -8,4 +8,4 @@ pin "stimulus-autocomplete", to: "https://ga.jspm.io/npm:stimulus-autocomplete@3
 pin "popper", to: 'popper.js', preload: true
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
 pin_all_from "app/javascript/controllers", under: "controllers", preload: true
-pin 'loading', to: 'loading.js', preload: true
+pin 'loading_animation', to: 'loading_animation.js', preload: true
