@@ -8,7 +8,7 @@
       <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
         <div class="form-group">
           <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
-          <%= f.submit '製品を検索', class: "form-control btn btn-success", id: "only-click" %>
+          <%= f.submit '製品を検索', class: "form-control btn btn-success", id: "only-click", data: { turbo: false } %>
         </div>
       <% end %>
     </div>
@@ -26,7 +26,3 @@
     <span>Loading</span>
   </div>
 </body>
-
-<% content_for :loading do %>
-  <%= javascript_import_module_tag "packs" %>
-<% end %>
