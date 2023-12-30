@@ -64,6 +64,11 @@ class ToothbrushesController < ApplicationController
     end
   end
 
+  def index_search
+    @toothbrush = Toothbrush.where('item_name like ?', "%#{params[:q]}%")
+    respond_to(&:js)
+  end
+
   private
 
   def set_toothbrush
