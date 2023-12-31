@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'update_state'
     end
     resources :dental_items, only: %i[new create update edit]
+    get :index_search, on: :collection
   end
   resources :users, only: %i[edit update show]
 end
