@@ -10,8 +10,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to toothbrushes_path, success: 'ユーザー名を更新しました'
     else
-      flash.now[:notice] = 'ユーザー名を更新できませんでした'
-      render :edit
+      flash.now[:danger] = 'ユーザー名を更新できませんでした'
+      render :edit, status: :unprocessable_entity
     end
   end
 
