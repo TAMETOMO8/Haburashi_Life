@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to toothbrushes_path, success: 'ユーザー名を更新しました'
+      redirect_to user_path(current_user), success: 'ユーザー名を更新しました'
     else
       flash.now[:danger] = 'ユーザー名を更新できませんでした'
       render :edit, status: :unprocessable_entity
