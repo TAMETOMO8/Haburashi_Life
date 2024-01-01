@@ -3,10 +3,10 @@
     <div class="input-group mb-3">
       <%= f.search_field :item_name_cont, class: 'form-control', 
                           placeholder: "使われている歯ブラシを検索する", data: { autocomplete_target: 'input' } %>
+      <%= f.submit class: 'btn btn-primary justify-content-center' %>
       <%= f.hidden_field :item_name, data: { autocomplete_target: 'hidden' } %>
       <ul class="list-group" data-autocomplete-target="results">
       </ul>
     </div>
-    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
