@@ -39,6 +39,16 @@
                   <%= link_to 'デンタルグッズ登録', '/toothbrush/' + @toothbrush.id.to_s + '/dental_item/search', 
                       class:"btn btn-dark ms-2", data: { turbo: false }, id:"dental-item-button" %>
                 </li>
+                <% if @toothbrush.end_used? %>
+                <li class="list-group-item text-center d-flex justify-content-center">
+                  <div>
+                    <%= link_to '掃除道具として使う！', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
+                                                                  method: :put, class: 'btn btn-warning me-4' %>
+                  </div>
+                  <%= link_to 'リサイクルする！', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
+                                                                method: :put, class: 'btn btn-info ms-4' %>
+                </li>
+                <% end %>
               <% end %>
             </ul>
           </div>

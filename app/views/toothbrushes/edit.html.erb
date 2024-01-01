@@ -29,13 +29,5 @@
         <%= f.submit "これで決定", class: 'btn btn-primary' %>
       <% end %>
     </div>
-    <div class='text-center'>
-      <% if @toothbrush.end_used? %>
-        <%= link_to '掃除道具として使う場合はこちらクリック', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
-                                                        method: :put, class: 'btn btn-warning' %>
-        <%= link_to 'リサイクルする場合はこちらをクリック', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
-                                                      method: :put, class: 'btn btn-info' %>
-      <% end %>
-    </div>
   </div>
 </div>

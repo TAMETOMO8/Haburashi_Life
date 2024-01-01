@@ -57,10 +57,10 @@ class ToothbrushesController < ApplicationController
 
     if @toothbrush.end_used? && new_state.in?(%w[cleaning recycling])
       @toothbrush.update(state: new_state)
-      redirect_to toothbrushes_path, success: '歯ブラシの状態を更新しました！'
+      redirect_to user_path(current_user), success: '歯ブラシの状態を更新しました！'
     else
       flash[:danger] = '歯ブラシの状態を更新できませんでした'
-      redirect_to toothbrushes_path
+      redirect_to user_path(current_user)
     end
   end
 
