@@ -1,17 +1,31 @@
 <div class="container" id="search-form">
   <div class='text-center'>
-    <h1 class="mt-5">お手持ちの歯ブラシ、または使いたい歯ブラシを登録しましょう！</h1>
-    <p class="mb-4">電動歯ブラシや子ども用歯ブラシも検索できます。</p>
+    <h1 class="mt-5 mb-3">使いたい歯ブラシを登録しましょう！</h1>
   </div>
-  <div class="col-lg-6 mx-auto">
-    <div class="search-box">
+  <div class="col col-lg-6 mx-auto">
       <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
-        <div class="form-group">
-          <%= f.text_field :keyword, value: params[:keyword], placeholder: '歯ブラシの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3" %>
-          <%= f.submit '製品を検索', class: "form-control btn btn-success", id: "only-click", data: { turbo: false } %>
+        <div class="input-group">
+          <%= f.search_field :keyword, value: params[:keyword], class: "form-control mb-5 mt-2" %>
+          <%= f.submit '歯ブラシを検索', class: "btn btn-success mb-5 mt-2", id: "only-click", data: { turbo: false } %>
         </div>
       <% end %>
+  </div>
+  <div class="text-center mt-3">
+    <h2>検索できる歯ブラシ</h2>
+  </div>
+  <div class="row justify-content-evenly align-items-start">
+    <div class="col col-lg-3">
+      <%= image_tag "electric_brush.png", class:"img-fluid mx-auto" %>
     </div>
+    <div class="col col-lg-3">
+      <%= image_tag "normal_brush.png", class:"img-fluid mx-auto" %>
+    </div>
+    <div class="col col-lg-3">
+      <%= image_tag "all_brush.png", class:"img-fluid mx-auto" %>
+    </div>
+  </div>
+  <div class='text-center mt-3'>
+    <h5>他にもイオン歯ブラシや矯正歯用歯ブラシ、子ども用歯ブラシが検索できます。</h5>
   </div>
 </div>
 
