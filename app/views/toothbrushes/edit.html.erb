@@ -20,7 +20,7 @@
           <%= f.date_field :end_use_at, class: 'form-control', value: @toothbrush.end_use_at ? 
               @toothbrush.end_use_at.strftime('%Y-%m-%d') : @toothbrush.created_at.since(1.month).strftime('%Y-%m-%d') %>
         </div>
-        <% if Time.current - 5.days > @toothbrush.created_at %>
+        <% if Time.current - 3.days > @toothbrush.created_at %>
           <div class="form-group mb-2">
             <%= f.label :comment, "使った感想をコメントしてみましょう！" %>
             <%= f.text_area :comment, class: 'form-control', placeholder: '100文字まで入力できます。空欄でも問題ありません。', row: 4 %>

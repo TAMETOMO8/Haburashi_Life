@@ -20,18 +20,19 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  desc '使用開始から5日過ぎた歯ブラシを持つユーザーにメッセージを送り、状態を更新する'
+  desc '使用開始から3日過ぎた歯ブラシを持つユーザーにメッセージを送り、状態を更新する'
   task comment_notice_and_update: :environment do
     require 'line_message'
 
-    Toothbrush.using_fivedays.each do |toothbrush|
+    Toothbrush.using_threedays.each do |toothbrush|
       user = toothbrush.user
       line_user_id = user.line_user_id
 
       edit_url = "www.haburashi-life/toothbrushes/#{toothbrush.id}/edit"
 
-      message_text = "次の歯ブラシを登録して5日が経ちました!\n\n#{toothbrush.item_name}\n
-      もしよろしければこのページに移動して、使ってみた感想をコメントしてみてください！\n#{edit_url}"
+      message_text = "次の歯ブラシを登録して3日が経ちました!\n\n#{toothbrush.item_name}\n
+      もしよろしければ、使ってみた感想をコメントしてみてください！
+      \n\n\n編集ページに移動する\n#{edit_url}"
 
       if toothbrush.comment_notice == 'false'
         LineMessage.send_message_to_user(line_user_id, message_text)
