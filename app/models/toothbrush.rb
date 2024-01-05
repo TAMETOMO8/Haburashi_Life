@@ -14,5 +14,6 @@ class Toothbrush < ApplicationRecord
   end
 
   scope :end_toothbrushed, -> { using.where('end_use_at <= ?', Time.current) }
-  scope :using_threedays, -> { using.where('created_at <= ?', Time.current - 3.days) }
+  scope :used, -> { where.not(state: :not_started) }
+  scope :using_threedays, -> { used.where('created_at <= ?', Time.current - 3.days) }
 end
