@@ -3,10 +3,10 @@ ja:
     models:
       user: ユーザー
       toothbrush: 歯ブラシ
-      comment: コメント
+      dental_item: デンタルグッズ
     attributes:
       user:
-        name: 名前
+        name: ユーザー名
         lin_user_id: LINE ID
         role: 権限
       toothbrush:
@@ -16,6 +16,7 @@ ja:
         item_image_urls: 画像URL
         end_use_at: 使用終了日
         state: 使用状況
+        comment: コメント
     attributes:
       id: ID
       created_at: 作成日時

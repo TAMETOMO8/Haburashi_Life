@@ -3,13 +3,15 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
-    post: '投稿'
     search_word: '検索ワード'
     show: 詳細
     edit: '編集'
     delete: 削除
-    password_reset: パスワードリセット
     unspecified: '指定なし'
+    message:
+      require_login: 'ログインしてください'
   toothbrushes:
     edit:
       state: 使用状況
+      comment: コメント
+      success: 歯ブラシの情報を更新しました
