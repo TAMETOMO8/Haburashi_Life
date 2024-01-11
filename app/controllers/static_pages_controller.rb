@@ -1,9 +1,9 @@
 class StaticPagesController < ApplicationController
-  before_action :require_login, only: %i[richmenu_login]
-  before_action :skip_login, only: %i[richmenu_login]
+  before_action :require_login, only: %i[user_show_from_richmenu]
+  before_action :skip_login, only: %i[user_show_from_richmenu]
   def top; end
 
   def tutorial; end
 
-  def richmenu_login; end
+  def user_show_from_richmenu; end
 end

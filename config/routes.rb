@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root 'static_pages#top'
-  get 'richmenu_login', to: 'static_pages#richmenu_login'
+  get 'user_show_from_richmenu', to: 'static_pages#user_show_from_richmenu'
   get 'tutorial', to: 'static_pages#tutorial'
   get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search'
   get 'toothbrush/search', to: 'toothbrushes#search'
