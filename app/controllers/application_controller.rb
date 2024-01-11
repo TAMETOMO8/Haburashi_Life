@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   def skip_login
     return unless logged_in?
 
-    redirect_to user_path(current_user), info: '既にログインしています'
+    redirect_to user_path(current_user), info: 'ログイン中'
   end
 end
