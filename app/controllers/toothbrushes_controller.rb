@@ -7,8 +7,8 @@ class ToothbrushesController < ApplicationController
   def index # rubocop:disable Metrics/AbcSize
     @q = Toothbrush.ransack(params[:q])
     @toothbrushes = if logged_in?
-                      @q.result(distinct: true).includes(:user).where.not(user: current_user)
-                        .order(created_at: :desc).page(params[:page]).per(12)
+                      @q.result(distinct: true).includes(:user)
+                        .where.not(user: current_user).order(created_at: :desc).page(params[:page]).per(12)
                     else
                       @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).per(12)
                     end

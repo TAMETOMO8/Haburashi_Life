@@ -55,23 +55,12 @@ class UserSessionsController < ApplicationController
     redirect_uri = user_sessions_callback_url
 
     options = {
-      headers: {
-        'Content-Type' => 'application/x-www-form-urlencoded'
-      },
-      body: {
-        grant_type: 'authorization_code',
-        code: code,
-        redirect_uri: redirect_uri,
-        client_id: ENV['LINE_KEY'],
-        client_secret: ENV['LINE_SECRET']
-      }
+      headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
+      body: { grant_type: 'authorization_code', code:, redirect_uri:, client_id: ENV['LINE_KEY'],
+              client_secret: ENV['LINE_SECRET'] }
     }
     response = Typhoeus::Request.post(url, options)
 
-    if response.code == 200
-      JSON.parse(response.body)['id_token'] # ユーザー情報を含むJSONウェブトークン（JWT）
-    else
-      nil
-    end
+    response.code == 200 ? JSON.parse(response.body)['id_token'] : nil
   end
 end
