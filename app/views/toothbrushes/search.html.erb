@@ -6,7 +6,7 @@
       <%= form_with url: new_toothbrush_path, method: :get, local: true do |f| %>
         <div class="input-group">
           <%= f.search_field :keyword, value: params[:keyword], class: "form-control mb-5 mt-2" %>
-          <%= f.submit '歯ブラシを検索', class: "btn btn-success mb-5 mt-2", id: "only-click", data: { turbo: false } %>
+          <%= f.submit '歯ブラシを検索', class: "btn btn-success mb-5 mt-2", id: "search-start" %>
         </div>
       <% end %>
   </div>
