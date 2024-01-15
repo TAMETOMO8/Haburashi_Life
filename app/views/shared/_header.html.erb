@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="container">
       <nav class="navbar navbar-dark navbar-expand-lg py-0">
-        <%= link_to root_path, class: "navbar-brand",  data: { turbo: false } do %>
+        <%= link_to root_path, class: "navbar-brand" do %>
           <h1 class="text-white fw-bold d-block">歯ブラシLife!</h1>
         <% end %>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -24,7 +24,7 @@
               </button>
               <div class="dropdown-menu rounded col-4">
                 <%= link_to "他の人の歯ブラシ", toothbrushes_path, class: "dropdown-item" %>
-                <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item", data: { turbo: false } %>
+                <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item" %>
               </div>
             </div>
             <div class="nav-item dropdown">

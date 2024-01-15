@@ -10,7 +10,7 @@
                 <%= "ユーザー名:#{current_user.name}" %>
               </li>
               <li class="list-group-item">
-                <%= link_to 'ユーザー編集',  edit_user_path(current_user), data: { turbo: false } %>
+                <%= link_to 'ユーザー編集',  edit_user_path(current_user) %>
               </li>
             </ul>
           </div>
