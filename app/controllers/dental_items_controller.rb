@@ -6,7 +6,7 @@ class DentalItemsController < ApplicationController
 
   def new
     if params[:keyword].blank?
-      redirect_to "/toothbrush/#{@toothbrush.id}/dental_item/search", warning: '検索ワードを入力してください'
+      redirect_to dental_items_search_path, warning: '検索ワードを入力してください'
     else
       @results = search_results
       @results = paginate_results

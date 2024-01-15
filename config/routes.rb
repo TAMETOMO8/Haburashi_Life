@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'static_pages#top'
   get 'user_show_from_richmenu', to: 'static_pages#user_show_from_richmenu'
   get 'tutorial', to: 'static_pages#tutorial'
-  get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search'
+  get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search', as: 'dental_items_search'
   get 'toothbrush/search', to: 'toothbrushes#search'
   get 'user_sessions/login', to: 'user_sessions#login'
   get 'user_sessions/callback', to: 'user_sessions#callback'

@@ -36,7 +36,7 @@
                 <li class="list-group-item text-center">
                   <%= link_to '歯ブラシの編集', edit_toothbrush_path(@toothbrush), 
                       class:"btn btn-dark me-2", id:"edit-toothbrush-button" %>
-                  <%= link_to 'デンタルグッズ登録', '/toothbrush/' + @toothbrush.id.to_s + '/dental_item/search', 
+                  <%= link_to 'デンタルグッズ登録', dental_items_search_path(@toothbrush), 
                       class:"btn btn-dark ms-2", id:"dental-item-button" %>
                 </li>
                 <% if @toothbrush.end_used? %>
