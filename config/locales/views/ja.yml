@@ -1,17 +1,21 @@
 ja:
   defaults:
-    login: 'ログイン'
-    register: '登録'
-    logout: 'ログアウト'
-    search_word: '検索ワード'
+    login: ログイン
+    register: 登録
+    logout: ログアウト
+    search_word: 検索ワード
     show: 詳細
-    edit: '編集'
+    edit: 編集
     delete: 削除
-    unspecified: '指定なし'
+    unspecified: 指定なし
     message:
-      require_login: 'ログインしてください'
+      require_login: ログインしてください
   toothbrushes:
     edit:
       state: 使用状況
       comment: コメント
       success: 歯ブラシの情報を更新しました
+  users:
+    edit:
+      name: ユーザー名
+    
