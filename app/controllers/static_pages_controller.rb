@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
   def tutorial; end
 
   def user_show_from_richmenu; end
+
+  def terms_of_use; end
+
+  def privacy_policy; end
 end
