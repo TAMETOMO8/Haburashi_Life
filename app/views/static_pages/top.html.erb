@@ -31,13 +31,21 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-        <h1 class="mb-4">歯ブラシLifeはお手持ちの歯ブラシ、デンタルグッズの情報を共有出来るアプリです。</h1>
-        <p>他の方の使用されている歯ブラシの閲覧も出来るほか、LINEアカウントを友達登録することでお知らせを受け取れます。</p>
-        <p class="mb-4">Pellentesque aliquam dolor eget urna ultricies tincidunt. Nam volutpat libero sit amet leo cursus, ac viverra eros tristique. Morbi quis quam mi. Cras vel gravida eros. Proin scelerisque quam nec elementum viverra. Suspendisse viverra hendrerit diam in tempus.</p>
-        <a href="" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>
+      <div class="col-lg-7 col-md-6 col-sm-12">
+        <h1 class="mb-4">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
+        <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。</p>
+        <p>下のボタンをクリックして<br class="d-sm-none"/>このアプリを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
+        <p class="mb-4"></p>
+          <div class="d-flex justify-content-center">
+            <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
+            <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+          </div>
       </div>
     </div>
   </div>
 </div>
 <!-- About End -->
+
+</p>
+
+他の方の使用されている歯ブラシの閲覧も出来るほか、LINEアカウントを友達登録することでお知らせを受け取れます。
