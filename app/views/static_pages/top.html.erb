@@ -33,10 +33,10 @@
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12">
         <h1 class="mb-4">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
-        <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。</p>
-        <p>下のボタンをクリックして<br class="d-sm-none"/>このアプリを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
-        <p class="mb-4"></p>
-        <div class="d-flex justify-content-center">
+        <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。<br class="d-none d-lg-block"/>
+           アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
+        <div class="d-flex pt-3">
+          <p class="me-3" id="line-friend-text">ボタンをクリックして友達追加</p>
           <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
