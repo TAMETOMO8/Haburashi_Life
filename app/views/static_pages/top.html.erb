@@ -36,11 +36,14 @@
         <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。</p>
         <p>下のボタンをクリックして<br class="d-sm-none"/>このアプリを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
         <p class="mb-4"></p>
-          <div class="d-flex justify-content-center">
-            <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
-            <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-          </div>
+        <div class="d-flex justify-content-center">
+          <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
+          <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+          <P class="me-3" id="line-friend-text">QRコードでの友達追加はこちら</P>
           <a href="https://lin.ee/2jlm07B"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+        </div>
       </div>
     </div>
   </div>
