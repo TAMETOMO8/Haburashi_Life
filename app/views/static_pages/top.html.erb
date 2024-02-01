@@ -35,14 +35,14 @@
         <h1 class="mb-4">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
         <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。<br class="d-none d-lg-block"/>
            アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
-        <div class="d-flex pt-3">
-          <p class="me-3" id="line-friend-text">ボタンをクリックして友達追加</p>
+        <div class="d-flex align-items-center pt-3">
+          <p class="me-3 my-2" id="line-friend-text">ボタンをクリックして友だち追加</p>
           <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
-        <div class="d-flex justify-content-center mt-2">
-          <P class="me-3" id="line-friend-text">QRコードでの友達追加はこちら</P>
-          <a href="https://lin.ee/2jlm07B"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+        <div class="d-flex align-items-center mt-2">
+          <P class="me-3 mb-0" id="line-friend-text">QRコードでの友だち追加はこちら</P>
+          <a href="https://lin.ee/2jlm07B"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36"></a>
         </div>
       </div>
     </div>
