@@ -1,26 +1,24 @@
 <div class='top-wrapper'>
-  <div class='top-inner-text'>
-    <div class='text-center pt-5'>
-      <h1 class="mt-3 pt-5" id='top-text'>歯ブラシLife</h1>
-      <h1 id='top-text'>Make up environment!</h1>
+  <div class='container-fluid'>
+    <div class="row">
+      <div class='col-12 col-sm-12 text-center pt-5'>
+        <h1 class="mt-3 pt-5" id='top-text'>歯ブラシLife</h1>
+        <h1 id='top-text'>Make up environment!</h1>
+      </div>
+      <div class='text-center pt-4 pb-2' id='catch-copy'>
+        <h3>歯の環境、みんなで整えませんか？</h4>
+      </div>
+      <div class='text-center pt-4'>
+        <% unless logged_in?%>
+          <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class='text-center pt-4 pb-2' id='catch-copy'>
-    <h3>歯の環境、みんなで整えませんか？</h4>
-  </div>
-  <div class='text-center pt-4'>
-    <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL"   data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>" style="display: none;"></div>
-    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-    <% unless logged_in?%>
-      <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
-    <% end %>
-    <%= link_to "みんなの歯ブラシ", toothbrushes_path, class:"btn btn-dark" , id:'toothbrushes-index-button' %>
-    <%#= link_to "使い方を見る", tutorial_path, id:'top-link' %>
   </div>
 </div>
 
 <!-- About Start -->
-<div class="container-fluid py-5 my-5">
+<div class="container-fluid">
   <div class="container pt-5">
     <div class="row g-5">
       <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
@@ -31,7 +29,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-7 col-md-6 col-sm-12">
+      <div class="col-lg-7 col-md-6 col-sm-12 text-center">
         <h1 class="mb-4">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
         <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。<br class="d-none d-lg-block"/>
            アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
