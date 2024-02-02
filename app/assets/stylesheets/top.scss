@@ -7,8 +7,16 @@
 }
 
 #top-text {
-  color: rgb(8, 27, 64);
-  font-size: 500%;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 470%;
+  text-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+
+@media (max-width: 520px) {
+  #top-text {
+  font-size: 370%;
+  }
 }
 
 #catch-copy {
