@@ -41,4 +41,8 @@
 
 .all-body {
   background-color: #F4F9FA;
+  // この下はフッターを画面下に固定するために追加したが、これにより今後の追加要素に悪影響が出ないか注意が必要
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
