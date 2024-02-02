@@ -1,8 +1,8 @@
 <table class="table table-bordered">
-  <thead class="table-light">
+  <thead class="table-light text-center">
     <tr>
       <th scope="col">画像</th>
-      <th scope="col" width="40%">名前</th>
+      <th scope="col">名前</th>
       <th scope="col">材質</th>
       <th scope="col">柔らかさ</th>
       <th scope="col">使用状況</th>
@@ -10,7 +10,7 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody class="align-baseline">
+  <tbody class="align-baseline text-center">
     <tr>
       <td>
         <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
