@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= '歯ブラシの編集' %></h1>
-      <p><%= link_to @toothbrush.item_name, @toothbrush.item_url %>
+      <p><%= @toothbrush.item_name %></P>
+      <P><%= link_to @toothbrush.item_url, 'ブラシのことがわからない時はこちらをクリック' %></P>
       <%= form_with model: @toothbrush, local: true do |f| %>
         <%= render 'shared/error_message', object: f.object %>
         <div class="form-group mb-2">
