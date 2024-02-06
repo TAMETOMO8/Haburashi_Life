@@ -21,8 +21,25 @@
         <h4><%= "これまでに使用された歯ブラシ"%></h4>
       <% end %>
     </div>
-    <div class="table-responsive-lg">
-      <%= render partial: "user_toothbrushes", collection: @user.toothbrushes, as: :toothbrush %>
+    <div class="row">
+      <div class="col-12 table-responsive-lg">
+        <table class="table">
+          <thead class="thead-primary text-center">
+            <tr>
+              <th>&nbsp;</th>
+              <th>名前</th>
+              <th>材質</th>
+              <th>柔らかさ</th>
+              <th>使用状況</th>
+              <th>使用終了日</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody class="align-baseline text-center">
+            <%= render partial: "user_toothbrushes", collection: @user.toothbrushes, as: :toothbrush %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
