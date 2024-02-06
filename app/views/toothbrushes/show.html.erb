@@ -10,26 +10,26 @@
             <%= image_tag @toothbrush.item_image_urls, size: '128x128' %>
           </div>
           <div class="card-body" id="index-card">
-            <p class="card-title text-center">
+            <p class="card-title">
               <%= @toothbrush.item_name %>
             </p>
             <ul class="list-group">
               <li class="list-group-item text-center">
-                <%= "使っている人:#{@toothbrush.user.name}" %>
+                <%= "使っている人: #{@toothbrush.user.name}" %>
                 <p class="pt-2"><%= link_to "このユーザーの詳細を見る", user_path(@toothbrush.user)%></p>
               </li>
               <li class="list-group-item text-center">
-                <%= "使用状況:#{@toothbrush.state_i18n}" %>
+                <%= "使用状況 : #{@toothbrush.state_i18n}" %>
               </li>
               <li class="list-group-item text-center">
-                <%= "ブラシの材質:#{@toothbrush.brush_material_i18n}" %>
+                <%= "ブラシの材質 : #{@toothbrush.brush_material_i18n}" %>
               </li>
               <li class="list-group-item text-center">
-                <%= "ブラシのやわらかさ:#{@toothbrush.hardness_i18n}" %>
+                <%= "ブラシのやわらかさ : #{@toothbrush.hardness_i18n}" %>
               </li>
               <% if @toothbrush.end_use_at %>
                 <li class="list-group-item text-center">
-                  <%= "使用終了日: #{@toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
+                  <%= "使用終了日 : #{@toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
                 </li>
               <% end %>
               <% if @toothbrush.user == current_user %>
