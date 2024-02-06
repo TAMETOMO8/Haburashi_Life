@@ -5,7 +5,7 @@
         <%= link_to root_path, class: "navbar-brand" do %>
           <h1 class="text-white fw-bold d-block">歯ブラシLife!</h1>
         <% end %>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" id="toothbrush-menu-button">
           <span>メニュー</span>
         </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
@@ -18,7 +18,7 @@
             <% end %>
             <% if logged_in? %>
             <div class="nav-item dropdown">
-              <button type="button" class="btn btn-dark dropdown-toggle my-2 me-4 pe-2" 
+              <button type="button" class="btn dropdown-toggle my-2 me-4 pe-2" 
                       data-bs-toggle="dropdown" id="toothbrush-menu-button">
                 歯ブラシ
               </button>
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="nav-item dropdown">
-              <button type="button" class="btn btn-dark dropdown-toggle my-2 pe-3" 
+              <button type="button" class="btn dropdown-toggle my-2 pe-3" 
                       data-bs-toggle="dropdown" id="user-menu-button">
                 ユーザー
               </button>
