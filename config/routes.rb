@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#top'
   get 'user_show_from_richmenu', to: 'static_pages#user_show_from_richmenu'
-  get 'terms_of_use', to: 'static_pages#terms_of_use'
+  get 'terms', to: 'static_pages#terms'
   get 'privacy_policy', to: 'static_pages#privacy_policy'
   get 'tutorial', to: 'static_pages#tutorial'
   get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search', as: 'dental_items_search'
