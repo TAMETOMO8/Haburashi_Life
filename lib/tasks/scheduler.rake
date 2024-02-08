@@ -7,13 +7,10 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       user = toothbrush.user
       line_user_id = user.line_user_id
 
-      recycling_url = 'https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/'
       edit_url = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
-      message_text = "次の歯ブラシを交換する時が来ました・・・\n\n#{toothbrush.item_name}\n
-      ところで、歯ブラシはリサイクルが可能なことをご存知でしょうか?歯ブラシのリサイクルで地球環境の改善に繋がりますので、ぜひこの機会にリサイクルしてみてください!
-      \nリサイクルプログラムのページ:#{recycling_url}\nまたは、掃除道具として使うことで部屋の環境を改善するのもいいですね!
-      \nそれでは、このページから歯ブラシをどうするか決めましょう!\n#{edit_url}"
+      message_text = "歯ブラシの交換のお知らせです！\n\n#{toothbrush.item_name}\n
+      使い終わったあとはどうするか、次のURLから決めましょう！\n#{edit_url}"
 
       LineMessage.send_message_to_user(line_user_id, message_text)
       toothbrush.update!(state: :end_used)
@@ -30,7 +27,7 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
 
       edit_url = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
-      message_text = "次の歯ブラシを登録して3日が経ちました!\n\n#{toothbrush.item_name}\n
+      message_text = "次の歯ブラシを使い始めて3日が経ちました!\n\n#{toothbrush.item_name}\n
       もしよろしければ、使ってみた感想をコメントしてみてください！
       \n\n\n編集ページに移動する\n#{edit_url}"
 
