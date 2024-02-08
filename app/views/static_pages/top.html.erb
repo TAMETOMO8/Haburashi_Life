@@ -6,7 +6,7 @@
         <h1 id='top-text'>Make up environment!</h1>
       </div>
       <div class='text-center pt-4 pb-2' id='catch-copy'>
-        <h3>歯の環境、みんなで整えませんか？</h4>
+        <h3>環境、みんなで整えませんか？</h4>
       </div>
       <div class='text-center pt-4'>
         <% unless logged_in?%>
@@ -50,7 +50,7 @@
   <div class="container pt-5">
     <div class="row g-5">
       <div class="col-lg-7 col-md-6 col-sm-12">
-        <h1 class="mb-4">使いたい歯ブラシを検索しましょう。</h1>
+        <h1 class="mb-4">まずは使いたい歯ブラシを検索しましょう！</h1>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
         <div class="h-100 position-relative">
@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12">
-        <h1 class="mb-4">歯ブラシが見つかったら、歯ブラシの情報と使い終わる日を入力</h1>
+        <h1 class="mb-4">歯ブラシが見つかったら、歯ブラシの情報と使い終わる日を入力！</h1>
       </div>
     </div>
   </div>
@@ -113,11 +113,19 @@
         </div>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12">
-        <h1>歯ブラシはリサイクルができます！</h1>
+        <h1>そうです、歯ブラシはリサイクルができます！</h1>
         <P>LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</P>
-        <p>リサイクルプログラムについての記事と、リサイクルが行われている場所の地図を載せていますので、是非確認してみてください。</p>
+        <p>リサイクルプログラムについてのページと、リサイクルが行われている場所の地図をご案内します。是非確認してみてください!</p>
         <P>もしかしたら、あなたのお家の近くでリサイクルが行われているかもしれません・・・</P>
       </div>
     </div>
   </div>
+</div>
+
+<p>説明は以上です。それでは、歯と地球をきれいにしていきましょう！</p>
+
+<div class='text-center pt-4'>
+  <% unless logged_in?%>
+    <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
+  <% end %>
 </div>
