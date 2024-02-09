@@ -10,7 +10,7 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       edit_url = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
       message_text = "歯ブラシの交換のお知らせです！\n\n#{toothbrush.item_name}\n
-      使い終わったあとはどうするか、次のURLから決めましょう！\n#{edit_url}"
+      使い終わったあとはどうするか、編集ページで決めましょう！\n#{edit_url}"
 
       LineMessage.send_message_to_user(line_user_id, message_text)
       toothbrush.update!(state: :end_used)

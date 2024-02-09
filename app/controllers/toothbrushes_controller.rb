@@ -93,7 +93,7 @@ class ToothbrushesController < ApplicationController
 
   def register_message
     line_user_id = current_user.line_user_id
-    message_text = "新しい歯ブラシが登録されました!大切に使ってあげてください!\n歯ブラシの使用終了日を決めると、終了日が来た際にお知らせいたしますのでお待ちください!"
+    message_text = "新しい歯ブラシが登録されました!\n\n#{@toothbrush.item_name}\n\n歯ブラシの使用終了日が来た際に改めてお知らせいたします!"
     LineMessage.send_message_to_user(line_user_id, message_text)
   end
 end
