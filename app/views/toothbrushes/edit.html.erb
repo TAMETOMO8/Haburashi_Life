@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-lg-2" id="edit-form">
-      <h1><%= "歯ブラシの編集" %></h1>
+      <h1 class="text-center mt-4"><%= "歯ブラシの編集" %></h1>
       <diV class="d-flex align-items-center">
         <%= image_tag  @toothbrush.item_image_urls, size: "128x128"%>
         <p><%= @toothbrush.item_name %></p>
@@ -12,12 +12,12 @@
         <div class="form-group mb-2">
           <%= f.label :brush_material, "ブラシの材質" %>
           <%= f.select :brush_material, Toothbrush.brush_materials_i18n.invert.map{|key, value| [key, value]}, 
-                                        { selected: 'nylon_hair' }, class: 'form-control' %>
+                                        { selected: @toothbrush.brush_material }, class: 'form-select' %>
         </div>
         <div class="form-group mb-2">
           <%= f.label :hardness, "ブラシのかたさ" %>
           <%= f.select :hardness, Toothbrush.hardnesses_i18n.invert.map{|key, value| [key, value]}, 
-                                  { selected: 'normal' }, class: 'form-control' %>
+                                  { selected: @toothbrush.hardness }, class: 'form-select' %>
         </div>
         <div class="form-group mb-3">
           <%= f.label :end_use_at, @toothbrush.end_use_at ? "現在の使用終了日" : "使用終了日(目安として一ヶ月後の日付を表示しています)" %>
