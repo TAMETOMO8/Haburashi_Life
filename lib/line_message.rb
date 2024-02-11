@@ -9,7 +9,7 @@ module LineMessage
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     end
 
-    message = {
+    flex_message = {
       "type": "flex",
       "altText": alt_text,
       "contents": {
@@ -21,7 +21,9 @@ module LineMessage
             {
               "type": "text",
               "weight": "bold",
-              "text": header_text
+              "text": header_text,
+              "size": "lg",
+              "wrap": true
             }
           ],
           "alignItems": "center"
@@ -75,7 +77,7 @@ module LineMessage
       }
     }
 
-    response = client.push_message(line_user_id, message)
+    response = client.push_message(line_user_id, flex_message)
     p response
   end
 end
