@@ -4,15 +4,18 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
     require 'line_message'
 
     Toothbrush.end_toothbrushed.each do |toothbrush|
-      user = toothbrush.user
-      line_user_id = user.line_user_id
+      line_user_id = toothbrush.user.line_user_id
 
-      edit_url = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
+      alt_text = "交換日が来た歯ブラシがあります"
+      header_text = "歯ブラシの交換のお知らせです！"
+      hero_image = toothbrush.item_image_urls.to_s
+      item_name = toothbrush.item_name.to_s
+      contents_text = "使い終わったあとはどうするかを決めましょう！"
+      label_text = "使い方を決める"
+      link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}"
 
-      message_text = "歯ブラシの交換のお知らせです！\n\n#{toothbrush.item_name}\n
-      使い終わったあとはどうするか、編集ページで決めましょう！\n#{edit_url}"
-
-      LineMessage.send_message_to_user(line_user_id, message_text)
+      LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                       contents_text, label_text, link_uri)
       toothbrush.update!(state: :end_used)
     end
   end
@@ -22,17 +25,20 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
     require 'line_message'
 
     Toothbrush.using_threedays.each do |toothbrush|
-      user = toothbrush.user
-      line_user_id = user.line_user_id
 
-      edit_url = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
+      line_user_id = toothbrush.user.line_user_id
 
-      message_text = "次の歯ブラシを使い始めて3日が経ちました!\n\n#{toothbrush.item_name}\n
-      もしよろしければ、使ってみた感想をコメントしてみてください！
-      \n\n\n編集ページに移動する\n#{edit_url}"
+      alt_text = "歯ブラシの使い心地をコメントしてみましょう！"
+      header_text = "この歯ブラシを使い始めて3日が経ちました!"
+      hero_image = toothbrush.item_image_urls.to_s
+      item_name = toothbrush.item_name.to_s
+      contents_text = "使ってみた感想をコメントしてみましょう！"
+      label_text = "コメントを書く"
+      link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
       if toothbrush.comment_notice == 'false'
-        LineMessage.send_message_to_user(line_user_id, message_text)
+        LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                         contents_text, label_text, link_uri)
         toothbrush.update!(comment_notice: 'true')
       end
     end
