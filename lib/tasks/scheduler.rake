@@ -25,7 +25,6 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
     require 'line_message'
 
     Toothbrush.using_threedays.each do |toothbrush|
-
       line_user_id = toothbrush.user.line_user_id
 
       alt_text = "歯ブラシの使い心地をコメントしてみましょう！"
@@ -36,11 +35,31 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       label_text = "コメントを書く"
       link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
-      if toothbrush.comment_notice == 'false'
+      if toothbrush.comment_notice == 'false' # rubocop:disable Style/Next
         LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
                                          contents_text, label_text, link_uri)
         toothbrush.update!(comment_notice: 'true')
       end
+    end
+  end
+
+  desc '使用開始前の歯ブラシを持つユーザーにメッセージを送る'
+  task notice_not_started: :environment do
+    require 'line_message'
+
+    Toothbrush.not_started.each do |toothbrush|
+      line_user_id = toothbrush.user.line_user_id
+
+      alt_text = "使用開始前の歯ブラシがあります"
+      header_text = "この歯ブラシはまだ使用開始前です。"
+      hero_image = toothbrush.item_image_urls.to_s
+      item_name = toothbrush.item_name.to_s
+      contents_text = "歯ブラシを使用する場合は、使用開始ボタンをクリックしましょう！"
+      label_text = "歯ブラシを使い始める"
+      link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
+
+      LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                         contents_text, label_text, link_uri)
     end
   end
 end
