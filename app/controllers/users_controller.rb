@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(:toothbrushes).find(params[:id])
+    @toothbrushes = @user.toothbrushes.order(end_use_at: :asc)
   end
 
   private
