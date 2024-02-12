@@ -30,7 +30,11 @@
             <%= f.text_area :comment, class: 'form-control', placeholder: '100文字まで入力できます。空欄でも問題ありません。', row: 4 %>
           </div>
         <% end %>
-        <%= f.submit "決定", class: 'btn btn-primary mb-4' %>
+        <% if @toothbrush.not_started? %>
+          <%= f.submit "使用開始", class: 'btn btn-primary mb-4' %>
+        <% else %>
+          <%= f.submit "決定", class: 'btn btn-primary mb-4' %>
+        <% end %>
       <% end %>
     </div>
   </div>
