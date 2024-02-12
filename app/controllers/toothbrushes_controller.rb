@@ -1,5 +1,6 @@
 class ToothbrushesController < ApplicationController
   include RakutenSearch #controllers/concerns/rakuten_search.rb
+  include ToothbrushesHelper
   require 'line_message'
   before_action :require_login, only: %i[edit new search]
   before_action :set_toothbrush, only: %i[show edit update update_state]
