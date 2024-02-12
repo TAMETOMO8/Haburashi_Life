@@ -93,7 +93,14 @@ class ToothbrushesController < ApplicationController
 
   def register_message
     line_user_id = current_user.line_user_id
-    message_text = "新しい歯ブラシが登録されました!\n\n#{@toothbrush.item_name}\n\n歯ブラシの使用終了日が来た際に改めてお知らせいたします!"
-    LineMessage.send_message_to_user(line_user_id, message_text)
+    alt_text = "新しい歯ブラシが登録されました！"
+    header_text = "新しい歯ブラシの登録です!"
+    hero_image = @toothbrush.item_image_urls.to_s
+    item_name = @toothbrush.item_name.to_s
+    contents_text = "歯ブラシの使用終了日を決めると、終了日が来た際にお知らせいたします!"
+    label_text = "歯ブラシの設定を確認する"
+    link_uri = "https://www.haburashi-life.com#{edit_toothbrush_path(@toothbrush)}"
+    LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                     contents_text, label_text, link_uri)
   end
 end
