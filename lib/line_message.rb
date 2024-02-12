@@ -30,8 +30,7 @@ module LineMessage
         },
         "hero": {
           "type": "image",
-          "url": hero_image,
-          "size": "full"
+          "url": hero_image
         },
         "body": {
           "type": "box",
