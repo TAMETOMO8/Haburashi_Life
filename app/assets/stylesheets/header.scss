@@ -1,38 +1,37 @@
 header {
   /*background-color: rgb(8, 175, 193);*/
-  background-color: #69BD83;
+  background-color: rgb(255, 255, 255);
 }
 
 #login-button {
-  background-color: rgb(237, 202, 142);
-  border-color: rgb(237, 202, 142);
-  color: rgb(0, 0, 0);
+  color: rgb(10, 191, 4);
+  font-weight: bold;
 }
 
 #login-button:hover {
-  background-color: rgb(230, 177, 85);
-  border-color: rgb(230, 177, 85);
+  background-color: rgb(231, 231, 231);
+  color: rgb(10, 191, 4);
+  font-weight: bold;
 }
 
 #toothbrush-menu-button{
-  background-color: rgb(17, 115, 196);
-  border-color: rgb(17, 115, 196);
+  background-color: rgb(10, 191, 4);
+  border-color: rgb(10, 191, 4);
   color: rgb(255, 255, 255);
 }
 
 #toothbrush-menu-button:hover {
-  background-color: rgb(28, 153, 255);
-  border-color: rgb(28, 153, 255);
+  background-color: rgb(9, 206, 2);
+  border-color: rgb(9, 206, 2);
 }
 
 #user-menu-button{
-  background-color: rgb(237, 202, 142);
-  border-color: rgb(237, 202, 142);
+  border-color: rgb(10, 191, 4);
+  border-width: thick;
   color: rgb(0, 0, 0);
 }
 
 #user-menu-button:hover {
-  background-color: rgb(230, 177, 85);
-  border-color: rgb(230, 177, 85);
+  background-color: rgb(10, 191, 4);
   color: rgb(0, 0, 0);
 }
