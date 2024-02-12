@@ -24,10 +24,10 @@ module RakutenSearch
   def set_genre_ids
     if self.is_a?(ToothbrushesController)
       @genre_ids = toothbrushes_genre_ids
-      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか デンタルジェル 替えブラシ 替ブラシ シェーバー 最安値]
+      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか デンタルジェル 替えブラシ 替ブラシ シェーバー 最安値 セット]
     elsif self.is_a?(DentalItemsController)
       @genre_ids = dental_items_genre_ids
-      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか 最安値]
+      @ng_keywords = %w[セール アソート クーポン 送料 メール便 倍 納期 どれか 最安値 セット]
     end
   end
 
