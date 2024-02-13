@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class TopPagesController < ApplicationController
   before_action :require_login, only: %i[user_show_from_richmenu]
   before_action :skip_login, only: %i[user_show_from_richmenu]
   def top

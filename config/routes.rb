@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root 'static_pages#top'
-  get 'user_show_from_richmenu', to: 'static_pages#user_show_from_richmenu'
-  get 'terms', to: 'static_pages#terms'
-  get 'privacy_policy', to: 'static_pages#privacy_policy'
-  get 'tutorial', to: 'static_pages#tutorial'
+  root 'top_pages#top'
+  get 'user_show_from_richmenu', to: 'top_pages#user_show_from_richmenu'
+  get 'terms', to: 'top_pages#terms'
+  get 'privacy_policy', to: 'top_pages#privacy_policy'
+  get 'tutorial', to: 'top_pages#tutorial'
   get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search', as: 'dental_items_search'
   get 'toothbrush/search', to: 'toothbrushes#search'
   get 'user_sessions/login', to: 'user_sessions#login'
