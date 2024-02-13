@@ -1,14 +1,14 @@
-<div class='top-wrapper'>
-  <div class='container-fluid'>
+<div class="top-wrapper">
+  <div class="container-fluid">
     <div class="row">
-      <div class='col-12 col-sm-12 text-center pt-5'>
-        <h1 class="mt-3 pt-5" id='top-text'>歯ブラシLife</h1>
-        <h1 id='top-text'>Make up environment!</h1>
+      <div class="col-12 col-sm-12 text-center pt-5">
+        <h1 class="mt-3 pt-5" id="top-text">歯ブラシLife</h1>
+        <h1 id="top-text">Make up environment!</h1>
       </div>
-      <div class='text-center pt-4 pb-2' id='catch-copy'>
+      <div class="text-center pt-4 pb-2" id="catch-copy">
         <h3>環境、みんなで整えませんか？</h4>
       </div>
-      <div class='text-center pt-4'>
+      <div class="text-center pt-4">
         <% unless logged_in?%>
           <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link" %>
         <% end %>
@@ -29,7 +29,7 @@
            アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
         <div class="d-flex align-items-center pt-3">
           <p class="me-3 my-2" id="line-friend-text">ボタンをクリックして友だち追加</p>
-          <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV['LINE_OFFICIAL_ID'] %>"></div>
+          <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV["LINE_OFFICIAL_ID"] %>"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
         <div class="d-flex align-items-center mt-2">
@@ -109,8 +109,8 @@
 
 <h3 class="text-center">説明は以上です。歯も地球もきれいにしましょう！</h3>
 
-<div class='text-center py-4'>
+<div class="text-center py-4">
   <% unless logged_in?%>
-    <%= link_to "LINEでログイン", user_sessions_login_path, class:'top-link' %>
+    <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link" %>
   <% end %>
 </div>
