@@ -10,7 +10,7 @@
       </div>
       <div class='text-center pt-4'>
         <% unless logged_in?%>
-          <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
+          <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link" %>
         <% end %>
       </div>
     </div>
@@ -99,8 +99,8 @@
         <h1>そうです、<br class="d-none d-lg-block"/>歯ブラシはリサイクルができます！</h1>
         <p>LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</p>
         <p>リサイクルプログラムについてのページと、リサイクルが行われている場所の地図をご案内します。是非確認してみてください!</p>
-        <%= link_to "リサイクルプログラムについて", "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", id:'top-link', class:"me-2" %>
-        <%= link_to "リサイクルが行われている場所", "https://www.google.com/maps/d/u/0/viewer?mid=1vfm_m3NM73IKEE5VYVRhkV1q_La1juz0&hl=ja&ll=33.868659968878575%2C132.5573857&z=6", id:'top-link', class:"ms-2" %>
+        <%= link_to "リサイクルプログラムについて", "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", class:"me-2 top-link" %>
+        <%= link_to "リサイクルが行われている場所", "https://www.google.com/maps/d/u/0/viewer?mid=1vfm_m3NM73IKEE5VYVRhkV1q_La1juz0&hl=ja&ll=33.868659968878575%2C132.5573857&z=6", class:"ms-2 top-link" %>
         <p>もしかしたら、あなたのお家の近くでリサイクルが行われているかもしれません・・・</p>
       </div>
     </div>
@@ -111,6 +111,6 @@
 
 <div class='text-center py-4'>
   <% unless logged_in?%>
-    <%= link_to "LINEでログイン", user_sessions_login_path, id:'top-link' %>
+    <%= link_to "LINEでログイン", user_sessions_login_path, class:'top-link' %>
   <% end %>
 </div>
