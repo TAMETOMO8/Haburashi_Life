@@ -12,7 +12,7 @@ module RakutenSearch
                                                        NGKeyword: @ng_keywords.join(' ')).to_a
       @results.concat(results)
     end
-    @results
+    p @results
   end
 
   def paginate_results
