@@ -61,12 +61,8 @@ group :development do
   gem "web-console"
 
   gem "byebug"
-
   gem 'rubocop-rails'
   gem 'rubocop'
-
-
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -92,3 +88,4 @@ gem 'bootstrap5-kaminari-views', '0.0.1' #https://github.com/felipecalvo/bootstr
 gem 'rails-i18n', '7.0.8'
 gem 'enum_help'
 gem 'ransack'
+gem 'meta-tags'
