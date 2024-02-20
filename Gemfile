@@ -89,3 +89,6 @@ gem 'rails-i18n', '7.0.8'
 gem 'enum_help'
 gem 'ransack'
 gem 'meta-tags'
+
+gem 'redis'
+gem 'sidekiq'
