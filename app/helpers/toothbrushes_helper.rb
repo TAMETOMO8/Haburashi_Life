@@ -23,4 +23,8 @@ module ToothbrushesHelper
     (Time.current - 3.days > toothbrush.created_at && toothbrush.state != toothbrush.not_started?) ||
       (toothbrush.end_used? || toothbrush.cleaning? || toothbrush.recycling?)
   end
+
+  def not_end_used(toothbrush)
+    toothbrush.not_started? || toothbrush.using?
+  end
 end
