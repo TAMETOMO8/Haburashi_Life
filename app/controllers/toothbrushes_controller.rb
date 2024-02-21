@@ -38,7 +38,7 @@ class ToothbrushesController < ApplicationController
       redirect_to new_toothbrush_path, status: :unprocessable_entity, danger: 'すでに登録されています'
     else
       @toothbrush.save!
-      register_message
+      push_register_message
       redirect_to edit_toothbrush_path(@toothbrush), success: '歯ブラシが選択されました！続けてブラシの素材、やわらかさ、使い終わる日を決めましょう！'
     end
   end
@@ -92,7 +92,7 @@ class ToothbrushesController < ApplicationController
     params[:toothbrush][:comment] = '' if params[:toothbrush][:comment].blank?
   end
 
-  def register_message
+  def push_register_message
     line_user_id = current_user.line_user_id
     alt_text = "新しい歯ブラシが登録されました！"
     header_text = "新しい歯ブラシの登録です!"
