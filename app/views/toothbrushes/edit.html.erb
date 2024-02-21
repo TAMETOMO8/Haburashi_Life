@@ -18,12 +18,8 @@
           <%= f.select :hardness, hardness_text, { selected: @toothbrush.hardness }, class: 'form-select' %>
         </div>
         <div class="form-group mb-3">
-        <% if not_end_used(@toothbrush) %>
           <%= f.label :end_use_at, end_use_at_text(@toothbrush) %>
-          <%= f.date_field :end_use_at, class: 'form-control', value: display_end_use_at(@toothbrush) %>
-        <% else %>
-          <p class="pt-2">使い終わった日 : <%= @toothbrush.end_use_at.strftime('%Y-%m-%d') %></p>
-        <% end %>
+          <%= f.date_field :end_use_at, class: 'form-control', value: display_end_use_at(@toothbrush), readonly: only_not_end_used(@toothbrush) %>
         </div>
         <% if using_3days(@toothbrush) %>
           <div class="form-group mb-2">

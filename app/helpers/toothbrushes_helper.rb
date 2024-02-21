@@ -1,6 +1,12 @@
 module ToothbrushesHelper
   def end_use_at_text(toothbrush)
-    toothbrush.end_use_at ? '現在の使用終了日' : '使用終了日(目安として一ヶ月後の日付を表示しています)'
+    if toothbrush.using?
+      '現在の使用終了日'
+    elsif toothbrush.not_started?
+      '使用終了日(目安として一ヶ月後の日付を表示しています)'
+    else
+      '使い終わった日'
+    end
   end
 
   def brush_material_text
@@ -24,7 +30,11 @@ module ToothbrushesHelper
       (toothbrush.end_used? || toothbrush.cleaning? || toothbrush.recycling?)
   end
 
-  def not_end_used(toothbrush)
-    toothbrush.not_started? || toothbrush.using?
+  def only_not_end_used(toothbrush)
+    if toothbrush.not_started? || toothbrush.using?
+      false
+    else
+      true
+    end
   end
 end
