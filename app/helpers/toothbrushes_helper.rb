@@ -30,7 +30,7 @@ module ToothbrushesHelper
       (toothbrush.end_used? || toothbrush.cleaning? || toothbrush.recycling?)
   end
 
-  def only_not_end_used(toothbrush)
+  def not_end_used_only(toothbrush)
     if toothbrush.not_started? || toothbrush.using?
       false
     else
