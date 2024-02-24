@@ -22,4 +22,6 @@ Rails.application.routes.draw do
     get :index_search, on: :collection
   end
   resources :users, only: %i[edit update show]
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
