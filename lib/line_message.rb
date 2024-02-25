@@ -1,8 +1,8 @@
 module LineMessage
   module_function
 
-  def send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
-    contents_text, label_text, link_uri)
+  def send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name, # rubocop:disable Metrics/MethodLength,Metrics/ParameterLists
+                           contents_text, label_text, link_uri)
     require 'line/bot'
     client = Line::Bot::Client.new do |config|
       config.channel_secret = ENV['LINE_CHANNEL_SECRET']
