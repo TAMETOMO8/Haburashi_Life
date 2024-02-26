@@ -1,7 +1,8 @@
 class ExchangeBrushJob < ApplicationJob
   queue_as :default
+  require 'line_message'
 
-  def perform(toothbrush)
+  def perform(toothbrush) # rubocop:disable Metrics/MethodLength
     # Do something later
     toothbrush = Toothbrush.find(toothbrush)
     line_user_id = toothbrush.user.line_user_id
