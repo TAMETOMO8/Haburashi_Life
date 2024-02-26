@@ -17,22 +17,6 @@ class Toothbrush < ApplicationRecord
   scope :used, -> { where.not(state: :not_started) }
   scope :using_threedays, -> { used.where('created_at <= ?', Time.current - 3.days) }
 
-  def exchange_brush # rubocop:disable Metrics/MethodLength
-    line_user_id = toothbrush.user.line_user_id
-
-    alt_text = "交換日が来た歯ブラシがあります"
-    header_text = "歯ブラシの交換のお知らせです！"
-    hero_image = toothbrush.item_image_urls.to_s
-    item_name = toothbrush.item_name.to_s
-    contents_text = "使い終わったあとはどうするかを決めましょう！"
-    label_text = "使い方を決める"
-    link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}"
-
-    LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
-                                      contents_text, label_text, link_uri)
-    toothbrush.update!(state: :end_used)
-  end
-
   def comment_notice_and_update # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     line_user_id = toothbrush.user.line_user_id
 
@@ -67,12 +51,8 @@ class Toothbrush < ApplicationRecord
   end
 
   def push_line_message
-    if end_toothbrushed?
-      ExchangeBlushJob.set(wait_until: end_toothbrushed).perform_later(self)
-    elsif using_threedays?
-      CommentNoticeJob.set(wait_until: using_threedays).perform_later(self)
-    elsif not_started?
-      NoticeNotStartedJob.set(wait_until: 1.days).perform_later(self)
-    end
+    ExchangeBrushJob.perform_later(self)
+    CommentNoticeJob.perform_later(self)
+    NoticeNotStartedJob.perform_later(self)
   end
 end
