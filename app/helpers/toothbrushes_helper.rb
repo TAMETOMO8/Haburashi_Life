@@ -37,4 +37,16 @@ module ToothbrushesHelper
       true
     end
   end
+
+  def border_color(toothbrush)
+    if toothbrush.recycling?
+      "border-info"
+    elsif toothbrush.cleaning?
+      "border-success"
+    elsif toothbrush.using?
+      "border-primary"
+    elsif toothbrush.end_used?
+      "border-dark"
+    end
+  end
 end
