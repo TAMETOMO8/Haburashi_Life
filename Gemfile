@@ -92,3 +92,4 @@ gem 'meta-tags'
 
 gem 'redis'
 gem 'sidekiq'
+gem 'foreman'
