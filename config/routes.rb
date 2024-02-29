@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'user_show_from_richmenu', to: 'top_pages#user_show_from_richmenu'
   get 'terms', to: 'top_pages#terms'
   get 'privacy_policy', to: 'top_pages#privacy_policy'
+  get 'contact', to: 'top_pages#contact'
   get 'tutorial', to: 'top_pages#tutorial'
   get 'toothbrush/:toothbrush_id/dental_item/search', to: 'dental_items#search', as: 'dental_items_search'
   get 'toothbrush/search', to: 'toothbrushes#search'
