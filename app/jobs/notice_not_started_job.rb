@@ -1,8 +1,7 @@
 class NoticeNotStartedJob < ApplicationJob
   queue_as :default
 
-  def perform(toothbrush)
+  def perform(*args)
     # Do something later
-    toothbrush.notice_not_started
   end
 end
