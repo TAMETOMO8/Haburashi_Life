@@ -1,6 +1,7 @@
 class ExchangeBrushJob < ApplicationJob
   queue_as :default
-  require 'line_message'
 
-  def perform(*args); end
+  def perform(*args)
+    # Do something later
+  end
 end
