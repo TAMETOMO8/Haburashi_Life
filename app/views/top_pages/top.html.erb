@@ -24,16 +24,16 @@
         <%= image_tag "application_guide.png", class:"img-fluid mb-1 mt-3" %>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
-        <h1 class="mb-4">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
-        <p>このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。<br class="d-none d-lg-block"/>
-           アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。ぜひご利用ください！</p>
-        <div class="d-flex align-items-center pt-3">
-          <p class="me-3 my-2" id="line-friend-text">ボタンをクリックして友だち追加</p>
+        <h1 class="mb-4 tutorial-text">歯ブラシLifeは歯ブラシとデンタルグッズの情報を共有出来るアプリです。</h1>
+        <p class="tutorial-text">このアプリでは、歯ブラシの使用状況の通知にLINEを使用しています。<br class="d-none d-lg-block"/>
+           アプリのLINEアカウントを友だち追加することで、メッセージを受け取れます。<br class="d-none d-lg-block"/>ぜひご利用ください！</p>
+        <div class="d-flex align-items-center pt-3 justify-content-center">
+          <p class="me-3 my-2 tutorial-text" id="line-friend-text">ボタンをクリックして友だち追加</p>
           <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL" data-lineId="<%= ENV["LINE_OFFICIAL_ID"] %>"></div>
           <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
         </div>
-        <div class="d-flex align-items-center mt-2">
-          <P class="me-3 mb-0" id="line-friend-text">QRコードでの友だち追加はこちら</P>
+        <div class="d-flex align-items-center mt-2 justify-content-center">
+          <P class="me-3 mb-0 tutorial-text" id="line-friend-text">QRコードでの友だち追加はこちら</P>
           <a href="https://lin.ee/2jlm07B"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36"></a>
         </div>
       </div>
@@ -49,8 +49,8 @@
   <div class="container pt-5">
     <div class="row g-5 align-items-center">
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
-        <h1 class="mb-4 border-bottom border-dark">まずは使いたい歯ブラシを検索</h1>
-        <p>歯ブラシの名前はもちろん、知っているメーカーで検索してみましょう</p>
+        <h1 class="mb-4 border-bottom border-dark tutorial-text">まずは使いたい歯ブラシを検索</h1>
+        <p class="tutorial-text">歯ブラシの名前はもちろん、知っているメーカーで検索してみましょう</p>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
         <%= image_tag "search_guide.png", class:"img-fluid mb-1 mt-3" %>
@@ -66,8 +66,8 @@
         <%= image_tag "edit_guide.png", class:"img-fluid mb-1 mt-3" %>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
-        <h1 class="mb-4 border-bottom border-dark">歯ブラシが見つかったら、<br class="d-none d-lg-block"/>歯ブラシの情報と使い終わる日を入力</h1>
-        <p>一般的な歯ブラシの交換の目安は1ヶ月ですが、<br class="d-none d-lg-block"/>ご自身のライフスタイルに合った交換時期を探してみるのもいいでしょう</p>
+        <h1 class="mb-4 border-bottom border-dark tutorial-text">歯ブラシが見つかったら、<br class="d-none d-lg-block"/>歯ブラシの情報と使い終わる日を入力</h1>
+        <p class="tutorial-text">一般的な歯ブラシの交換の目安は1ヶ月ですが、<br class="d-none d-lg-block"/>ご自身のライフスタイルに合った交換時期を探してみるのもいいでしょう</p>
       </div>
     </div>
   </div>
@@ -77,8 +77,8 @@
   <div class="container pt-5">
     <div class="row g-5 align-items-center">
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
-        <h1 class="border-bottom border-dark">メッセージを受け取れるようにしていると、使い終わる日がきた際にお知らせいたします。</h1>
-        <p>使い終わったあとは歯ブラシをリサイクルするか、掃除道具として使うか決めましょう！</p>
+        <h1 class="border-bottom border-dark tutorial-text">メッセージを受け取れるようにしていると、使い終わる日にお知らせします。</h1>
+        <p class="tutorial-text">使い終わったあとは歯ブラシをリサイクルするか、掃除道具として使うか決めましょう！</p>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
         <%= image_tag "notice_guide.png", class:"img-fluid mb-1 mt-3" %>
@@ -96,21 +96,23 @@
         </div>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
-        <h1>そうです、<br class="d-none d-lg-block"/>歯ブラシはリサイクルができます！</h1>
-        <p>LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</p>
-        <p>リサイクルプログラムについてのページと、リサイクルが行われている場所の地図をご案内します。是非確認してみてください!</p>
+        <h1 class="tutorial-text">そうです、<br class="d-none d-lg-block tutorial-text"/>歯ブラシはリサイクルができます！</h1>
+        <p class="tutorial-text">LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</p>
         <%= link_to "リサイクルプログラムについて", "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", class:"me-2 top-link" %>
         <%= link_to "リサイクルが行われている場所", "https://www.google.com/maps/d/u/0/viewer?mid=1vfm_m3NM73IKEE5VYVRhkV1q_La1juz0&hl=ja&ll=33.868659968878575%2C132.5573857&z=6", class:"ms-2 top-link" %>
-        <p>もしかしたら、あなたのお家の近くでリサイクルが行われているかもしれません・・・</p>
+        <p class="tutorial-text">この機会に、リサイクルプログラムとリサイクルが行われている場所を是非確認してみてください!</p>
+        <p class="tutorial-text">もしかしたら、あなたのお家の近くでリサイクルが行われているかもしれません・・・</p>
       </div>
     </div>
   </div>
 </div>
 
-<h3 class="text-center">説明は以上です。歯も地球もきれいにしましょう！</h3>
+<h3 class="text-center tutorial-text">説明は以上です。歯も地球もきれいにしましょう！</h3>
 
 <div class="text-center py-4">
-  <% unless logged_in?%>
-    <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link" %>
+  <% if logged_in?%>
+    <%= link_to "みんなの歯ブラシを見る", toothbrushes_path, class:"top-link" %>
+  <% else %>
+    <%= link_to "LINEでログインする", user_sessions_login_path, class:"top-link" %>
   <% end %>
 </div>
