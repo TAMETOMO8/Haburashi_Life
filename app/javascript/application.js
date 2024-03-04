@@ -3,4 +3,4 @@ import "@hotwired/turbo-rails";
 import "controllers";
 import "popper";
 import "bootstrap";
-import "loading_animation";
+import "search_form";

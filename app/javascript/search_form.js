@@ -14,3 +14,16 @@ document.addEventListener('turbo:load', () => {
     });
   }
 });
+
+document.addEventListener('turbo:load', () => {
+  const dropdownItems = document.querySelectorAll('#dropdown-text');
+  const form = document.querySelector('#text-form');
+
+  if (form) {
+    dropdownItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        form.value = item.textContent;
+      });
+    });
+  }
+});
