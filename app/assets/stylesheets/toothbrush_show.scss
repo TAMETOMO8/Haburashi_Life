@@ -1,15 +1,3 @@
-#edit-toothbrush-button {
-  background-color: rgb(146, 90, 248);
-  border-color: rgb(146, 90, 248);
-  color: rgb(255, 255, 255);
-}
-
-#edit-toothbrush-button:hover {
-  background-color: rgb(99, 15, 255);
-  border-color: rgb(99, 15, 255);
-  color: rgb(255, 255, 255);
-}
-
 #dental-item-button {
   background-color: rgb(143, 255, 177);
   border-color: rgb(143, 255, 177);
@@ -22,22 +10,20 @@
   color: rgb(0, 0, 0);
 }
 
-#state-not_started {
-  background-color: rgb(218, 222, 220);
+#state-end_used {
+  color: rgb(147, 147, 147);
 }
 
 #state-using {
-  background-color: rgb(129, 179, 255);
-}
-
-#state-end_used {
-  background-color: rgb(234, 189, 100);
+  color: rgb(0, 85, 212);
 }
 
 #state-cleaning {
-  background-color: rgb(189, 127, 244);
+  color: rgb(212, 148, 0);
+  font-size: 108%;
 }
 
 #state-recycling {
-  background-color: rgb(100, 234, 167);
+  color: rgb(20, 153, 0);
+  font-size: 105%;
 }
