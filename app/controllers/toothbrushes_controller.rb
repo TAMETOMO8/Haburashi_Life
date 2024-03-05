@@ -47,7 +47,7 @@ class ToothbrushesController < ApplicationController
     check_blank
     if @toothbrush.update(toothbrush_params)
       start_used
-      redirect_to user_path(current_user), success: '登録されました！'
+      redirect_to toothbrush_path(@toothbrush), success: '内容が登録されました！'
     else
       render :edit, status: :unprocessable_entity
     end
