@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid" id="edit-page">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2" id="edit-form">
+    <div class="col-lg-8 offset-lg-2 pb-5" id="edit-form">
       <h1 class="text-center mt-4"><%= "歯ブラシの編集" %></h1>
       <diV class="d-flex align-items-center">
         <%= image_tag  @toothbrush.item_image_urls, size: "128x128"%>
@@ -28,9 +28,9 @@
           </div>
         <% end %>
         <% if @toothbrush.not_started? %>
-          <%= f.submit "使用開始", class: 'btn btn-primary mb-4' %>
+          <%= f.submit "使用開始", class: 'btn mb-4', id: 'toothbrush-show-button' %>
         <% else %>
-          <%= f.submit "決定", class: 'btn btn-primary mb-4' %>
+          <%= f.submit "決定", class: 'btn mb-4', id: 'toothbrush-show-button' %>
         <% end %>
       <% end %>
     </div>
