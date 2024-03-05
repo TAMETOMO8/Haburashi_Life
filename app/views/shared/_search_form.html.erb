@@ -1,0 +1,42 @@
+<div class="col col-lg-6 mx-auto">
+  <%= form_with url: url, method: :get, local: true do |f| %>
+    <div class="input-group">
+      <%= f.search_field :keyword, value: params[:keyword], class: "form-control mb-3 mt-2", id: "text-form" %>
+      <%= f.submit '検索', class: "btn btn-success mb-3 mt-2", id: "search-start" %>
+    </div>
+  <% end %>
+</div>
+<div class="row justify-content-center">
+  <div class="col"></div>
+  <div class="col-lg-3 col-md-4 col-sm-5">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle me-lg-5 search-guide-button mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="toothbrush-show-button">
+        主要なメーカーで検索
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" id="search-guide">メーカー名をクリックすると、検索フォームに入力されます!</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">LION</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">花王</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">サンスター</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">エビス</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">アイオニック</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-5">
+    <div class="dropdown">
+      <button class="btn dropdown-toggle search-guide-button mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="toothbrush-show-button">
+        主要なブランドで検索
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" id="search-guide">ブランド名をクリックすると、検索フォームに入力されます!</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">GUM</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">NONIO</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">サンスター</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">エビス</a></li>
+        <li><a class="dropdown-item" id="dropdown-text">アイオニック</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col"></div>
+</div>
