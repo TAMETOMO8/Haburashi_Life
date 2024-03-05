@@ -15,10 +15,10 @@
             </p>
             <ul class="list-group">
               <li class="list-group-item text-center">
-                <%= "使っている人: #{@toothbrush.user.name}" %>
-                <p class="pt-2"><%= link_to "このユーザーの詳細を見る", user_path(@toothbrush.user)%></p>
+                <%= "使っている人 : #{@toothbrush.user.name}さん" %>
+                <p class="pt-2"><%= link_to "ユーザーの詳細を見る", user_path(@toothbrush.user)%></p>
               </li>
-              <li class="list-group-item text-center">
+              <li class="list-group-item text-center" >
                 <%= "使用状況 : #{@toothbrush.state_i18n}" %>
               </li>
               <li class="list-group-item text-center">
@@ -32,6 +32,12 @@
                   <%= "使用終了日 : #{@toothbrush.end_use_at.strftime('%Y-%m-%d')}" %>
                 </li>
               <% end %>
+              <%  if @toothbrush.comment.present? %>
+                <li class="list-group-item">
+                  <p class="text-center">使ってみたコメント</p>
+                  <%= @toothbrush.comment %>
+                </li>
+              <% end %>
               <% if @toothbrush.user == current_user %>
                 <li class="list-group-item text-center">
                   <%= link_to '歯ブラシの編集', edit_toothbrush_path(@toothbrush), 
@@ -41,12 +47,48 @@
                 </li>
                 <% if @toothbrush.end_used? %>
                 <li class="list-group-item text-center d-flex justify-content-center">
-                  <div>
-                    <%= link_to '掃除道具として使う！', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
-                                                                  method: :put, class: 'btn btn-warning me-4' %>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cleaningModal" id='state-cleaning'>
+                    掃除道具として使う！
+                  </button>
+                  <div class="modal fade" id="cleaningModal" tabindex="-1" aria-labelledby="cleaningModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="cleaningModalLabel">本当に掃除道具として使いますか？</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          決定を押すと変更はできません
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                          <%= link_to '決定', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
+                                                                method: :put, class: 'btn', id: 'state-cleaning' %>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <%= link_to 'リサイクルする！', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
-                                                                method: :put, class: 'btn btn-info ms-4' %>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#recyclingModal" id='state-recycling'>
+                    リサイクルする！
+                  </button>
+                  <div class="modal fade" id="recyclingModal" tabindex="-1" aria-labelledby="recyclingModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="recyclingModalLabel">本当にリサイクルしますか？</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          決定を押すと変更はできません
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                          <%= link_to '決定', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
+                                                              method: :put, class: 'btn ms-4', id: 'state-recycling' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <% end %>
               <% end %>
