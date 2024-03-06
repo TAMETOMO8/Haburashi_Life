@@ -47,7 +47,7 @@
                 </li>
                 <% if @toothbrush.end_used? %>
                 <li class="list-group-item text-center d-flex justify-content-center">
-                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cleaningModal" id='state-cleaning'>
+                  <button type="button" class="btn cleaning-button me-2" data-bs-toggle="modal" data-bs-target="#cleaningModal" id='state-cleaning'>
                     掃除道具として使う！
                   </button>
                   <div class="modal fade" id="cleaningModal" tabindex="-1" aria-labelledby="cleaningModalLabel" aria-hidden="true">
@@ -68,7 +68,7 @@
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#recyclingModal" id='state-recycling'>
+                  <button type="button" class="btn recycling-button ms-2" data-bs-toggle="modal" data-bs-target="#recyclingModal" id='state-recycling'>
                     リサイクルする！
                   </button>
                   <div class="modal fade" id="recyclingModal" tabindex="-1" aria-labelledby="recyclingModalLabel" aria-hidden="true">
