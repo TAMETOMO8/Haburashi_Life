@@ -61,9 +61,9 @@
                           決定を押すと変更はできません
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                          <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
                           <%= link_to '決定', update_state_toothbrush_path(@toothbrush, new_state: :cleaning), 
-                                                                method: :put, class: 'btn', id: 'state-cleaning' %>
+                                              method: :put, class: 'btn ms-3 cleaning-button', id: 'state-cleaning' %>
                         </div>
                       </div>
                     </div>
@@ -82,9 +82,9 @@
                           決定を押すと変更はできません
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                          <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
                           <%= link_to '決定', update_state_toothbrush_path(@toothbrush, new_state: :recycling), 
-                                                              method: :put, class: 'btn ms-4', id: 'state-recycling' %>
+                                              method: :put, class: 'btn ms-3 recycling-button', id: 'state-recycling' %>
                         </div>
                       </div>
                     </div>
