@@ -1,34 +1,26 @@
-<div class="container py-3">
-  <div class="row">
+<div class="container-fluid" id="search-form">
+  <div class="row py-3">
     <div class="col-lg-10 offset-lg-1 text-center">
       <h1 >検索結果</h1>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row g-4">
+  <% if @results.present? %>
     <div class="row">
-      <% if @results.present? %>
-        <% @results.each do |result| %>
-          <div class="col-sm-12 col-lg-4 mb-3">
-            <%= render "dental_items/search_result", result: result %>
-          </div>
-        <% end %>
-      <% else %>
-        <p class="text-center">ごめんなさい！このキーワードを持つデンタルグッズは、楽天市場には無いみたいです・・・</p>     
-        <p class="text-center">メーカー名や商品名を変えてもう一度検索してみてください。</p> 
-        <div class="search-box col-lg-6 mx-auto">
-        <%= form_with url: new_toothbrush_dental_item_path, method: :get, local: true do |f| %>
-          <%= render 'shared/error_message', object: f.object %>
-          <div class="form-group">
-              <%= f.text_field :keyword, value: params[:keyword], placeholder: 'デンタルグッズの名前、メーカー名を入力して楽天市場から検索', class: "form-control mb-3 mt-3" %>
-              <%= f.submit 'もう一度検索する', class: "form-control btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
+      <% @results.each do |result| %>
+        <div class="col-sm-12 col-md-4 col-lg-3 pb-2">
+          <%= render "dental_items/search_result", result: result %>
+        </div>
       <% end %>
     </div>
-    <%= paginate @results, pagination_class: "flex-wrap justify-content-center", theme: 'bootstrap-5'%>
-  </div>
+  <% else %>
+    <p class="text-center">ごめんなさい！このキーワードを持つデンタルグッズは、楽天市場には無いみたいです・・・</p>     
+    <p class="text-center">検索ワードを変えてもう一度検索してみてください。</p> 
+    <%= render 'shared/search_form', url: new_toothbrush_dental_item_path %>
+    <%= render 'search_guide' %>
+  <% end %>
+  <%= paginate @results, pagination_class: "flex-wrap justify-content-center", theme: 'bootstrap-5'%>
 </div>
+
+<body id="brush-search-body">
+  <%= render 'shared/loading_animation' %>
+</body>
