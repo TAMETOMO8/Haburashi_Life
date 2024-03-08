@@ -10,8 +10,8 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       header_text = "歯ブラシの交換のお知らせです！"
       hero_image = toothbrush.item_image_urls.to_s
       item_name = toothbrush.item_name.to_s
-      contents_text = "使い終わったあとはどうするかを決めましょう！"
-      label_text = "使い方を決める"
+      contents_text = "掃除道具として使うのか、それともリサイクルするのか、決めましょう！"
+      label_text = "どうするか決める"
       link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}"
 
       LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
