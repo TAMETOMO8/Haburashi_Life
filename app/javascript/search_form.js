@@ -30,7 +30,7 @@ document.addEventListener('turbo:load', () => {
 
 document.addEventListener('turbo:load', () => {
   const buttons = document.querySelectorAll('.page-link');
-  const text = document.querySelector('#loading_text');
+  const text = document.querySelector('.moving-text');
 
   if (buttons) {
     buttons.forEach((button) => {

@@ -81,6 +81,7 @@
 }
 
 .moving-text {
+  display: none;
   font-size: 120%;
   animation: fadeIn 1.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
