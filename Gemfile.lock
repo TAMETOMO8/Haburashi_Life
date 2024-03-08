@@ -86,8 +86,6 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
-    cssbundling-rails (1.4.0)
-      railties (>= 6.0.0)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -113,7 +111,6 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
-    foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -353,12 +350,10 @@ DEPENDENCIES
   bootstrap (= 5.3.1)
   bootstrap5-kaminari-views (= 0.0.1)
   byebug
-  cssbundling-rails
   debug
   dotenv-rails
   enum_help
   factory_bot_rails
-  foreman
   importmap-rails
   jbuilder
   kaminari
