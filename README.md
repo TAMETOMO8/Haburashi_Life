@@ -25,6 +25,30 @@
 歯ブラシの材質、磨き方、歯ブラシを使い終わったあとについての情報を得られるようにし、
 歯ブラシへの関心を高めていただけるようなサービスにしていきたいと考えています。
 
+## 主な使用技術
+### バックエンド
+- Ruby(3.2.2)
+- Ruby On Rails(7.0.6)
+
+### フロントエンド
+- JavaScript
+- Bootstrap(5.3.1)
+- stimulus-autocomplete
+
+### インフラ
+- Heroku
+
+### データベース
+- PostgreSQL
+
+### API
+- LINE Messaging API
+- 楽天API
+
+### その他
+- LINE ログイン
+- Googleフォーム
+
 ## 現在実装中の機能
 
 ### MVP時(11/13)に実装した機能
