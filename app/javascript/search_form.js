@@ -27,3 +27,16 @@ document.addEventListener('turbo:load', () => {
     });
   }
 });
+
+document.addEventListener('turbo:load', () => {
+  const buttons = document.querySelectorAll('.page-link');
+  const text = document.querySelector('#loading_text');
+
+  if (buttons) {
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        text.style.display = 'block';
+      });
+    });
+  }
+});
