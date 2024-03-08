@@ -18,6 +18,7 @@
     <%= render 'shared/search_form', url: new_toothbrush_dental_item_path %>
     <%= render 'search_guide' %>
   <% end %>
+  <%= render 'shared/moving_text' %>
   <%= paginate @results, pagination_class: "flex-wrap justify-content-center", theme: 'bootstrap-5'%>
 </div>
 
