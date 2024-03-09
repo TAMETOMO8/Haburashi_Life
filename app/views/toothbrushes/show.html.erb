@@ -9,7 +9,7 @@
           <div class="text-center">
             <%= image_tag @toothbrush.item_image_urls, size: '128x128' %>
           </div>
-          <div class="card-body" id="index-card">
+          <div class="card-body" id="card-font">
             <p class="card-title text-center">
               <%= @toothbrush.item_name %>
             </p>
@@ -41,9 +41,9 @@
               <% if @toothbrush.user == current_user %>
                 <li class="list-group-item text-center">
                   <%= link_to '歯ブラシの編集', edit_toothbrush_path(@toothbrush), 
-                      class:"btn btn-dark me-2", id:"toothbrush-show-button" %>
+                      class:"btn btn-dark me-2", id:"toothbrush-button" %>
                   <%= link_to 'デンタルグッズも使う', dental_items_search_path(@toothbrush), 
-                      class:"btn btn-dark ms-2", id:"toothbrush-show-button" %>
+                      class:"btn btn-dark ms-2", id:"toothbrush-button" %>
                 </li>
                 <% if @toothbrush.end_used? %>
                 <li class="list-group-item text-center d-flex justify-content-center">

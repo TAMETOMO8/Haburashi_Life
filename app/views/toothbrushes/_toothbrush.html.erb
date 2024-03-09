@@ -4,7 +4,7 @@
       <div class="text-center">
         <%= image_tag toothbrush.item_image_urls, size: '128x128' if toothbrush.item_image_urls.present? %>
       </div>
-      <div class="card-body" id="index-card">
+      <div class="card-body" id="card-font">
         <p class="card-title text-center" title="<%= toothbrush.item_name %>">
           <%= truncate(toothbrush.item_name, length: 25) %>
         </p>
@@ -15,7 +15,7 @@
             </li>
           <% end %>
           <li class="list-group-item text-center rounded-0 border-start-0  border-end-0 border-bottom-0">
-            <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-show-button" %>
+            <%= link_to '詳細', toothbrush_path(toothbrush), class:"btn btn-dark rounded-pill", id:"toothbrush-button" %>
           </li>
         </ul>
       </div>

@@ -28,9 +28,9 @@
           </div>
         <% end %>
         <% if @toothbrush.not_started? %>
-          <%= f.submit "使用開始", class: 'btn mb-4', id: 'toothbrush-show-button' %>
+          <%= f.submit "使用開始", class: 'btn mb-4', id: 'toothbrush-button' %>
         <% else %>
-          <%= f.submit "決定", class: 'btn mb-4', id: 'toothbrush-show-button' %>
+          <%= f.submit "決定", class: 'btn mb-4', id: 'toothbrush-button' %>
         <% end %>
       <% end %>
     </div>
