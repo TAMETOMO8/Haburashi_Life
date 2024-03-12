@@ -7,7 +7,7 @@
 }
 
 .top-wrapper {
-  animation: fadeIn 2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation: fadeIn 1.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
   
 @keyframes fadeIn {
@@ -48,19 +48,7 @@
   color: rgb(68, 67, 67);
 }
 
-#toothbrushes-index-button {
-  background-color: rgb(0, 132, 141);
-  border-color: rgb(0, 132, 141);
-  color: rgb(255, 255, 255);
-}
-
-#toothbrushes-index-button:hover {
-  background-color: rgb(0, 168, 194);
-  border-color: rgb(0, 168, 194);
-  color: rgb(37, 37, 37);
-}
-
-.all-body {
+.app-body {
   background-color: rgb(244, 249, 250);
   // この下はフッターを画面下に固定するために追加したが、これにより今後の追加要素に悪影響が出ないか注意が必要
   display: flex;
