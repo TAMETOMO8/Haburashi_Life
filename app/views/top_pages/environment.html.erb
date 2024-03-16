@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-md-5 text-center">
+      <div><h1 class="mt-2 pt-5 pb-3">みんなで地球を綺麗にしましょう！</h1></div>
+      <div class="text-center pt-5 pb-3">
+        <p id="state-recycling"><%= "リサイクルされている歯ブラシ : #{@recyclings}本"%></p>
+        <p id="state-cleaning"><%= "掃除中の歯ブラシ : #{@cleanings}本"%></p>
+      </div>
+      <div class="fw-bold improvement-count"><%= "現在の環境改善度 : #{@improvement}%"%></div>
+      <div class="mt-5"><%= improvement_comment(@improvement)%></div>
+      <div class="mt-5 pt-2 mb-3">
+        <%= link_to 'トップページへ', root_path , class: "me-3" %>
+        <%= link_to '新しい歯ブラシで綺麗にする', toothbrush_search_path, class: "ms-3" %>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-7 environment-wrapper"></div>
+  </div>
+</div>
