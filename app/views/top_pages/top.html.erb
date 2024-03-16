@@ -10,8 +10,9 @@
       </div>
       <div class="text-center pt-4">
         <% unless logged_in?%>
-          <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link" %>
+          <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link me-4 pe-2" %>
         <% end %>
+          <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
       </div>
     </div>
   </div>
@@ -98,7 +99,7 @@
       <div class="col-lg-7 col-md-6 col-sm-12 text-center">
         <h1 class="tutorial-text">そうです、<br class="d-none d-lg-block tutorial-text"/>歯ブラシはリサイクルができます！</h1>
         <p class="tutorial-text">LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</p>
-        <%= link_to "リサイクルプログラムについて", "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", class:"me-2 top-link" %>
+        <%= link_to "リサイクルプログラムについて", "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", class: "me-2 top-link" %>
         <%= link_to "リサイクルが行われている場所", "https://www.google.com/maps/d/u/0/viewer?mid=1vfm_m3NM73IKEE5VYVRhkV1q_La1juz0&hl=ja&ll=33.868659968878575%2C132.5573857&z=6", class:"ms-2 top-link" %>
         <p class="tutorial-text">この機会に、リサイクルプログラムとリサイクルが行われている場所を是非確認してみてください!</p>
         <p class="tutorial-text">もしかしたら、あなたのお家の近くでリサイクルが行われているかもしれません・・・</p>
