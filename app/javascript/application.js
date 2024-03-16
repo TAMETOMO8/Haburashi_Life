@@ -4,3 +4,4 @@ import "controllers";
 import "popper";
 import "bootstrap";
 import "search_form";
+import "environment";
