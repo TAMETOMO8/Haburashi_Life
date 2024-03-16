@@ -47,4 +47,18 @@ module ToothbrushesHelper
       "not-used-border"
     end
   end
+
+  def improvement_comment(improvement) # rubocop:disable Metrics/CyclomaticComplexity,Metrics/MethodLength,Metrics/PerceivedComplexity
+    if improvement < 30
+      'まだまだ改善が必要ですね・・・みんなで力を合わせて綺麗にしましょう!'
+    elsif improvement >= 30 && improvement < 50
+      '少し綺麗になってきましたね。でも、もっと綺麗にできそうですね?'
+    elsif improvement >= 50 && improvement < 70
+      'どんどん綺麗になってきています!この調子で綺麗にしていきましょう!'
+    elsif improvement >= 70 && improvement < 100
+      'かなり綺麗になりました!あと一息、みんなで力を合わせましょう!'
+    elsif improvement <= 100
+      'みなさんのおかげで環境が整いました!おめでとうございます!'
+    end
+  end
 end
