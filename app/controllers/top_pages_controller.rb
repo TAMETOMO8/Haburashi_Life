@@ -12,4 +12,10 @@ class TopPagesController < ApplicationController
   def terms; end
 
   def privacy_policy; end
+
+  def environment
+    @cleanings = Toothbrush.cleaning.count
+    @recyclings = Toothbrush.recycling.count
+    @improvement = @cleanings + (@recyclings * 2)
+  end
 end
