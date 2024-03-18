@@ -6,7 +6,7 @@
     <div class="col-7">
       <div class="card-body">
         <p class="card-title" title="<%= result.name %>">
-          <%= link_to truncate(result.name, length: 40) %>
+          <%= truncate(result.name, length: 40) %>
         </p>
           <%= link_to 'この歯ブラシを使う！', toothbrushes_path(code: result['itemCode'],
                                                         name: result['itemName'],
