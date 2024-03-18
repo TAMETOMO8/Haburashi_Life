@@ -19,7 +19,9 @@
                 <p class="pt-2"><%= link_to "ユーザーの詳細を見る", user_path(@toothbrush.user)%></p>
               </li>
               <li class="list-group-item text-center" >
-                <%= "使用状況 : #{@toothbrush.state_i18n}" %>
+                <span>
+                  使用状況 : <span id="<%= "state-#{@toothbrush.state}" %>"><%= "#{@toothbrush.state_i18n}"%></span>
+                </span>
               </li>
               <li class="list-group-item text-center">
                 <%= "ブラシの材質 : #{@toothbrush.brush_material_i18n}" %>
@@ -97,6 +99,14 @@
                     <% end %>
                   </li>
                 <% end %>
+              <% end %>
+              <% if @toothbrush.recycling? %>
+                <li class="list-group-item text-center">
+                  <%= link_to '歯ブラシのリサイクルについて', "https://www.lion.co.jp/ja/sustainability/toothbrush-recycling/", 
+                      class: "me-2 top-link" %>
+                  <%= link_to "リサイクルが行われている場所", "https://www.google.com/maps/d/u/0/viewer?mid=1vfm_m3NM73IKEE5VYVRhkV1q_La1juz0&hl=ja&ll=33.868659968878575%2C132.5573857&z=6", 
+                      class: "ms-2 top-link" %>
+                </li>
               <% end %>
             </ul>
           </div>
