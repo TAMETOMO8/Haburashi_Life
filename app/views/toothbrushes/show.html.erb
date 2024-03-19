@@ -42,12 +42,12 @@
               <% end %>
               <% if @toothbrush.user == current_user %>
                 <li class="list-group-item text-center">
-                  <%= link_to '歯ブラシの編集', edit_toothbrush_path(@toothbrush), 
+                  <%= link_to '編集', edit_toothbrush_path(@toothbrush), 
                       class:"btn btn-dark me-2", id:"toothbrush-button" %>
-                  <%= link_to 'デンタルグッズも使う', dental_items_search_path(@toothbrush), 
+                  <%= link_to 'デンタルグッズ', dental_items_search_path(@toothbrush), 
                       class:"btn btn-dark ms-2", id:"toothbrush-button" %>
                   <button type="button" class="btn delete-button ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                    歯ブラシの削除
+                    削除する
                   </button>
                   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

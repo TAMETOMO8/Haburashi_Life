@@ -24,7 +24,7 @@
         <% if using_3days(@toothbrush) %>
           <div class="form-group mb-2">
             <%= f.label :comment, "使った感想をコメントしてみましょう！" %>
-            <%= f.text_area :comment, class: 'form-control', placeholder: '100文字まで入力できます。空欄でも問題ありません。', row: 4 %>
+            <%= f.text_area :comment, class: 'form-control', placeholder: '100文字まで入力できます。', row: 4 %>
           </div>
         <% end %>
         <% if @toothbrush.not_started? %>
