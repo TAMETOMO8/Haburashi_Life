@@ -46,6 +46,29 @@
                       class:"btn btn-dark me-2", id:"toothbrush-button" %>
                   <%= link_to 'デンタルグッズ', dental_items_search_path(@toothbrush), 
                       class:"btn btn-dark ms-2", id:"toothbrush-button" %>
+                  <% if @toothbrush.using? %>
+                    <button type="button" class="btn end-used-button ms-2" data-bs-toggle="modal" data-bs-target="#end-usedModal">
+                      使い終わる
+                    </button>
+                    <div class="modal fade" id="end-usedModal" tabindex="-1" aria-labelledby="end-usedModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="end-usedModalLabel">歯ブラシを使い終わりますか？</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            現在時刻で歯ブラシの使用を終了します
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
+                            <%= link_to 'はい', update_state_toothbrush_path(@toothbrush, new_state: :end_used), 
+                                                method: :put, class: 'btn ms-3 end-used-button', id: 'state-end-used' %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
                   <button type="button" class="btn delete-button ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     削除する
                   </button>
