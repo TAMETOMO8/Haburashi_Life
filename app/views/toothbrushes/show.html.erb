@@ -46,6 +46,27 @@
                       class:"btn btn-dark me-2", id:"toothbrush-button" %>
                   <%= link_to 'デンタルグッズも使う', dental_items_search_path(@toothbrush), 
                       class:"btn btn-dark ms-2", id:"toothbrush-button" %>
+                  <button type="button" class="btn delete-button ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    歯ブラシの削除
+                  </button>
+                  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="deleteModalLabel">本当に歯ブラシを削除しますか？</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          この操作は取り消せません
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
+                          <%= link_to '削除する', toothbrush_path(@toothbrush), 
+                                              data: { 'turbo_method': :delete }, class: 'btn ms-3 delete-button' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <% if @toothbrush.end_used? || @toothbrush.cleaning? %>
                   <li class="list-group-item text-center d-flex justify-content-center">
@@ -59,9 +80,6 @@
                             <div class="modal-header">
                               <h1 class="modal-title fs-5" id="recyclingModalLabel">本当にリサイクルしますか？</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              決定を押すと変更はできません
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>

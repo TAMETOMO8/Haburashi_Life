@@ -53,6 +53,12 @@ class ToothbrushesController < ApplicationController
     end
   end
 
+  def destroy
+    @toothbrush = current_user.toothbrushes.find(params[:id])
+    @toothbrush.destroy!
+    redirect_to user_path(current_user), success: '歯ブラシを削除しました'
+  end
+
   def update_state
     new_state = params[:new_state]
 
