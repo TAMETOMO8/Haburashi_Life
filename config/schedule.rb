@@ -6,12 +6,16 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-every 1.days do
+every 1.minutes do
   rake 'line_message:push_message_and_update'
 end
 
-every 1.days do
+every 3.minutes do
   rake 'line_message:comment_notice_and_update'
+end
+
+every 3.minutes do
+  rake 'line_message:notice_not_started'
 end
 
 # Use this file to easily define all of your cron jobs.
