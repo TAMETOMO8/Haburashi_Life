@@ -61,14 +61,14 @@ class ToothbrushesController < ApplicationController
 
   def update_state
     new_state = params[:new_state]
-
-    if @toothbrush.end_used? && new_state.in?(%w[cleaning recycling]) ||
-       @toothbrush.cleaning? && new_state.in?(%w[recycling])
-      @toothbrush.update(state: new_state)
-      redirect_to toothbrush_path(@toothbrush), success: '歯ブラシの状態を更新しました！'
-    else
-      flash[:danger] = '歯ブラシの状態を更新できませんでした'
-      redirect_to user_path(current_user)
+    if @toothbrush.end_used? && new_state.in?(%w[cleaning recycling]) || @toothbrush.cleaning? && new_state.in?(%w[recycling]) # rubocop:disable Layout/LineLength
+      @toothbrush.update!(state: new_state)
+      redirect_to environment_path, success: 'あなたのおかげで環境が整いました!ご協力ありがとうございます!'
+    elsif new_state.in?(%w[end_used])
+      @toothbrush.end_use_at = Time.current
+      @toothbrush.update!(state: new_state)
+      push_end_used_message
+      redirect_to toothbrush_path(@toothbrush), success: '歯ブラシを使い終わりました!リサイクルするか、掃除道具として使うか決めましょう!'
     end
   end
 
@@ -108,6 +108,19 @@ class ToothbrushesController < ApplicationController
     contents_text = "歯ブラシの使用終了日を決めると、終了日が来た際にお知らせいたします!"
     label_text = "歯ブラシの設定を確認する"
     link_uri = "https://www.haburashi-life.com#{edit_toothbrush_path(@toothbrush)}"
+    LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                     contents_text, label_text, link_uri)
+  end
+
+  def push_end_used_message
+    line_user_id = current_user.line_user_id
+    alt_text = "歯ブラシを使い終わりました"
+    header_text = "次の歯ブラシを使い終わりました"
+    hero_image = @toothbrush.item_image_urls.to_s
+    item_name = @toothbrush.item_name.to_s
+    contents_text = "掃除道具として使うのか、それともリサイクルするのか、決めましょう！"
+    label_text = "使い終わった後を決める"
+    link_uri = "https://www.haburashi-life.com#{@toothbrush.id}"
     LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
                                      contents_text, label_text, link_uri)
   end
