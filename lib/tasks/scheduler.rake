@@ -11,7 +11,7 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       hero_image = toothbrush.item_image_urls.to_s
       item_name = toothbrush.item_name.to_s
       contents_text = "掃除道具として使うのか、それともリサイクルするのか、決めましょう！"
-      label_text = "どうするか決める"
+      label_text = "使い終わった後を決める"
       link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}"
 
       LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
@@ -60,6 +60,26 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
 
       LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
                                          contents_text, label_text, link_uri)
+    end
+  end
+
+  desc '電動ブラシの交換時期が来たことをメッセージでお知らせする'
+  task change_electric_brush: :environment do
+    require 'line_message'
+
+    Toothbrush.using_electric.each do |toothbrush|
+      line_user_id = toothbrush.user.line_user_id
+
+      alt_text = "電動歯ブラシのブラシを取り替える時です"
+      header_text = "電動歯ブラシのブラシを交換しましょう！"
+      hero_image = toothbrush.item_image_urls.to_s
+      item_name = toothbrush.item_name.to_s
+      contents_text = "次はいつブラシを取り替えるのか決めましょう"
+      label_text = "次の交換時期を決める"
+      link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
+
+      LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
+                                       contents_text, label_text, link_uri)
     end
   end
 end
