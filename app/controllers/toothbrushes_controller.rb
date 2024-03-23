@@ -68,7 +68,7 @@ class ToothbrushesController < ApplicationController
       @toothbrush.end_use_at = Time.current
       @toothbrush.update!(state: new_state)
       push_end_used_message
-      redirect_to toothbrush_path(@toothbrush), success: '歯ブラシを使い終わりました!リサイクルするか、掃除道具として使うか決めましょう!'
+      redirect_to toothbrush_path(@toothbrush), success: '歯ブラシを使い終わりました!'
     end
   end
 
@@ -118,9 +118,14 @@ class ToothbrushesController < ApplicationController
     header_text = "次の歯ブラシを使い終わりました"
     hero_image = @toothbrush.item_image_urls.to_s
     item_name = @toothbrush.item_name.to_s
-    contents_text = "掃除道具として使うのか、それともリサイクルするのか、決めましょう！"
-    label_text = "使い終わった後を決める"
     link_uri = "https://www.haburashi-life.com#{@toothbrush.id}"
+    if @toothbrush.electric?
+      contents_text = "電動歯ブラシの処理は、各自治体の決まりに従いましょう!"
+      label_text = "歯ブラシの詳細を確認する"
+    else
+      contents_text = "掃除道具として使うのか、それともリサイクルするのか、決めましょう！"
+      label_text = "使い終わった後を決める"
+    end
     LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
                                      contents_text, label_text, link_uri)
   end
