@@ -5,3 +5,4 @@ import "popper";
 import "bootstrap";
 import "search_form";
 import "environment";
+import "edit_form";

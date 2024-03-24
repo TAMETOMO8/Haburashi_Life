@@ -10,3 +10,4 @@ pin "bootstrap", to: 'bootstrap.min.js', preload: true
 pin_all_from "app/javascript/controllers", under: "controllers", preload: true
 pin 'search_form', to: 'search_form.js', preload: true
 pin 'environment', to: 'environment.js', preload: true
+pin 'edit_form', to: 'edit_form.js', preload: true
