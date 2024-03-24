@@ -1,11 +1,11 @@
 <div class="container-fluid pt-3" id="index-container">
   <div class="row">
-    <div class="col-lg-10 offset-lg-1 text-center">
+    <div class="col-lg-10 offset-lg-1 text-center mb-2">
       <h4>歯ブラシ一覧</h4>
     </div>
   </div>
   
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-8 col-md-7 col-lg-4 mx-auto">
       <%= render 'index_search', url: toothbrushes_path %>
     </div>
@@ -16,7 +16,10 @@
       <% if @toothbrushes.present? %>
         <%= render @toothbrushes %>
       <% else %>
-        <p>見つかりません</p>      
+        <div class="row mt-5">
+          <p class="text-center">このキーワードの歯ブラシは使われていないみたいです・・・</p>
+          <p class="text-center">キーワードを変えて、もう一度検索してみてください！</p>
+        </div>
       <% end %>
     </div>
   </div>
