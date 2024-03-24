@@ -3,7 +3,7 @@ module ToothbrushesHelper
     if toothbrush.not_started?
       '使用終了日(目安として一ヶ月後の日付を表示しています)'
     elsif toothbrush.electric? && toothbrush.using?
-      '電動歯ブラシの交換日'
+      '次のブラシの交換予定日'
     elsif toothbrush.using?
       '現在の使用終了日'
     else

@@ -62,7 +62,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
-                            <%= link_to 'はい', update_state_toothbrush_path(@toothbrush, new_state: :end_used), 
+                            <%= link_to '決定', update_state_toothbrush_path(@toothbrush, new_state: :end_used), 
                                                 method: :put, class: 'btn ms-3 end-used-button', id: 'state-end-used' %>
                           </div>
                         </div>
@@ -101,7 +101,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="recyclingModalLabel">本当にリサイクルしますか？</h1>
+                              <h1 class="modal-title fs-5" id="recyclingModalLabel">リサイクルしますか？</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-footer">
@@ -126,7 +126,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                掃除道具としても使い終わる際は、是非リサイクルしましょう
+                                掃除道具としても使い終わる際は、是非リサイクルしましょう!
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>

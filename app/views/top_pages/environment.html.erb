@@ -9,7 +9,7 @@
       <div class="fw-bold improvement-count"><%= "現在の環境改善度 : #{@improvement}%"%></div>
       <div class="mt-5"><%= improvement_comment(@improvement)%></div>
       <div class="mt-5 pt-2 mb-3">
-        <%= link_to 'トップページへ', root_path , class: "me-3" %>
+        <%= link_to 'マイ歯ブラシ', user_path(current_user) , class: "me-3" %>
         <%= link_to '新しい歯ブラシで綺麗にする', toothbrush_search_path, class: "ms-3" %>
       </div>
     </div>
