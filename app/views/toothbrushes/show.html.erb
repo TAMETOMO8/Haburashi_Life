@@ -45,9 +45,9 @@
                   <%= link_to '編集', edit_toothbrush_path(@toothbrush), 
                       class:"btn btn-dark me-2", id:"toothbrush-button" %>
                   <%= link_to 'デンタルグッズ', dental_items_search_path(@toothbrush), 
-                      class:"btn btn-dark ms-2", id:"toothbrush-button" %>
+                      class:"btn btn-dark mx-2", id:"toothbrush-button" %>
                   <% if @toothbrush.using? %>
-                    <button type="button" class="btn end-used-button ms-2" data-bs-toggle="modal" data-bs-target="#end-usedModal">
+                    <button type="button" class="btn end-used-button mx-2" data-bs-toggle="modal" data-bs-target="#end-usedModal">
                       使い終わる
                     </button>
                     <div class="modal fade" id="end-usedModal" tabindex="-1" aria-labelledby="end-usedModalLabel" aria-hidden="true">
@@ -69,7 +69,7 @@
                       </div>
                     </div>
                   <% end %>
-                  <button type="button" class="btn delete-button ms-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                  <button type="button" class="btn delete-button mx-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     削除する
                   </button>
                   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -90,6 +90,9 @@
                       </div>
                     </div>
                   </div>
+                  <%= link_to "https://twitter.com/share?url=#{ request.url }&text=この歯ブラシ、おすすめです！%0a%0a", class: 'ms-2', target: '_blank' do %>
+                    <i class="fa-brands fa-square-x-twitter fa-2x" style = "vertical-align: middle;"></i>
+                  <% end %>
                 </li>
                 <% if @toothbrush.end_used? || @toothbrush.cleaning? %>
                   <li class="list-group-item text-center d-flex justify-content-center">
@@ -165,7 +168,7 @@
             <%= render "toothbrushes/dental_item", dental_item: dental_item %>
           <% end %>
         <% else %>
-          <p class="text-center">現在、歯ブラシと一緒に使われているデンタルグッズはありません</p>
+          <p class="text-center">一緒に使われているデンタルグッズはまだありません</p>
         <% end %>
       </div>
     </div>
