@@ -9,9 +9,11 @@
       <div class="fw-bold improvement-count"><%= "現在の環境改善度 : #{@improvement}%"%></div>
       <div class="mt-5"><%= improvement_comment(@improvement)%></div>
       <div class="mt-5 pt-2 mb-3">
-        <%= link_to 'マイ歯ブラシ', user_path(current_user) %>
+        <% if logged_in? %>
+          <%= link_to 'マイ歯ブラシ', user_path(current_user) %>
+        <% end %>
         <%= link_to '新しい歯ブラシで綺麗にする', toothbrush_search_path, class: "mx-3" %>
-        <%= link_to "https://twitter.com/share?url=#{ request.url }&text=力を合わせて綺麗にしましょう！%0a%0a", class: 'ms-2', target: '_blank' do %>
+        <%= link_to "https://twitter.com/share?url=#{ "https://www.haburashi-life.com/" }&text=みんなで歯と地球を綺麗にしましょう！%0a%0a", class: 'ms-2', target: '_blank' do %>
           <i class="fa-brands fa-square-x-twitter fa-2x" style = "vertical-align: middle;"></i>
         <% end %>
       </div>
