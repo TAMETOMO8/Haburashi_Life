@@ -71,11 +71,11 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       line_user_id = toothbrush.user.line_user_id
 
       alt_text = "電動歯ブラシのブラシを取り替える時です"
-      header_text = "電動歯ブラシのブラシを交換しましょう！"
+      header_text = "ブラシを交換しましょう！"
       hero_image = toothbrush.item_image_urls.to_s
       item_name = toothbrush.item_name.to_s
-      contents_text = "次はいつブラシを取り替えるのか決めましょう"
-      label_text = "次の交換時期を決める"
+      contents_text = "使い続ける場合は、次の交換時期を決めましょう！"
+      label_text = "交換時期を決める"
       link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
       LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
