@@ -34,23 +34,15 @@ class ToothbrushesController < ApplicationController
 
   def create
     @toothbrush = current_user.toothbrushes.new(rakuten_params)
-    if current_user.registered?(@toothbrush)
-      redirect_to new_toothbrush_path, status: :unprocessable_entity, danger: 'すでに登録されています'
-    else
-      @toothbrush.save!
-      push_register_message
-      redirect_to edit_toothbrush_path(@toothbrush), success: '歯ブラシが選択されました！続けてブラシの素材、やわらかさ、使い終わる日を決めましょう！'
-    end
+    @toothbrush.save!
+    redirect_to edit_toothbrush_path(@toothbrush), success: '歯ブラシが選択されました！続けてブラシの素材、やわらかさ、使い終わる日を決めましょう！'
   end
 
   def update
     check_blank
-    if @toothbrush.update(toothbrush_params)
-      start_used
-      redirect_to toothbrush_path(@toothbrush), success: '内容が登録されました！'
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @toothbrush.update!(toothbrush_params)
+    start_used
+    redirect_to toothbrush_path(@toothbrush), success: '内容が登録されました！'
   end
 
   def destroy
@@ -92,7 +84,10 @@ class ToothbrushesController < ApplicationController
   end
 
   def start_used
-    @toothbrush.not_started? ? @toothbrush.update(state: 1) : nil
+    if @toothbrush.not_started? # rubocop:disable Style/GuardClause
+      @toothbrush.update(state: 1)
+      push_register_message
+    end
   end
 
   def check_blank
