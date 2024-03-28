@@ -6,7 +6,7 @@
         <%= image_tag  @toothbrush.item_image_urls, size: "128x128"%>
         <p><%= @toothbrush.item_name %></p>
       </div>
-      <p><%= link_to "歯ブラシのことがわからない時はこちらをクリック", @toothbrush.item_url %></p>
+      <p><%= link_to "歯ブラシのことがわからない時はこちらをクリック", @toothbrush.item_url, target: :_blank %></p>
       <%= form_with model: @toothbrush, local: true do |f| %>
         <%= render 'shared/error_message', object: f.object %>
         <div class="form-group mb-2">
@@ -28,7 +28,7 @@
           </div>
         <% end %>
         <% if @toothbrush.not_started? %>
-          <p><%= link_to "アプリの友だち追加がまだで、メッセージを受け取りたい方はこちらをクリック", "https://lin.ee/2jlm07B", class: 'top-link' %></p>
+          <p><%= link_to "アプリの友だち追加がまだで、メッセージを受け取りたい方はこちらをクリック", "https://lin.ee/2jlm07B", class: 'top-link', target: :_blank %></p>
           <%= f.submit "使用開始", class: 'btn start-button edit-button', id: 'toothbrush-button' %>
         <% else %>
           <%= f.submit "決定", class: 'btn edit-button', id: 'toothbrush-button' %>
