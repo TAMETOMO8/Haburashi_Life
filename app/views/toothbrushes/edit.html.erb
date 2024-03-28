@@ -1,6 +1,6 @@
 <div class="container-fluid" id="edit-page">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2 pb-5" id="edit-form">
+    <div class="col-lg-8 offset-lg-2 pb-5 edit-form">
       <h1 class="text-center mt-4"><%= "歯ブラシの編集" %></h1>
       <diV class="d-flex align-items-center">
         <%= image_tag  @toothbrush.item_image_urls, size: "128x128"%>
@@ -11,15 +11,15 @@
         <%= render 'shared/error_message', object: f.object %>
         <div class="form-group mb-2">
           <%= f.label :brush_material, "ブラシの材質" %>
-          <%= f.select :brush_material, brush_material_text, { selected: @toothbrush.brush_material }, class: 'form-select brush-select', readonly: not_end_used_only(@toothbrush) %>
+          <%= f.select :brush_material, brush_material_text, { selected: @toothbrush.brush_material }, class: 'form-select brush-select' %>
         </div>
         <div class="form-group mb-2">
           <%= f.label :hardness, "ブラシのかたさ" %>
-          <%= f.select :hardness, hardness_text, { selected: @toothbrush.hardness }, class: 'form-select', readonly: not_end_used_only(@toothbrush) %>
+          <%= f.select :hardness, hardness_text, { selected: @toothbrush.hardness }, class: 'form-select' %>
         </div>
         <div class="form-group mb-3">
           <%= f.label :end_use_at, end_use_at_text(@toothbrush), class: 'end-use-at-label'  %>
-          <%= f.date_field :end_use_at, class: 'form-control', value: display_end_use_at(@toothbrush), readonly: not_end_used_only(@toothbrush) %>
+          <%= f.date_field :end_use_at, class: 'form-control time-select', value: display_end_use_at(@toothbrush), readonly: not_end_used_only(@toothbrush) %>
         </div>
         <% if using_3days(@toothbrush) %>
           <div class="form-group mb-2">
@@ -29,10 +29,37 @@
         <% end %>
         <% if @toothbrush.not_started? %>
           <p><%= link_to "アプリの友だち追加がまだで、メッセージを受け取りたい方はこちらをクリック", "https://lin.ee/2jlm07B", class: 'top-link' %></p>
-          <%= f.submit "使用開始", class: 'btn start-button', id: 'toothbrush-button' %>
+          <%= f.submit "使用開始", class: 'btn start-button edit-button', id: 'toothbrush-button' %>
         <% else %>
-          <%= f.submit "決定", class: 'btn mb-4', id: 'toothbrush-button' %>
+          <%= f.submit "決定", class: 'btn edit-button', id: 'toothbrush-button' %>
         <% end %>
+        <div class="time-before-button">
+          <button type="button" class="btn " data-bs-toggle="modal" id="toothbrush-button" data-bs-target="#end-usedModal">
+            使い終わる
+          </button>
+          <div class="modal fade" id="end-usedModal" tabindex="-1" aria-labelledby="end-usedModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="end-usedModalLabel">過去の日付が選択されていますが登録しますか？</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>以下の理由の場合は過去の日付で登録してください</p>
+                  <ul>
+                    <li>過去に使い終わった歯ブラシの登録による情報共有</li>
+                    <li>すでに掃除中、またはリサイクルした歯ブラシの登録</li>
+                  </ul>
+                  ※過去の日付での登録後は編集ができません
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
+                  <%= f.submit '決定',  class: 'btn ms-3 end-used-button', id: 'state-end-used' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
