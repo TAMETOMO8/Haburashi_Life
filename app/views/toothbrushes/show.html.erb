@@ -57,8 +57,13 @@
                             <h1 class="modal-title fs-5" id="end-usedModalLabel">歯ブラシを使い終わりますか？</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
-                            現在時刻で歯ブラシの使用を終了します
+                          <div class="modal-body text-start">
+                            <p>現在時刻で歯ブラシの使用を終了します</p>
+                            <p>以下の理由での利用がおすすめです</p>
+                            <ul>
+                              <li>電動歯ブラシを使い終わる場合</li>
+                              <li>何らかの理由で歯ブラシを今すぐ使い終わりたい場合</li>
+                            </ul>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
@@ -90,14 +95,15 @@
                       </div>
                     </div>
                   </div>
-                  <%= link_to "https://twitter.com/share?url=#{ request.url }&text=この歯ブラシ、おすすめです！%0a%0a", class: 'ms-2', target: '_blank' do %>
+                  <%= link_to "https://twitter.com/share?url=#{ request.url }&text=この歯ブラシ、おすすめです！%0a%0a", 
+                              class: 'ms-2', target: '_blank', rel: 'noopener'  do %>
                     <i class="fa-brands fa-square-x-twitter fa-2x" style = "vertical-align: middle;"></i>
                   <% end %>
                 </li>
                 <% if @toothbrush.end_used? || @toothbrush.cleaning? %>
-                  <li class="list-group-item text-center d-flex justify-content-center">
+                  <li class="list-group-item d-flex justify-content-center">
                     <div>
-                      <button type="button" class="btn recycling-button ms-2" data-bs-toggle="modal" data-bs-target="#recyclingModal" id='state-recycling'>
+                      <button type="button" class="btn text-center recycling-button ms-2" data-bs-toggle="modal" data-bs-target="#recyclingModal" id='state-recycling'>
                         リサイクルする！
                       </button>
                       <div class="modal fade" id="recyclingModal" tabindex="-1" aria-labelledby="recyclingModalLabel" aria-hidden="true">
@@ -106,6 +112,11 @@
                             <div class="modal-header">
                               <h1 class="modal-title fs-5" id="recyclingModalLabel">リサイクルしますか？</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                              <div>リサイクル場所は少しずつ増えています。</div>
+                              <div>「歯ブラシ リサイクル」などで検索して<br />最新情報を確認しましょう！</div>
+                              <div>貴方の家の近くで<br />新しくリサイクルが始まるかもしれません・・・</div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn closed-button" data-bs-dismiss="modal">閉じる</button>
