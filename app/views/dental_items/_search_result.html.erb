@@ -1,20 +1,21 @@
 <div class="card mb-1">
   <div class="row">
-    <div class="col-5">
+    <div class="col-4">
       <%= image_tag(result['mediumImageUrls'][0], size: '128x128') if result['mediumImageUrls'].present? %>
     </div>
-    <div class="col-7">
-      <div class="card-body text-center">
+    <div class="col-8">
+      <div class="card-body">
         <p class="card-title" title="<%= result.name %>">
-          <%= link_to truncate(result.name, length: 40), result.url %>
+          <%= truncate(result.name, length: 40) %>
         </p>
-          <%= link_to 'この製品を追加！', toothbrush_dental_items_path(toothbrush_id: @toothbrush.id,
+          <%= link_to 'このグッズを追加！', toothbrush_dental_items_path(toothbrush_id: @toothbrush.id,
                                                         code: result['itemCode'],
                                                         name: result['itemName'],
                                                         genre_id: result['genreId'],
                                                         url: result['itemUrl'],
                                                         image: result['mediumImageUrls'][0]),
-                                                        class: 'btn btn-secondary p-2',
+                                                        class: 'btn',
+                                                        id: 'toothbrush-button',
                                                         data: { 'turbo_method': :post } %>
       </div>
     </div>
