@@ -59,7 +59,7 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
       link_uri = "https://www.haburashi-life.com/toothbrushes/#{toothbrush.id}/edit"
 
       LineMessage.send_message_to_user(line_user_id, alt_text, header_text, hero_image, item_name,
-                                         contents_text, label_text, link_uri)
+                                       contents_text, label_text, link_uri)
     end
   end
 
