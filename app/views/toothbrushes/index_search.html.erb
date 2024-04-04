@@ -1,7 +1,16 @@
 <li class="list-group-item" id="search-guide">表示された検索候補をクリックすると自動で歯ブラシ名が入力されます</li>
-<% @toothbrush.each do |toothbrush| %>
-  <li class="list-group-item" 
-            role="option" data-autocomplete-value="<%= toothbrush.id %>" >
-    <%= toothbrush.item_name %>
-  </li>
+<% if logged_in? %>
+  <% @toothbrush.where.not(user_id: current_user.id).each do |toothbrush| %>
+    <li class="list-group-item" 
+              role="option" data-autocomplete-value="<%= toothbrush.id %>" >
+      <%= toothbrush.item_name %>
+    </li>
+  <% end %>
+<% else %>
+  <% @toothbrush.each do |toothbrush| %>
+    <li class="list-group-item" 
+              role="option" data-autocomplete-value="<%= toothbrush.id %>" >
+      <%= toothbrush.item_name %>
+    </li>
+  <% end %>
 <% end %>
