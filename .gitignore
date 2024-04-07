@@ -31,3 +31,9 @@
 /config/master.key
 /.env
 /.byebug_history
+.rspec
+.vscode/settings.json
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/images/.DS_Store
