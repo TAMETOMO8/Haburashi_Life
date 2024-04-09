@@ -9,8 +9,8 @@
   width: 150px;
   height: 150px;
   position: absolute;
-  margin-bottom: 20px;
-  top: 45%;
+  margin-bottom: 10px;
+  top: 35%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
@@ -74,7 +74,7 @@
 
 .loader-text {
   transform: translateX(-50%);
-  top: calc(50% + 75px);
+  top: calc(40% + 55px);
   position: absolute;
   left: 50%;
   color: #189fff;
