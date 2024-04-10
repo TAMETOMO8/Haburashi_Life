@@ -65,7 +65,11 @@ class ToothbrushesController < ApplicationController
   end
 
   def index_search
-    @toothbrush = Toothbrush.where('item_name like ?', "%#{params[:q]}%")
+    @toothbrush = if logged_in?
+                    Toothbrush.where('item_name like ?', "%#{params[:q]}%").where.not(user_id: current_user.id)
+                  else
+                    Toothbrush.where('item_name like ?', "%#{params[:q]}%")
+                  end
     respond_to(&:js)
   end
 
