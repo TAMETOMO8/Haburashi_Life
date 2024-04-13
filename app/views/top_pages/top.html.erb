@@ -9,10 +9,8 @@
         <h3>環境、みんなで整えませんか？</h4>
       </div>
       <div class="text-center pt-4">
-        <% unless logged_in?%>
-          <%= link_to "LINEでログイン", user_sessions_login_path, class:"top-link me-4 pe-2" %>
-        <% end %>
-          <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
+        <%= link_to "みんなの歯ブラシを見る", toothbrushes_path, class:"top-link me-4 pe-2" %>
+        <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
       </div>
     </div>
   </div>
@@ -112,10 +110,6 @@
   <h3 class="text-center tutorial-text">説明は以上です。歯も地球もきれいにしましょう！</h3>
 
   <div class="text-center py-4">
-    <% if logged_in?%>
-      <%= link_to "みんなの歯ブラシを見る", toothbrushes_path, class:"top-link" %>
-    <% else %>
-      <%= link_to "LINEでログインする", user_sessions_login_path, class:"top-link" %>
-    <% end %>
+    <%= link_to "LINEでログインする", user_sessions_login_path, class:"top-link" %>
   </div>
 </div>
