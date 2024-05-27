@@ -19,9 +19,9 @@ class UserSessionsController < ApplicationController
   end
 
   def callback
-    return redirect_to root_path, danger: '不正なアクセスです' if params[:state] != session[:state]
+    return redirect_to root_path, danger: '不正なアクセスです' if invalid_access?
 
-    user = User.find_or_initialize_by(line_user_id: get_line_user_id(params[:code]))
+    user = find_or_initialize_user
     if user.save
       session[:user_id] = user.id
       redirect_to toothbrush_search_path, success: 'ログインしました! このアプリの友だち登録を行うことでメッセージを受け取れます！'
@@ -30,12 +30,20 @@ class UserSessionsController < ApplicationController
     end
   end
 
+  private
+
+  def invalid_access?
+    params[:state] != session[:state]
+  end
+
+  def find_or_initialize_user
+    User.find_or_initialize_by(line_user_id: get_line_user_id(params[:code]))
+  end
+
   def destroy
     reset_session
     redirect_to root_path, success: 'ログアウトしました'
   end
-
-  private
 
   def get_line_user_id(code)
     # ユーザーのIDトークンからプロフィール情報（ユーザーID）を取得する
