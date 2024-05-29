@@ -9,7 +9,8 @@ FactoryBot.define do
     state { 0 }
     brush_material { 0 }
     hardness { 0 }
-    comment { 'これは使いやすいです' }
+    end_use_at { Time.current.strftime('%Y-%m-%d') }
+    comment { '使いやすい歯ブラシです!' }
     comment_notice { true }
   end
 end
