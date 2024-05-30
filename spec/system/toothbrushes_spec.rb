@@ -23,6 +23,16 @@ RSpec.describe 'Toothbrushes', type: :system do
             click_on 'みんなの歯ブラシ'
             expect(page).to have_content('使いやすい歯ブラシです!')
           end
+          it '一覧ページのページネーションが機能する' do
+            create_list(:toothbrush, 25, state: 0)
+            visit root_path
+            click_on 'みんなの歯ブラシ'
+            click_on '2'
+            click_on '3'
+            click_on '最初へ'
+            click_on '最後へ'
+            expect(page).to have_content('最初へ')
+          end
         end
         context '歯ブラシの詳細ページにアクセス' do
           it '歯ブラシの詳細ページが表示される' do
@@ -45,7 +55,55 @@ RSpec.describe 'Toothbrushes', type: :system do
         end
       end
     end
+    describe '新規ログイン' do
+      context 'ログインページにアクセス' do
+        before do
+          create(:user)
+          allow_any_instance_of(ApplicationController).to receive(:current_user).and_return('user_session')
+        end
+        it 'ログインが成功する' do
+          visit root_path
+          click_on '歯ブラシ'
+          click_link '新しい歯ブラシ'
+          expect(page).to have_content('使いたい歯ブラシを登録しましょう！')
+        end
+      end
+    end
   end
+
+  describe 'ログイン後' do
+    before do
+      create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return('user_session')
+    end
+    context '歯ブラシの検索ページにアクセス' do
+      it '検索ページでテキスト入力し、検索に成功する' do
+        visit root_path
+        click_on '歯ブラシ'
+        click_link '新しい歯ブラシ'
+        fill_in 'text-form', with: 'NONIO'
+        click_on '検索'
+        expect(page).not_to have_content 'ごめんなさい！このキーワードを持つ歯ブラシは、楽天市場には無いみたいです・・・'
+      end
+      it 'ドロップダウンをクリックして入力補完に成功する' do
+        visit root_path
+        click_on '歯ブラシ'
+        click_link '新しい歯ブラシ'
+        click_on '主要なメーカーで検索'
+        find('a', text: 'LION').click
+        click_on '検索'
+        expect(page).not_to have_content 'ごめんなさい！このキーワードを持つ歯ブラシは、楽天市場には無いみたいです・・・'
+      end
+      it '検索ページでテキスト入力せず、検索に失敗する' do
+        visit root_path
+        click_on '歯ブラシ'
+        click_link '新しい歯ブラシ'
+        click_on '検索'
+        expect(page).to have_content '検索ワードを入力してください'
+      end
+    end
+  end
+
   describe '環境改善ページ' do
     context '環境改善ページにアクセス' do
       it '改善度が0%で表示される' do
