@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
-    id { 123 }
+    sequence(:id) { |n| n }
     name { 'テストゲスト' }
     role { 0 }
-    line_user_id { 'hefwet8y34rqu89p4tyuhqf' }
+    line_user_id { Faker::Code.unique.asin }
   end
 end
