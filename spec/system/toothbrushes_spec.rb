@@ -46,4 +46,37 @@ RSpec.describe 'Toothbrushes', type: :system do
       end
     end
   end
+  describe '環境改善ページ' do
+    context '環境改善ページにアクセス' do
+      it '改善度が0%で表示される' do
+        visit root_path
+        click_link '環境改善度を確認する'
+        expect(page).to have_content('現在の環境改善度 : 0%')
+      end
+      it '改善度が30%で表示される' do
+        create_list(:toothbrush, 15, state: 4)
+        visit root_path
+        click_link '環境改善度を確認する'
+        expect(page).to have_content('少し綺麗になってきましたね。でも、もっと綺麗にできそうですね?')
+      end
+      it '改善度が50%で表示される' do
+        create_list(:toothbrush, 25, state: 4)
+        visit root_path
+        click_link '環境改善度を確認する'
+        expect(page).to have_content('どんどん綺麗になってきています!この調子で綺麗にしていきましょう!')
+      end
+      it '改善度が70%で表示される' do
+        create_list(:toothbrush, 35, state: 4)
+        visit root_path
+        click_link '環境改善度を確認する'
+        expect(page).to have_content('かなり綺麗になりました!あと一息、みんなで力を合わせましょう!')
+      end
+      it '改善度が100%で表示される' do
+        create_list(:toothbrush, 50, state: 4)
+        visit root_path
+        click_link '環境改善度を確認する'
+        expect(page).to have_content('みなさんのおかげで環境が整いました!おめでとうございます!')
+      end
+    end
+  end
 end
