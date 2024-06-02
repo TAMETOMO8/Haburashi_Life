@@ -110,8 +110,12 @@
   <h3 class="text-center tutorial-text">説明は以上です。歯も地球もきれいにしましょう！</h3>
 
   <div class="text-center py-4">
-    <%= link_to "ゲストログイン", guest_login_path, class:"btn my-2 toothbrush-menu-button" %>
-    <p>(LINE通知以外の機能をご利用できます)</p>
-    <%= link_to "LINEでログイン", user_sessions_login_path, class: "btn my-2", id:"login-button" %>
+    <% if logged_in?%>
+      <%= link_to "ログアウト", logout_path, data: { 'turbo_method': :delete }, class:"btn my-2", id:"login-button" %>
+    <% else %>
+      <%= link_to "ゲストログイン", guest_login_path, class:"btn my-2 toothbrush-menu-button" %>
+      <p>(LINE通知以外の機能をご利用できます)</p>
+      <%= link_to "LINEでログイン", user_sessions_login_path, class: "btn my-2", id:"login-button" %>
+    <% end %>
   </div>
 </div>
