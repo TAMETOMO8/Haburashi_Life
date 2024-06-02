@@ -3,42 +3,41 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg py-0">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <h1 class="text-dark fw-bold d-block">歯ブラシLife!</h1>
+          <h1 class="text-dark fw-bold d-block app-title">歯ブラシLife!</h1>
         <% end %>
         <button type="button" class="navbar-toggler toothbrush-menu-button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span>メニュー</span>
         </button>
         <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
           <div class="navbar-nav ms-auto">
-            <% unless logged_in?%>
+            <% if logged_in? %>
+              <div class="nav-item dropdown">
+                <button type="button" class="btn dropdown-toggle my-2 me-4 pe-2 toothbrush-menu-button" 
+                        data-bs-toggle="dropdown">
+                  歯ブラシ
+                </button>
+                <div class="dropdown-menu rounded col-4">
+                  <%= link_to "他の人の歯ブラシ", toothbrushes_path, class: "dropdown-item" %>
+                  <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item" %>
+                  <%= link_to "環境改善度を確認", environment_path, class:"dropdown-item" %>
+                </div>
+              </div>
+              <div class="nav-item dropdown">
+                <button type="button" class="btn dropdown-toggle my-2 pe-3" 
+                        data-bs-toggle="dropdown" id="user-menu-button">
+                  ユーザー
+                </button>
+                <div class="dropdown-menu rounded col-4">
+                  <%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %>
+                  <%= link_to 'ユーザー名編集',  edit_user_path(current_user), class: "dropdown-item" %>
+                  <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
+                </div>
+              </div>
+            <% else %>
               <%= link_to "ログイン", user_sessions_login_path, 
                   class: "nav-item nav-link btn my-2 me-4 col-3 col-md-2 col-lg-4", id:"login-button" %>
               <%= link_to "みんなの歯ブラシ", toothbrushes_path, 
                   class: "nav-item nav-link btn my-2 col-5 col-sm-4 col-md-3 col-lg-8 toothbrush-menu-button" %>
-            <% end %>
-            <% if logged_in? %>
-            <div class="nav-item dropdown">
-              <button type="button" class="btn dropdown-toggle my-2 me-4 pe-2 toothbrush-menu-button" 
-                      data-bs-toggle="dropdown">
-                歯ブラシ
-              </button>
-              <div class="dropdown-menu rounded col-4">
-                <%= link_to "他の人の歯ブラシ", toothbrushes_path, class: "dropdown-item" %>
-                <%= link_to "新しい歯ブラシ", toothbrush_search_path, class: "dropdown-item" %>
-                <%= link_to "環境改善度を確認", environment_path, class:"dropdown-item" %>
-              </div>
-            </div>
-            <div class="nav-item dropdown">
-              <button type="button" class="btn dropdown-toggle my-2 pe-3" 
-                      data-bs-toggle="dropdown" id="user-menu-button">
-                ユーザー
-              </button>
-              <div class="dropdown-menu rounded col-4">
-                <%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to 'ユーザー名編集',  edit_user_path(current_user), class: "dropdown-item" %>
-                <%= link_to 'ログアウト', logout_path, data: { 'turbo_method': :delete }, class: "dropdown-item" %>
-              </div>
-            </div>
             <% end %>
           </div>
         </div>
