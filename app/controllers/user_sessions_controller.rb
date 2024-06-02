@@ -30,6 +30,20 @@ class UserSessionsController < ApplicationController
     end
   end
 
+  def destroy
+    reset_session
+    redirect_to root_path, success: 'ログアウトしました'
+  end
+
+  def guest_login
+    if logged_in?
+      redirect_to toothbrush_search_path, warning: 'すでにログインしています'
+    else
+      session[:user_id] = User.find_by(name: 'ゲストユーザー').id
+      redirect_to toothbrush_search_path, success: 'ゲストユーザーとしてログインしました'
+    end
+  end
+
   private
 
   def invalid_access?
@@ -38,11 +52,6 @@ class UserSessionsController < ApplicationController
 
   def find_or_initialize_user
     User.find_or_initialize_by(line_user_id: get_line_user_id(params[:code]))
-  end
-
-  def destroy
-    reset_session
-    redirect_to root_path, success: 'ログアウトしました'
   end
 
   def get_line_user_id(code)
