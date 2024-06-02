@@ -27,4 +27,13 @@ module ApplicationHelper
       }
     }
   end
+
+  def not_guest_user
+    if current_user.line_user_id == 'guest_user'
+      true
+    else
+      false
+    end
+  end
+
 end
