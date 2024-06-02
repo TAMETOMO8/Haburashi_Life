@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 User.create!(
-  id: 1,
-  name: 'ゲストさん',
-  line_user_id: ENV['ADMIN_LINE_ID'],
-  role: 1
+  id: 4697635,
+  name: 'ゲストユーザー',
+  line_user_id: 'guest_user',
+  role: 0
 )
