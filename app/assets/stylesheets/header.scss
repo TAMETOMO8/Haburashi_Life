@@ -2,15 +2,20 @@ header {
   background-color: rgb(255, 255, 255);
 }
 
-#login-button {
-  color: rgb(10, 191, 4);
+.app-title:hover {
+  background-color: rgb(233, 255, 232);
+}
+
+#login-button{
+  background-color: rgb(72, 153, 90);
+  border-color: rgb(72, 153, 90);
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 
 #login-button:hover {
-  background-color: rgb(231, 231, 231);
-  color: rgb(10, 191, 4);
-  font-weight: bold;
+  background-color: rgb(55, 175, 51);
+  border-color: rgb(55, 175, 51);
 }
 
 .toothbrush-menu-button{
