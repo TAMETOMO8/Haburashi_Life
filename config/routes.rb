@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'toothbrush/search', to: 'toothbrushes#search'
   get 'user_sessions/login', to: 'user_sessions#login'
   get 'user_sessions/callback', to: 'user_sessions#callback'
+  get 'guest_login', to: 'user_sessions#guest_login'
   delete 'logout', to: 'user_sessions#destroy'
   resources :toothbrushes do
     member do
