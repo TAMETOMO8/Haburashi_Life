@@ -109,6 +109,7 @@
 - 上記の他、ユーザーからの意見・要望で実現可能な機能
 
 ### テーブル構成
+<img width="549" alt="Haburashi_ER" src="https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/32729065-c96c-42fc-b01a-4da29721c57f">
 
 ### 画面遷移図のURL(企画時)
 
