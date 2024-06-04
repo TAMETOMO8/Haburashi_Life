@@ -36,13 +36,17 @@
 |歯ブラシ一覧画面での検索機能|Xへのシェア機能|
 |:---:|:---:|
 |![README_indexsearch_tutorial](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/7e1fa160-3d00-468c-988c-a2d25b7e5f0f)|![README_X_tutorial](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/f5bffc77-f970-4660-af1e-bcd238fb9117)
-|
 |入力されたテキストを含む歯ブラシが入力候補に表示されます|Xへのシェアで歯ブラシをお勧めすることができます|
 
-|LINEログイン機能||
+|LINEログイン機能|コメント機能|
 |:---:|:---:|
-|![README_login_tutorial](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/daaa4cef-8ae4-473d-8b5e-17cb3a023e2d)||
-|ゲストログインでLINE通知以外の機能をお試しすることができます||
+|![README_login_tutorial](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/daaa4cef-8ae4-473d-8b5e-17cb3a023e2d)|![README_comment_tutorial](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/77e43686-bffb-4f1e-9e29-ac58d38cab8f)|
+|ゲストログインでLINE通知以外の機能をお試しすることができます|実際に使用した場合にコメントを記入できるように、使用開始から3日後に記入できます|
+
+|LINE通知|
+|:---:|
+|![IMG_0664](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/54b065be-b4ec-4797-ac79-2484171c7401)|
+|設定した歯ブラシの交換日に通知する以外にも、使用開始がされていない歯ブラシの通知やコメント機能の解放を通知します|
 
 ## 主な使用技術
 ### バックエンド
