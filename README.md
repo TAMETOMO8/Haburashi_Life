@@ -45,7 +45,7 @@
 
 |LINE通知|
 |:---:|
-|![IMG_0664](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/54b065be-b4ec-4797-ac79-2484171c7401)|
+|![IMG_0664](https://github.com/TAMETOMO8/Haburashi_Life/assets/117285256/e167713a-46d2-4554-8290-9a55cc7fa27b)|
 |設定した歯ブラシの交換日に通知する以外にも、使用開始がされていない歯ブラシの通知やコメント機能の解放を通知します|
 
 ## 主な使用技術
