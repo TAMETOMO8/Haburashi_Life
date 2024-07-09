@@ -21,6 +21,10 @@ end
 every 1.minutes do
   rake 'line_message:change_electric_brush'
 end
+
+every 1.minutes do
+  rake 'regularly_update:delete_guest_brush'
+end
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.

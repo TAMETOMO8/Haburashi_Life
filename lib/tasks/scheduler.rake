@@ -83,3 +83,10 @@ namespace :line_message do # rubocop:disable Metrics/BlockLength
     end
   end
 end
+
+namespace :regularly_update do
+  desc 'ゲストユーザーが登録した歯ブラシを削除する'
+  task delete_guest_brush: :environment do
+    Toothbrush.where(user_id: 4697635).destroy_all
+  end
+end
