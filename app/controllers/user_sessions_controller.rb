@@ -24,7 +24,7 @@ class UserSessionsController < ApplicationController
     user = find_or_initialize_user
     if user.save
       session[:user_id] = user.id
-      redirect_to toothbrush_search_path, success: 'ログインしました! このアプリの友だち登録を行うことでメッセージを受け取れます！'
+      redirect_to toothbrush_search_path, success: 'ログインしました! '
     else
       redirect_to root_path, danger: 'ログインに失敗しました'
     end
