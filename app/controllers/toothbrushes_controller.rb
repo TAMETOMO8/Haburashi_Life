@@ -6,7 +6,7 @@ class ToothbrushesController < ApplicationController
   before_action :set_toothbrush, only: %i[show edit update update_state]
 
   def index # rubocop:disable Metrics/AbcSize
-    @q = Toothbrush.ransack(params[:q])
+    @q = Toothbrush.ransack(params[:q])# params[:q]でユーザーが入力した検索ワードを受け取り、その検索ワードに該当するデータをインスタンス変数に格納させる。検索ワードに該当するToothbrushのデータをインスタンス変数に代入する、という処理か？
     @toothbrushes = if logged_in?
                       @q.result(distinct: true).includes(:user)
                         .where.not(user: current_user).order(created_at: :desc).page(params[:page]).per(12)
