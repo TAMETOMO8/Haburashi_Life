@@ -74,7 +74,7 @@
 }
 
 .environment-wrapper {
-  background-image: image-url("environment_image.jpg");
+  background-image: url("environment_image.jpg");
   background-size: cover;
   height: calc(85vh - 20px);
   background-position: center;
