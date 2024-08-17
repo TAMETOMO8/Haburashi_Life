@@ -1,7 +1,7 @@
 module ApplicationHelper
   def default_meta_tags
     {
-      site: '歯ブラシLife ~Make up environment!~',
+      site: '歯ブラシLife!',
       title: '歯ブラシの情報共有アプリ',
       reverse: true,
       charset: 'utf-8',
