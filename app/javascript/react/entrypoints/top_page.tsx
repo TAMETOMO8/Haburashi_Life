@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Sample from "../index";
+import Header from "../header/header";
 
-const container = document.getElementById("form_area");
+const container = document.getElementById("header_area");
 if (container) {
   const root = createRoot(container);
-  root.render(<Sample />);
+  root.render(<Header />);
 }
