@@ -9,9 +9,9 @@
       </div>
       <div class="text-center pt-4">
         <% unless logged_in? %>
-          <%= link_to "ゲストログイン", guest_login_path, class:"top-link me-4 pe-2" %>
+          <%= link_to "ゲストログイン", guest_login_path, class:"top-link me-4 pe-2 first-guest" %>
         <% end %>
-        <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
+          <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
       </div>
     </div>
   </div>
