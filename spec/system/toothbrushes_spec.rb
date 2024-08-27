@@ -128,17 +128,32 @@ RSpec.describe 'Toothbrushes', type: :system do
     end
   end
 
-  describe 'ユーザー詳細' do
+  describe 'ユーザーページ' do
     context 'ユーザー詳細ページにアクセス' do
-      before do
-        create(:toothbrush, :guest_brush)
-      end
       it 'ユーザー詳細画面に歯ブラシが表示される' do
+        create(:toothbrush, :guest_brush)
         visit root_path
         first('.first-guest').click
         click_on 'ユーザー'
         click_on 'マイページ'
         expect(page).to have_content('ナイロン毛')
+      end
+      it 'ユーザー詳細画面に歯ブラシが表示されない' do
+        create(:user, :guest_user)
+        visit root_path
+        first('.first-guest').click
+        click_on 'ユーザー'
+        click_on 'マイページ'
+        expect(page).not_to have_content('ナイロン毛')
+      end
+      it 'ユーザー詳細画面から歯ブラシ詳細画面に遷移できる' do
+        create(:toothbrush, :guest_brush)
+        visit root_path
+        first('.first-guest').click
+        click_on 'ユーザー'
+        click_on 'マイページ'
+        click_on '詳細'
+        expect(page).to have_content('ノニオ ハブラシ TYPE-SHARP ふつう(3本セット)【ノニオ(NONIO)')
       end
     end
   end
