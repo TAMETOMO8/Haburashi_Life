@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Header from "../header/header";
+import TopPages from "../top/top";
 
-const container = document.getElementById("header_area");
+const container = document.getElementById("top_area");
 if (container) {
   const root = createRoot(container);
-  root.render(<Header />);
+  root.render(<TopPages />);
 }

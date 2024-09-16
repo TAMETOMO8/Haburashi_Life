@@ -7,3 +7,4 @@ import "./environment";
 import "./edit_form";
 import "./controllers/application";
 import "./controllers/index_search_controller";
+import "./react/entrypoints/top_page";
