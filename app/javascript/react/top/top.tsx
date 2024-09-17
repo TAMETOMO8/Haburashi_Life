@@ -1,9 +1,9 @@
 import * as React from 'react'
-import applicationGuide from '../src/applicationGuide.png';
-import editGuide from '../src/editGuide.png';
-import noticeGuide from '../src/noticeGuide.png';
-import searchGuide from '../src/searchGuide.png';
-import guide from '../src/Guide.png';
+import applicationGuide from '/images/applicationGuide.png';
+import editGuide from '/images/editGuide.png';
+import noticeGuide from '/images/noticeGuide.png';
+import searchGuide from '/images/searchGuide.png';
+import guide from '/images/Guide.png';
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion"
 import "./top.css";
