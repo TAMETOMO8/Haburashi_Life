@@ -5,17 +5,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-sm-12 text-center pt-5">
-        <h1 class="mt-3 pt-5" id="top-text">歯ブラシLife</h1>
-        <h1 id="top-text">Make up environment!</h1>
+        <h1 class="mt-3 pt-5" id="top-text">歯ブラシLife!</h1>
       </div>
       <div class="text-center pt-4 pb-2" id="catch-copy">
         <h3>みんなで歯も地球も綺麗にしましょう!</h4>
       </div>
       <div class="text-center pt-4">
         <% unless logged_in? %>
-          <%= link_to "ゲストログイン", guest_login_path, class:"top-link me-4 pe-2" %>
+          <%= link_to "ゲストログイン", guest_login_path, class:"top-link me-4 pe-2 first-guest" %>
         <% end %>
-        <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
+          <%= link_to "環境改善度を確認する", environment_path, class:"top-link" %>
       </div>
     </div>
   </div>
@@ -25,13 +24,12 @@
   <div id="top_area">
   </div>
 
-  <div class="text-center py-4">
-    <% if logged_in?%>
-      <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class:"btn my-2", id:"login-button" %>
-    <% else %>
-      <%= link_to "ゲストログイン", guest_login_path, class:"btn my-2 toothbrush-menu-button" %>
-      <p>(LINE通知以外の機能をご利用できます)</p>
-      <%= link_to "LINEでログイン", user_sessions_login_path, class: "btn my-2", id:"login-button" %>
-    <% end %>
-  </div>
+<div class="text-center py-4">
+  <% if logged_in?%>
+    <%= link_to "ログアウト", logout_path, data: { 'turbo_method': :delete }, class:"btn my-2", id:"login-button" %>
+  <% else %>
+    <%= link_to "ゲストログイン", guest_login_path, class:"btn my-2 toothbrush-menu-button" %>
+    <p>(LINE通知以外の機能をご利用できます)</p>
+    <%= link_to "LINEでログイン", user_sessions_login_path, class: "btn my-2", id:"login-button" %>
+  <% end %>
 </div>

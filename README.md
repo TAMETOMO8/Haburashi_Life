@@ -1,4 +1,4 @@
-# [歯ブラシLife ~Make up environment! ~]
+# [歯ブラシLife!]
 
 ## サービス概要
 

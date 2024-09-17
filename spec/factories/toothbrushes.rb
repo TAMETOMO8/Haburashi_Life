@@ -12,5 +12,8 @@ FactoryBot.define do
     comment { '使いやすい歯ブラシです!' }
     comment_notice { true }
     association :user
+    trait :guest_brush do
+      association :user, :guest_user
+    end
   end
 end

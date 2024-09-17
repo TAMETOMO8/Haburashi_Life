@@ -72,12 +72,23 @@ RSpec.describe 'Toothbrushes', type: :system do
           expect(page).to have_content('使いたい歯ブラシを登録しましょう！')
         end
       end
+      context 'ゲストログイン' do
+        before do
+          create(:user, :guest_user)
+        end
+        it 'ゲストログインが成功する' do
+          visit root_path
+          first('.first-guest').click
+          expect(page).to have_content('使いたい歯ブラシを登録しましょう！')
+        end
+      end
     end
   end
 
   describe 'ログイン後' do
     before do
       create(:user)
+      create(:user, :guest_user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return('user_session')
     end
 
@@ -113,6 +124,36 @@ RSpec.describe 'Toothbrushes', type: :system do
         fill_in 'text-form', with: 'パソコン'
         click_on '検索'
         expect(page).to have_content 'ごめんなさい！このキーワードを持つ歯ブラシは、楽天市場には無いみたいです・・・'
+      end
+    end
+  end
+
+  describe 'ユーザーページ' do
+    context 'ユーザー詳細ページにアクセス' do
+      it 'ユーザー詳細画面に歯ブラシが表示される' do
+        create(:toothbrush, :guest_brush)
+        visit root_path
+        first('.first-guest').click
+        click_on 'ユーザー'
+        click_on 'マイページ'
+        expect(page).to have_content('ナイロン毛')
+      end
+      it 'ユーザー詳細画面に歯ブラシが表示されない' do
+        create(:user, :guest_user)
+        visit root_path
+        first('.first-guest').click
+        click_on 'ユーザー'
+        click_on 'マイページ'
+        expect(page).not_to have_content('ナイロン毛')
+      end
+      it 'ユーザー詳細画面から歯ブラシ詳細画面に遷移できる' do
+        create(:toothbrush, :guest_brush)
+        visit root_path
+        first('.first-guest').click
+        click_on 'ユーザー'
+        click_on 'マイページ'
+        click_on '詳細'
+        expect(page).to have_content('ノニオ ハブラシ TYPE-SHARP ふつう(3本セット)【ノニオ(NONIO)')
       end
     end
   end
