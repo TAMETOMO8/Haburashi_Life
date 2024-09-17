@@ -1,9 +1,9 @@
 import * as React from 'react'
-import applicationGuide from '../src/applicationGuide.png';
-import editGuide from '../src/editGuide.png';
-import noticeGuide from '../src/noticeGuide.png';
-import searchGuide from '../src/searchGuide.png';
-import guide from '../src/Guide.png';
+import applicationGuide from '../src/applicationGuide.png'
+import editGuide from '../src/editGuide.png'
+import noticeGuide from '../src/noticeGuide.png'
+import searchGuide from '../src/searchGuide.png'
+import guide from '../src/Guide.png'
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion"
 import "./top.css";
@@ -41,7 +41,7 @@ export default function TopPages() {
           <div class="container pb-5">
             <div class="row g-5 align-items-center">
               <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
-                <img src="../images/applicationGuide.png" className="img-fluid mb-1 mt-3" alt="Application Guide" />
+                <img src={applicationGuide} className="img-fluid mb-1 mt-3" alt="Application Guide" />
               </div>
               <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                 <h1 className="mb-4 tutorial-text">歯ブラシLife!は歯ブラシの情報共有と定期的な交換をサポートするアプリです。</h1>
