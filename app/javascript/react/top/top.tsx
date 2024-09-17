@@ -1,5 +1,5 @@
 import * as React from 'react'
-import applicationGuide from '../../../assets/images/applicationGuide.png';
+import applicationGuide from '../../../assets/builds/applicationGuide-Z57URTBW.png';
 import editGuide from '../../../assets/images/editGuide.png';
 import noticeGuide from '../../../assets/images/noticeGuide.png';
 import searchGuide from '../../../assets/images/searchGuide.png';
