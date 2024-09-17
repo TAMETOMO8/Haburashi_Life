@@ -12,6 +12,7 @@
     "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "framer-motion": "^11.5.4",
     "nodemon": "^3.1.4",
     "postcss": "^8.4.41",
     "postcss-cli": "^11.0.0",
