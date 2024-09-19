@@ -57,6 +57,7 @@
 - JavaScript
 - Bootstrap(5.3.1)
 - stimulus-autocomplete
+- React(正常にアニメーションが動作するための調査を継続中)
 
 ### インフラ
 - Heroku
