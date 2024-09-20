@@ -1,46 +1,28 @@
 import * as React from 'react'
-import applicationGuide from '../../images/applicationGuide.png'
-import editGuide from '../../images/editGuide.png'
-import noticeGuide from '../../images/noticeGuide.png'
-import searchGuide from '../../images/searchGuide.png'
-import guide from '../../images/Guide.png'
+import ReactDOM from "react-dom/client";
+import applicationGuide from '../../images/applicationGuide.png';
+import editGuide from '../../images/editGuide.png';
+import noticeGuide from '../../images/noticeGuide.png';
+import searchGuide from '../../images/searchGuide.png';
+import guide from '../../images/Guide.png';
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion"
-import "./top.css";
-
-function Section({ children }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-80px", once: true });
-
-  return (
-    <section ref={ref}>
-      <span
-        style={{
-          transform: isInView ? "none" : "translateX(20px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.0s"
-        }}
-      >
-        {children}
-      </span>
-    </section>
-  );
-}
 
 export default function TopPages() {
 
   return (
     <div>
-      <div class="container-fluid">
-      <Section>
+      <div className="container-fluid">
         <motion.div
-            className="box"
-            animate={{ x: 0 }}
-            transition={{ stiffness: 500 , type: "spring" }}
-          >
-          <div class="container pb-5">
-            <div class="row g-5 align-items-center">
-              <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+          className="box"
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{duration: 0.8}}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <div className="container pb-5">
+            <div className="row g-5 align-items-center">
+              <div className="col-lg-5 col-md-6 col-sm-12">
                 <img src={applicationGuide} className="img-fluid mb-1 mt-3" alt="Application Guide" />
               </div>
               <div className="col-lg-7 col-md-6 col-sm-12 text-center">
@@ -60,26 +42,25 @@ export default function TopPages() {
             </div>
           </div>
         </motion.div>
-      </Section>
       </div>
-      <Section>
+      <div className="mt-5 container border-bottom border-dark">
         <motion.div
-              className="box"
-              animate={{ x: 0 }}
-              transition={{ stiffness: 500 , type: "spring" }}
-            >
-          <div className="mt-5 container border-bottom border-dark">
-            <h1>使い方</h1>
-          </div>
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{duration: 0.8, type: "spring"}}
+          viewport={{ once: true, amount: 1 }}
+        >
+          <h1>使い方</h1>
         </motion.div>
-      </Section>
+      </div>
 
-      <Section>
         <motion.div
-            className="box"
-            animate={{ x: 0 }}
-            transition={{ stiffness: 500 , type: "spring" }}
-          >
+          className="box"
+          initial={{ opacity: 0, x: 180 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{duration: 0.8}}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <div className="container-fluid py-2 my-2">
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
@@ -87,25 +68,25 @@ export default function TopPages() {
                   <h1 className="mb-4 border-bottom border-dark tutorial-text">まずは使いたい歯ブラシを検索</h1>
                   <p className="tutorial-text">歯ブラシの名前はもちろん、知っているメーカーで検索してみましょう</p>
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div className="col-lg-5 col-md-6 col-sm-12">
                   <img src={searchGuide} className="img-fluid mb-1 mt-3" alt="Search Guide" />
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
-      </Section>
 
-      <Section>
-        <motion.div
-            className="box"
-            animate={{ x: 0 }}
-            transition={{ stiffness: 500 , type: "spring" }}
+        <div className="container-fluid py-2 my-2">
+          <motion.div
+          className="box"
+          initial={{ opacity: 0, x: -200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{duration: 0.8}}
+          viewport={{ once: true, amount: 0.3 }}
           >
-          <div className="container-fluid py-2 my-2">
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
-                <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div className="col-lg-5 col-md-6 col-sm-12">
                   <img src={editGuide} className="img-fluid mb-1 mt-3" alt="Edit Guide" />
                 </div>
                 <div className="col-lg-7 col-md-6 col-sm-12 text-center">
@@ -114,42 +95,45 @@ export default function TopPages() {
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </Section>
+          </motion.div>
+        </div>
+      
 
-      <Section>
-        <motion.div
-            className="box"
-            animate={{ x: 0 }}
-            transition={{ stiffness: 500 , type: "spring" }}
+      
+
+        <div className="container-fluid py-2 my-2">
+          <motion.div
+          className="box"
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{duration: 0.8}}
+          viewport={{ once: true, amount: 0.3 }}
           >
-          <div className="container-fluid py-2 my-2">
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
                 <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                   <h1 className="border-bottom border-dark tutorial-text">メッセージを受け取れるようにしていると、使い終わる日にお知らせします。</h1>
                   <p className="tutorial-text">使い終わったあとは歯ブラシをリサイクルするか、掃除道具として使うか決めましょう！</p>
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div className="col-lg-5 col-md-6 col-sm-12">
                   <img src={noticeGuide} className="img-fluid mb-1 mt-3" alt="Notice Guide" />
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </Section>
+          </motion.div>
+        </div>
 
-      <Section>
-        <motion.div
-            className="box"
-            animate={{ x: 0 }}
-            transition={{ stiffness: 500 , type: "spring" }}
+        <div className="container-fluid pt-2 mt-2 pb-5 mb-5">
+          <motion.div
+          className="box"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{duration: 1, type: "spring"}}
+          viewport={{ once: true, amount: 0.3 }}
           >
-          <div className="container-fluid pt-2 mt-2 pb-5 mb-5">
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
-                <div className="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div className="col-lg-5 col-md-6 col-sm-12">
                   <div className="h-100 position-relative">
                     <img src={guide} className="img-fluid mb-1 mt-3" alt="Guide" />
                   </div>
@@ -164,9 +148,9 @@ export default function TopPages() {
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </Section>
+          </motion.div>
+        </div>
+      
       <h3 className="text-center tutorial-text">説明は以上です。歯も地球もきれいにしましょう！</h3>
     </div>
   );
