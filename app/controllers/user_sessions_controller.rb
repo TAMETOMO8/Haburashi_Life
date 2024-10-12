@@ -5,7 +5,9 @@ class UserSessionsController < ApplicationController
   require 'securerandom'
 
   def login
-    # CSRF対策用の固有な英数字の文字列を作成、ログインセッションごとにWebアプリでランダムに文字列を生成する
+    # CSRF(クロスサイトリクエストフォージュリ)・・・JavaScriptなどを用いてリクエストを偽造(フォージュリ)した不正アクセス
+    # CSRFの対策に固有な英数字の文字列を作成してURLに組み込み、ログインセッションごとにWebアプリでランダムに文字列を生成する
+    # これによりURLを偽造した不正アクセスによるサイバー攻撃に対処ができる
     session[:state] = SecureRandom.urlsafe_base64
 
     # ユーザーに認証と認可を要求するページに移動するURLを形成
