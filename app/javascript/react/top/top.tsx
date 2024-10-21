@@ -45,10 +45,10 @@ export default function TopPages() {
       </div>
       <div className="mt-5 container border-bottom border-dark">
         <motion.div
-          initial={{ opacity: 0, y: -100 }}
+          initial={{ opacity: 0, y: 150 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{duration: 0.8, type: "spring"}}
-          viewport={{ once: true, amount: 1 }}
+          transition={{duration: 3, type: "spring", stiffness: 200}}
+          viewport={{ once: true, amount: 0.9 }}
         >
           <h1>使い方</h1>
         </motion.div>
