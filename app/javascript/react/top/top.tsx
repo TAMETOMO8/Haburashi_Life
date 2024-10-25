@@ -134,9 +134,7 @@ export default function TopPages() {
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
                 <div className="col-lg-5 col-md-6 col-sm-12">
-                  <div className="h-100 position-relative">
-                    <img src={guide} className="img-fluid mb-1 mt-3" alt="Guide" />
-                  </div>
+                  <img src={guide} className="img-fluid mb-1 mt-3" alt="Guide" />
                 </div>
                 <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                   <h1 className="tutorial-text">そうです、<br className="d-none d-lg-block tutorial-text"/>歯ブラシはリサイクルができます！</h1>
