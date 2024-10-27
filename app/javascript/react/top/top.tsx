@@ -5,6 +5,7 @@ import editGuide from '../../images/editGuide.png';
 import noticeGuide from '../../images/noticeGuide.png';
 import searchGuide from '../../images/searchGuide.png';
 import guide from '../../images/Guide.png';
+import Image from './components/Image';
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion"
 
@@ -22,9 +23,7 @@ export default function TopPages() {
         >
           <div className="container pb-5">
             <div className="row g-5 align-items-center">
-              <div className="col-lg-5 col-md-6 col-sm-12">
-                <img src={applicationGuide} className="img-fluid mb-1 mt-3" alt="Application Guide" />
-              </div>
+              <Image ImageName={applicationGuide} />
               <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                 <h1 className="mb-4 tutorial-text">歯ブラシLife!は歯ブラシの情報共有と定期的な交換をサポートするアプリです。</h1>
                 <p className="tutorial-text">
@@ -68,9 +67,7 @@ export default function TopPages() {
                   <h1 className="mb-4 border-bottom border-dark tutorial-text">まずは使いたい歯ブラシを検索</h1>
                   <p className="tutorial-text">歯ブラシの名前はもちろん、知っているメーカーで検索してみましょう</p>
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12">
-                  <img src={searchGuide} className="img-fluid mb-1 mt-3" alt="Search Guide" />
-                </div>
+                <Image ImageName={searchGuide} />
               </div>
             </div>
           </div>
@@ -86,9 +83,7 @@ export default function TopPages() {
           >
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
-                <div className="col-lg-5 col-md-6 col-sm-12">
-                  <img src={editGuide} className="img-fluid mb-1 mt-3" alt="Edit Guide" />
-                </div>
+                <Image ImageName={editGuide} />
                 <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                   <h1 className="mb-4 border-bottom border-dark tutorial-text">歯ブラシが見つかったら、<br className="d-none d-lg-block"/>歯ブラシの情報と使い終わる日を入力</h1>
                   <p className="tutorial-text">一般的な歯ブラシの交換の目安は1ヶ月ですが、<br className="d-none d-lg-block"/>ご自身のライフスタイルに合った交換時期を探してみるのもいいでしょう</p>
@@ -115,9 +110,7 @@ export default function TopPages() {
                   <h1 className="border-bottom border-dark tutorial-text">メッセージを受け取れるようにしていると、使い終わる日にお知らせします。</h1>
                   <p className="tutorial-text">使い終わったあとは歯ブラシをリサイクルするか、掃除道具として使うか決めましょう！</p>
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12">
-                  <img src={noticeGuide} className="img-fluid mb-1 mt-3" alt="Notice Guide" />
-                </div>
+                <Image ImageName={noticeGuide} />
               </div>
             </div>
           </motion.div>
@@ -133,9 +126,7 @@ export default function TopPages() {
           >
             <div className="container pt-5">
               <div className="row g-5 align-items-center">
-                <div className="col-lg-5 col-md-6 col-sm-12">
-                  <img src={guide} className="img-fluid mb-1 mt-3" alt="Guide" />
-                </div>
+                <Image ImageName={guide} />
                 <div className="col-lg-7 col-md-6 col-sm-12 text-center">
                   <h1 className="tutorial-text">そうです、<br className="d-none d-lg-block tutorial-text"/>歯ブラシはリサイクルができます！</h1>
                   <p className="tutorial-text">LION株式会社さんによる、歯ブラシのリサイクルプログラムが全国で実施されています。</p>
